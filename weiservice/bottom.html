@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>新闻列表</title>
+	<link rel="stylesheet" href="css/bottom.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div id="bottom">
+		<div class="content">
+			<ul>
+				<li>
+					<a><img src="images/home.png" alt=""></a>
+					<a>
+						<p>商城首页</p>
+					</a>
+				</li>
+				<li>
+					<a><img src="images/user1.png" alt=""></a>
+					<a>
+						<p>个人中心</p>
+					</a>
+				</li>
+				<li>
+					<a><img src="images/gwc1.png" alt=""></a>
+					<a>
+						<p>活动交流</p>
+					</a>
+				</li>
+				<li>
+					<a><img src="images/dist1.png" alt=""></a>
+					<a>
+						<p>服务超市</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var def=["home1.png","user1.png","gwc1.png","dist1.png"];//默认图片
+	var huan=["home.png","user.png","gwc.png","dist.png"];//选中后的图片
+	var objdef=$("#bottom .content>ul>li")[0];//这是默认选中的元素
+	$("#bottom .content>ul>li").click(function(){
+		//判断是否和已选中的元素相同
+		if(objdef==this){
+			return;
+		}
+		//将上一个元素更换为默认图片
+		$(objdef).find("img").attr("src","images/"+def[$(objdef).index()]);
+		//将新选中的元素更换为选中图片
+		$(this).find("img").attr("src","images/"+huan[$(this).index()]);
+		//将新选中的元素赋值
+		objdef=this;
+	});
+</script>
+</html>

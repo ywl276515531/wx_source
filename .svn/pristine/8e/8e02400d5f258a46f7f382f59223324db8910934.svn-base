@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/yuding.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	 <div id="yuding">
+	 	<ul>
+	 		<li>
+	 			<div class="left">
+	 				会议室名称
+	 			</div>
+	 			<div class="right">
+	 				五楼会议室
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室介绍
+	 			</div>
+	 			<div class="right">
+	 				会议室面积为69.36平米 。室内配套设施有：投影仪、会议室桌椅.是激发了圣诞节立法开始就立刻翻脸
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室人数
+	 			</div>
+	 			<div class="right">
+	 				30
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				参考价格/天
+	 			</div>
+	 			<div class="right">
+	 				1000
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室地址
+	 			</div>
+	 			<div class="right">
+	 				长虹科技大厦B座5楼
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li class="hou">
+	 			<div class="left">
+	 				会议室图册
+	 			</div>
+	 			<div class="right">
+	 				<a href="xianchang.html"><img src="images/hys.png"></a>
+	 			</div>
+	 		</li>
+	 	</ul>
+	 </div>
+	 <div id="bot">
+	 	<div class="left">
+	 		<a href="">
+	 			<img src="images/ph.png"><p>在线咨询</p>
+	 		</a>
+		</div>
+		<div class="right">
+			<a href="zulin_yuding.html">立即预定</a>
+		</div>
+	 </div>
+</body>
+<script type="text/javascript">
+  
+</script>
+</html>

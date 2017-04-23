@@ -1,0 +1,117 @@
+<?php if(count($shuju) > 0){ ?>
+<?php foreach($shuju as $key=>$v){ ?>
+<div id="pro">
+    <div class="juzhong">
+        <div class="left">
+            <img src="http://www.wfyizhan.com/<?php echo $v['s_pic']; ?>" alt="" class="img_turn">
+        </div>
+        <div class="right">
+            <p class="name"><a href="./order.php?act=order_detail&id=<?php echo $v['i_id']; ?>"><?php echo $v['s_goods_name']; ?></a></p>
+            <?php echo date("Y-m-d H:i",$v['i_create_time']); ?>
+        </div>
+    </div>
+    <div class="xian"></div>
+    <div class="juzhong2">
+        <div class="left">
+            <p>金额：<strong>￥<?php echo $v['i_price_adj']/100; ?></strong></p>
+        </div>
+        <div class="right">
+            <?php if($v['i_service_sta'] == '0' && $v['i_sta'] == '0' && $v['i_close'] == 0 && $v['i_cancle'] == 0){ ?>
+
+            <?php
+				$ssmoney = $v['i_price_adj']/100;
+				$signarr = array("order_id"=>$v['s_sn'],"money"=>$ssmoney);
+            $newss = encryption($signarr);
+            ?>
+
+
+            <button class="quxiao lijizf" sign="<?php echo $newss; ?>" shopname="<?php echo $v['s_goods_name']; ?>" >立即支付</button>
+            <?php }elseif($v['i_service_sta'] == '1' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0 && $v['is_quxiao'] == 1){ ?>
+                <button class="queding " mm="./order.php?act=qxdd&s_sn=<?php echo $v['s_sn']; ?>">等待确认</button>
+                <?php }elseif($v['i_service_sta'] == '1' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0 && $v['is_quxiao'] == 2){ ?>
+                <button class="queding qxdd" mm="./order.php?act=qxdd&s_sn=<?php echo $v['s_sn']; ?>">取消购买</button>
+                <?php }elseif($v['i_service_sta'] == '2' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0){ ?>
+                <button class="queding">工作进行</button>
+                <?php }elseif($v['i_service_sta'] == '4' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0){ ?>
+                <button class="quxiao pjdd" mm="./order.php?act=pjdd&i_id=<?php echo $v['i_id']; ?>">评价订单</button>
+                <button class="queding zcgm"  mm="./serviceshop.php?act=detail&i_id=<?php echo $v['i_service_gid']; ?>" >再次购买</button>
+                <?php }elseif($v['i_service_sta'] == '5' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0){ ?>
+                <button class="queding zcgm" mm="./serviceshop.php?act=detail&i_id=<?php echo $v['i_service_gid']; ?>" >再次购买</button>
+                <?php }elseif($v['i_service_sta'] == '99' or $v['i_close'] == 1 && $v['i_cancle'] == 1){ ?>
+                <button class="queding">订单关闭</button>
+                <?php }elseif($v['i_service_sta'] == '3' && $v['i_sta'] == '1' && $v['i_close'] == 0 && $v['i_cancle'] == 0){ ?>
+                <button class="queding scfk" id="scfk"  mm="./order.php?act=scfk&s_sn=<?php echo $v['s_sn']; ?>" >确认付款</button>
+                <?php }else{ ?>
+                <button class="queding">订单关闭</button>
+                <?php } ?>
+        </div>
+    </div>
+</div>
+<?php }} ?>
+<script>
+    $(".lijizf").click(function(){
+        var sign = $(this).attr("sign");
+        var shopname = $(this).attr("shopname");
+        var url = "./serviceshop.php?act=choosepay&shopname="+shopname+sign;
+        window.location.href=url;
+    });
+    $(".pjdd").click(function(){
+        //评价订单
+        var url = $(this).attr("mm");
+        window.location.href=url;
+    });
+
+    $(".zcgm").click(function(){
+        var url = $(this).attr("mm");
+        window.location.href=url;
+    });
+    $(".qxdd").click(function(){
+        var url = $(this).attr("mm");
+        $.get(url,"",function(msg){
+            //取消订单
+            location.reload();
+        },"text");
+    });
+    $(".scfk").click(function(){
+        var url = $(this).attr("mm");
+        if(confirm("你确定要付款了吗")){
+            window.location.href=url;
+        }
+    });
+    $("#myorder>a").click(function(){
+        $("#myorder>a").css("background","white");
+        $(this).css("background","#00b8ee");
+    });
+    $(document).ready(function () { 
+            $(window).scroll(function () {
+                if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+                    $(".ball-text").hide();
+                    $(".ball-pulse").show();    
+                        setTimeout(function(){
+                            var i_page = $("#i_page").val();
+                            i_page = parseInt(i_page)+1;
+                            var i_pages = parseInt($("#i_pages").val());
+                            if(i_page <= i_pages){
+                                var state = "<?php echo $state; ?>";
+                                var data = {"page":i_page,"state":state};
+                                $.post("./order.php?act=myorder",data,function(msg){
+                                    $(".en").append(msg);
+                                    $("#i_page").val(i_page)
+                                    $(".ball-pulse").hide();
+                                    $(".ball-text").show();
+                                },"text");
+                            }else{
+                                $(".ball-pulse").hide();
+                                $(".ball-text").show();
+                            }
+                },2000);
+                    }
+            });
+    });
+    $("#i_page").val(1);
+    $(".img_turn").click(function(){
+
+        var link = $(this).parent().parent().find('a').attr('href');
+        window.location.href=link;
+    });
+</script>

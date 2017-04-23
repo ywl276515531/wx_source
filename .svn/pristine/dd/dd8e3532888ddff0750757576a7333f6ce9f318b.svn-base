@@ -1,0 +1,12 @@
+<?php if(count($hd_sj) > 0){
+$i = 1;
+?>
+<?php foreach($hd_sj as $v){ ?>
+<?php if($i % 2 == 1){echo "<ul>"; } ?>
+<li <?php if($i % 2 == 0){ echo "class='hou'";} ?> >
+    <a href="./activity.php?act=detail&id=<?php echo $v['id'] ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path'] ?>"></a>
+    <p class="tit"><?php echo $v['title'] ?></p>
+</li>
+<?php if($i % 2 == 0 || $i == count($hd_sj) ){echo "</ul>"; } ?>
+<?php ++$i ?>
+<?php }} ?>

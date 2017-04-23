@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/home.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="logo">
+		<a href=""><img src="images/logo.png" alt=""></a>
+		<p class="name">四川攻城狮网络科技有限公司</p>
+		<p class="cont">【质量：5.00 | 速度：5.00｜态度：5.00】</p>
+	</div>
+	<div id="cont">
+		<ul class="typegroup">
+			<a style="border-right:1px solid #ccc">
+				<li>关于我们</li>
+			</a>
+			<a>
+				<li>购买服务</li>
+			</a>
+		</ul>
+		<div class="detail">
+			<ul>
+				sdfkhsadljfsdljfl;sjdg;lfjds;lfks;ldkf;lsdklfdszlfmsdkmfds;mf;sdlm;ldskfl;sdsddsfsdjfnlksdnflksdjklfsdl
+			</ul>
+			<ul style="display:none">
+				<li>
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li>
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li>
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou frist">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#cont .typegroup>a").click(function(){
+		$("#cont .detail>ul").hide();
+		var index=$(this).index();
+		$("#cont .detail>ul").eq(index).show();
+	});
+</script>
+</html>

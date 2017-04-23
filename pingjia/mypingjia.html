@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>评价</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="./files/zui.min.css">
+    <!--放置自定义css开始-->
+    <link rel="stylesheet" href="./files/service_shop_order_comment.css" type="text/css">
+    <!--放置自定义css结束-->
+    <script src="./files/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="_pageContent">
+    <div class="divMiddle">
+        <div class="main">
+            <div class="title">
+                <p>交易评价</p>
+            </div>
+            <div class="appraise_box">
+                <div class="order_info"><img src="./files/20161101105359_10302.jpg" alt="">
+
+                    <p class="order_number">订单号：<span>SERVICE1478064982PSGZIKIXJTPQ</span></p>
+
+                    <p class="order_type"><a href="javascript:" title="测试（勿点2）">测试（勿点2）</a></p>
+
+                    <p class="price">￥<span>0.01</span>/套</p></div>
+                <div class="order_appraise">
+                    <div class="check_box">
+                        <label>
+                            <input type="radio" name="radioOrder" value="3" id="radioBest" checked="">
+                            <img src="./files/best.jpg" alt=""> 好评
+                        </label>
+                        <label>
+                            <input type="radio" name="radioOrder" value="2" id="radioGood">
+                            <img src="./files/good.jpg" alt=""> 中评
+                        </label>
+                        <label>
+                            <input type="radio" name="radioOrder" value="1" id="radioBad">
+                            <img src="./files/bad.jpg" alt=""> 差评
+                        </label>
+                        <span class="check_box_tips"></span>
+                    </div>
+                    <div class="text_box">
+                        <textarea rows="10" placeholder="最多可以输入100字" maxlength="100"></textarea>
+                        <span class="text_box_tips"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="line_shot">
+                <hr>
+            </div>
+            <div class="starts">
+                <div class="shop_marks">
+                    <a href="javascript:">店铺动态评分</a>
+                </div>
+                <div class="shop_appraise">
+                    <div class="shop_service" id="shop_service" value="0">
+                        <span>服务态度</span>
+                        <img class="star1" src="./files/default_str.jpg" value="1" alt="">
+                        <img class="star2" src="./files/default_str.jpg" value="2" alt="">
+                        <img class="star3" src="./files/default_str.jpg" value="3" alt="">
+                        <img class="star4" src="./files/default_str.jpg" value="4" alt="">
+                        <img class="star5" src="./files/default_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_service_grade">0</span>分</span>
+                        <span class="shop_appraise_tips"></span>
+                    </div>
+                    <div class="shop_work" id="shop_work" value="0">
+                        <span>工作速度</span>
+                        <img class="star1" src="./files/default_str.jpg" value="1" alt="">
+                        <img class="star2" src="./files/default_str.jpg" value="2" alt="">
+                        <img class="star3" src="./files/default_str.jpg" value="3" alt="">
+                        <img class="star4" src="./files/default_str.jpg" value="4" alt="">
+                        <img class="star5" src="./files/default_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_work_grade">0</span>分</span>
+                        <span class="shop_work_tips"></span>
+                    </div>
+                    <div class="shop_qc" id="shop_qc" value="0">
+                        <span>完成质量</span>
+                        <img class="star1" src="./files/default_str.jpg" value="1" alt="">
+                        <img class="star2" src="./files/default_str.jpg" value="2" alt="">
+                        <img class="star3" src="./files/default_str.jpg" value="3" alt="">
+                        <img class="star4" src="./files/default_str.jpg" value="4" alt="">
+                        <img class="star5" src="./files/default_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_qc_grade">0</span>分</span>
+                        <span class="shop_qc_tips"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="appraise_btn_box">
+            <a class="center-block" id="order_btn" href="javascript:">发表评论</a>
+        </div>
+    </div>
+</div>
+<script>
+    $("#shop_qc img").click(function(){
+        /**
+         * 完成质量评价
+         */
+        var index = $(this).index();
+        $("#shop_qc").attr("value",index);
+        $("#shop_qc_grade").html(index);
+        $("#shop_qc img").attr("src","./files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_qc img").eq($i).attr("src","./files/good_str.jpg");
+        }
+    });
+
+    $("#shop_work img").click(function(){
+        /**
+         * 工作速度的评分
+         */
+        var index = $(this).index();
+        $("#shop_work").attr("value",index);
+        $("#shop_work_grade").html(index);
+        $("#shop_work img").attr("src","./files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_work img").eq($i).attr("src","./files/good_str.jpg");
+        }
+    });
+
+    $("#shop_service img").click(function(){
+        /**
+         * 服务态度的评分
+         */
+        var index = $(this).index();
+        $("#shop_service").attr("value",index);
+        $("#shop_service_grade").html(index);
+        $("#shop_service img").attr("src","./files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_service img").eq($i).attr("src","./files/good_str.jpg");
+        }
+    });
+</script>
+</body>
+</html>

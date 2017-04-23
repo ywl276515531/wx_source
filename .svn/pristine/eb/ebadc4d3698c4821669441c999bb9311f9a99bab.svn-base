@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/news.css">
+	<title>新闻展示</title>
+</head>
+<body>
+<div class="content">
+	<ul class="list">
+		<?php for($i=0;$i<$sum;$i++){ ?>
+		<li class="item_list">
+			<a href="">
+				<img src="../images/item.jpg">
+				<span>测试新闻item</span>
+			</a>
+		</li>
+		<?php } ?>
+	</ul>
+</div>
+</body>
+</html>

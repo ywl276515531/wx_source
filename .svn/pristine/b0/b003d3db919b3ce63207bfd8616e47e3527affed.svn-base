@@ -1,0 +1,10 @@
+<?php if(count($cp) > 0){ $ii = 0;  ?>
+<?php foreach($cp as $v){ ?>
+<?php $cha = $ii % 6; ?>
+<li <?php echo $arr[$cha]; ?> >
+<a href="./serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>" alt=""></a>
+<p class="tit"><?php echo mb_substr($v['s_title'],0,10,"utf-8"); ?></p>
+<p class="price">￥<?php echo $v['price']; ?></p>
+</li>
+<?php ++$ii; ?>
+<?php }} ?>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>用户中心</title>
+	<link rel="stylesheet" href="./weiservice/grzx/css/ownziliao.css">
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="grinfo">
+		<ul>
+			<a mm="1">
+				<li>
+					<p>昵称</p>
+					<div class="right">
+						<strong><?php echo $_SESSION['s_nickname']; ?></strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a mm="2">
+				<li>
+					<p>手机号</p>
+					<div class="right">
+						<strong><?php echo $_SESSION['s_phone']; ?></strong>
+					</div>
+				</li>
+			</a>
+			<a mm="3" <?php if($_SESSION['s_email'] == ''){ ?> xz=1 <?php }else{ ?> xz=0 <?php } ?> >
+				<li>
+					<p>邮箱</p>
+					<div class="right">
+						<strong><?php echo $_SESSION['s_email']; ?></strong>
+						<?php if($_SESSION['s_email'] == ''){ ?>
+						<span>&gt;</span>
+						<?php } ?>
+					</div>
+				</li>
+			</a>
+			<a mm="4">
+				<li>
+					<p>性别</p>
+					<div class="right">
+						<strong>
+							<?php 
+							$sexArr = array("男","女");
+							echo $sexArr[$_SESSION['i_sex']]; 
+							?>
+						</strong>
+					</div>
+				</li>
+			</a>
+			<a mm="5">
+				<li>
+					<p>QQ</p>
+					<div class="right">
+						<strong><?php echo $_SESSION['s_qq']; ?></strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a mm="6">
+				<li>
+					<p>生日</p>
+					<div class="right">
+						<strong>保密</strong>
+					</div>
+				</li>
+			</a>
+			<a href="./grzx.php?act=safeset">
+				<li>
+					<p>安全设置</p>
+					<div class="right">
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a href="./szmx.php?act=index">
+				<li>
+					<p>收支明细</p>
+					<div class="right">
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a href="./grzx.php?act=nobangding" style="margin-top: 5px;border-top: 1px solid #ccc;background-color: #00b8ee">
+				<li>
+					<p style="color:white;text-align: center;float: none">注销</p>
+				</li>
+			</a>
+
+		</ul>
+	</div>
+	<div id="zzc" style="display:none">
+	</div>
+	<div class="borderwindow" style="display:none">
+		<p class="tit"></p>
+		<form action="">
+			<input type="text" mm="0">
+		</form>
+		<div>
+			<button class="cancel" onclick="cancel()">取消</button>
+			<button class="confrim">提交</button>
+		</div>
+	</div>
+	<div class="borderwindow1" style="display:none">
+		<p class="tit1"></p>
+		<form action="">
+			<input name="sexNum" type="radio" mm="6" value="0" style="width:20px;height:13px;">男
+			<input name="sexNum" type="radio" mm="6" value="1" style="width:20px;height:13px;margin-left:100px;">女
+		</form>
+		<div>
+			<button class="cancel1" onclick="cancel1()">取消</button>
+			<button class="confrim1">提交</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var index;
+	$("#grinfo>ul>a").click(function(){
+		if($(this).index() >=5 || $(this).index() == 1){
+			return;
+		}else if($(this).index() == 3){
+			$("#zzc").show();
+			$(".borderwindow1").show();
+			var news=$(this).find("li>p").html();
+			$(".borderwindow1 .tit1").html("修改"+news);
+			index=$(this).index();
+		}else{
+			var mm = $(this).attr("mm");
+			if(mm == 3 && $(this).attr("xz") == '0'){
+				return false;
+			}
+			index=$(this).index();
+			$("#zzc").show();
+			$(".borderwindow").show();
+
+			var news=$(this).find("li>p").html();
+			$(".borderwindow form input").attr("mm",mm);
+			$(".borderwindow .tit").html("修改"+news);
+			$(".borderwindow form>input").attr("placeholder","请输入您的"+news);
+			if(news == 'QQ'){
+				// $(".borderwindow form>input").keyup(function(){
+				// 	$(this).val($(this).val().replace(/\D/g,''));
+				// })
+				$(".borderwindow form>input").attr("maxlength","11");
+			}else{
+				$(".borderwindow form>input").attr("maxlength","");
+			}
+		}
+	});
+	$(".borderwindow .confrim").click(function(){
+		var va=$(".borderwindow form>input").val();
+		var mm = $(".borderwindow form>input").attr("mm");
+		if(mm == 3){
+			var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+			var flag = pattern.test(va);
+			if(!flag){
+				alert("邮箱格式错误");
+				return false;
+			}
+		}
+		if(mm == 1){
+			//修改用户名
+			if(va.replace(/\s/g,'').length<1 || va.replace(/\s/g,'').length>12){
+				alert("用户名过长或用户名为空");
+				return false;
+			}
+		}
+		if(mm == 5){
+			//修改QQ
+			if(isNaN(va)){
+				alert("请输入正确的QQ号");
+				return false;
+			}
+		}
+		var data = {"mm":mm,"va":va};
+		$.post("./grzx.php?act=xiugai",data,function(msg){
+			//向后台传递数据进行修改
+			if(msg.length > 0){
+				alert(msg);
+				return false;
+			}
+			$("#zzc").hide();
+			$(".borderwindow").hide();
+			$("#grinfo>ul>a").eq(index).find("strong").html(va);
+			$(".borderwindow form>input").val("");
+			$(".borderwindow form>input").attr("mm","0");
+		},"text");
+
+	});
+	$(".borderwindow1 .confrim1").click(function(){
+		var va = $("input[type='radio']:checked").val();
+		var mm = $("input[type='radio']:checked").attr("mm");
+		var data = {"mm":mm,"va":va};
+		$.post("./grzx.php?act=xiugai",data,function(msg){
+			//向后台传递数据进行修改
+			if(msg.length > 0){
+				alert(msg);
+				return false;
+			}
+			$("#zzc").hide();
+			$(".borderwindow1").hide();
+			var sexArr = new Array('男','女');
+			$("#grinfo>ul>a").eq(index).find("strong").html(sexArr[va]);
+		},"text");
+	});
+	$(".borderwindow form>input").focus(function(){
+		$(this).attr("placeholder","");
+	});
+	$(".borderwindow form>input").bind("keydown",function(e){
+		if(e.keyCode==13){
+			e.preventDefault();
+			var va=$(".borderwindow form>input").val();
+			$("#zzc").hide();
+			$(".borderwindow").hide();
+			$("#grinfo>ul>a").eq(index).find("strong").html(va);
+			var va=$(".borderwindow form>input").val();
+			var mm = $(".borderwindow form>input").attr("mm");
+			var data = {"mm":mm,"va":va};
+			$.post("./grzx.php?act=xiugai",data,function(msg){
+				//向后台传递数据进行修改
+				$("#zzc").hide();
+				$(".borderwindow").hide();
+				$("#grinfo>ul>a").eq(index).find("strong").html(va);
+				$(".borderwindow form>input").val("");
+				$(".borderwindow form>input").attr("mm","0");
+			},"text");
+		}
+	});
+   	function cancel(){
+   		$("#zzc").hide();
+   		$(".borderwindow").hide();
+		$(".borderwindow form>input").attr("mm","0");
+   	}
+	function cancel1(){
+   		$("#zzc").hide();
+   		$(".borderwindow1").hide();
+		// $(".borderwindow2 form>input").attr("mm","0");
+   	}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

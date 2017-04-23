@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/grzx/css/login.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="login">
+		<form>
+			<input type="text" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="手机号码格式错误" placeholder="请输入您的手机号" name="phone" id="phone">
+			<input type="password" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="密码不能小于6位"  placeholder="请输入您的密码" name="pasw1" id="pasw1">
+			<input type="password" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="两次输入的密码不一样" placeholder="请再次输入您的密码" name="pasw2" id="pasw2">
+			<div class="three">
+				<input class="inputnum tooltip-show" data-toggle="tooltip" data-placement="bottom" title="短信验证码不能为空" type="text" id="code" placeholder="请输入您的短信验证码" name="code">
+				<input class="getnum" mm="1"  type="button" value="获取验证码">
+			</div>		
+			<div class="second">
+				<input class="btn tooltip-show" data-trigger="click" data-toggle="tooltip" data-placement="top" title="" name="sub" id="sub" type="button" value="确定">
+			</div>
+		</form>
+		<div class="xian"></div>
+		<div class="agroup">
+			<div>
+				<a href="./grzx.php?act=index" class="left">返回登录</a>
+				<a href="./grzx.php?act=reg" class="right">快速注册</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(".getnum").click(function(){
+		if($(this).attr("mm") == '1'){
+			var phone = $("#phone").val();//手机号码
+			var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+			if(!(reg.test(phone))){
+				//说明手机号码格式错误
+				$(function () { $('#phone').tooltip('show');});
+				return false;
+			}
+			$(this).attr("mm","0");
+			var data = {"phone":phone,"i_type":1};
+			$.post("./grzx.php?act=message_yz",data,function(msg){
+				if(msg == 1){
+					//说明密码发送成功
+					var i=60;
+					var time=setInterval(function(){
+						$(".getnum").val(i+"s后重新发送");
+						if(i==0){
+							$(".getnum").val("获取短信验证码");
+							clearInterval(time);
+							$(".getnum").attr("mm","1");
+						}
+						i--;
+					},1000);
+				}else{
+					$(".getnum").attr("mm","1");
+				}
+			},"text");
+
+		}
+	});
+	$("#sub").click(function(){
+		$(function () { $('#sub').tooltip('hide');});
+		var tisi = '';
+		var tel = $("#phone").val();//手机号码
+		var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+		if (!reg.test(tel)) {
+			tisi = tisi+"手机号码格式错误,";
+			$(function () { $('#phone').tooltip('show');});
+		};
+		if($("#code").val().replace(/\s/g,'').length < 1){
+			tisi = tisi+"短信验证码未填写,";
+			$(function () { $('#code').tooltip('show');});
+		}
+
+		if($("#pasw1").val().replace(/\s/g,'').length <=5){
+			tisi = tisi+"密码不能小于6位,";
+			$(function () { $('#pasw1').tooltip('show');});
+		}
+		if($("#pasw1").val() != $("#pasw2").val()){
+			tisi = tisi+"2次输入的密码不同,";
+			$(function () { $('#pasw2').tooltip('show');});
+		}
+		if(tisi != ''){
+			return false;
+		}
+		var phone = tel;
+		var code = $("#code").val();
+		var pasw1 = $("#pasw1").val();
+		var data = {"phone":phone,"code":code,"pasw1":pasw1,"sub":"111111"};
+
+		$.post("./grzx.php?act=forgetpasw",data,function(msg){
+			if(msg.stat == 1){
+				//修改成功
+				setTimeout(function(){
+					window.location.href = "./grzx.php?act=zhu";
+				},"1000")
+			}else{
+				$("#sub").attr("title",msg.err);
+				$("#sub").attr("data-original-title",msg.err);
+				$(function () { $('#sub').tooltip('show');});
+			}
+		},"json")
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

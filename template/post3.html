@@ -1,0 +1,12 @@
+<?php if($plnr){ ?>
+<?php foreach($plnr as $key=>$v){ ?>
+<li>
+    <div class="top">
+        <a <?php if(isset($_SESSION['user_id'])){ ?> href="activity.php?act=pl&id=<?php echo $arr1['i_id']; ?>"  <?php }else{ ?> href="javascript:alert('ÇëÏÈµÇÂ¼');"  <?php } ?> >»Ø¸´ <strong>(<?php echo $v['subs']; ?>)</strong></a>
+        <p><?php echo $v['s_uid_name']; ?></p>
+    </div>
+    <div class="bottom">
+        <p><?php echo $v['content']; ?></p>
+    </div>
+</li>
+<?php }} ?>

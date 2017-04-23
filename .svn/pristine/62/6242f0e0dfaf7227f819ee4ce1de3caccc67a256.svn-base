@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>租赁详情</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/zulin_detail.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<a href=""><img src="http://www.wfyizhan.com/<?php echo $jdxq[0]['s_pic_cover']; ?>" alt=""></a>
+	</div>
+	<div id="changdi">
+		<p class="tit"><?php echo $jdxq[0]['s_title']; ?></p>
+		<div class="xian"></div>
+		<div class="container">
+			<?php $yy = $jdxq[0]['i_idxType']; ?>
+			<p class="type">场地类型：<?php echo $mytype[$yy]; ?></p>
+			<p class="adress">场地地址：<?php echo $jdxq[0]['s_address']; ?></p>
+			<p class="phone">联系电话：<?php echo $jdxq[0]['s_phone']; ?></p>
+		</div>
+	</div>
+	<div id="cdjieshao">
+		<p class="tit"><span></span>场地简介</p>
+		<div class="xian"></div>
+		<div class="container">
+			<p><?php echo $jdxq[0]['s_info']; ?></p>
+		</div>
+	</div>
+	<div id="cdadress">
+		<p class="tit"><span></span>场地地点</p>
+		<div class="xian"></div>
+		<div class="container">
+			<iframe src="./activity.php?act=hddd&name=<?php echo $jdxq[0]['s_title']; ?>&latitude=<?php echo $s_position[1]; ?>&longitude=<?php echo $s_position[0]; ?>" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+	<div id="cddetail">
+		<p class="tit"><span></span>场地详情</p>
+		<div class="xian"></div>
+		<div class="container">
+			<ul>
+				<?php if(count($cdxq) >0 ){ ?>
+				<?php foreach($cdxq as $v){
+				$v[as_pics][0]=str_replace("http://www.wfyizhan.com/","",$v[as_pics][0]);
+				  ?>
+				<li>
+					<img src="http://www.wfyizhan.com/<?php echo $v[as_pics][0]; ?>" alt="">
+					<div class="right">
+						<div class="left">
+							<p class="name">名称：<?php echo $v[s_title]; ?></p>
+							<p class="num">人数：<?php echo $v[i_number]; ?>人</p>
+							<p class="price">价格：<?php echo $v[i_price]/100; ?>元/天</p>
+							<p class="adress">地址：<?php echo $v[s_room_address]; ?></p>
+						</div>
+						<div class="right">
+							<a href="./serviceshop.php?act=huiyi&id=<?php echo $v[i_id]; ?>&zid=<?php echo $id; ?>&s_phone=<?php echo $jdxq[0]['s_phone']; ?>">查看详情</a>
+						</div>
+					</div>
+				</li>
+				<div class="clearifx"></div>
+				<?php }} ?>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+   
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

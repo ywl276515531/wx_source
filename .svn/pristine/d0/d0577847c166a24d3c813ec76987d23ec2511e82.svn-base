@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>支付页面</title>
+	<link rel="stylesheet" href="./hh/activity/css/pay.css">
+	<script type="text/javascript" src="./hh/activity/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<form action="">
+		<div class="kuang">
+			<ul>
+				<li>交易额：<strong>￥780</strong></li>
+				<li>
+					<label>服务券：<input type="num"><input type="radio" style="float:right;margin-top:19px;margin-right:10px"></label>
+					<p style="margin-top:5px;">剩余服务券：100</p>
+				</li>
+				<li class="sel">
+					<p class="name">支付方式</p>
+					<label for="">余额支付<input type="radio" checked="checked"></label>
+					<label for="">微信支付<input type="radio"></label>
+				</li>
+			</ul>
+		</div>
+		<div id="tj">
+			<a href="" class="zixun">
+				<p >合计：<strong>￥720</strong></p>
+			</a>
+			<a href="" class="jiesuan">
+				<p>确定</p>
+			</a>
+		</div>
+	</form>
+</body>
+<script type="text/javascript">
+	$("form .kuang .sel>label>input").click(function(){
+		if($(this).attr("checked")){
+			$(this).removeAttr("checked");
+		}else{
+			$(this).attr("checked","checked").parent().siblings().find("input").removeAttr("checked");
+		}
+	});
+</script>
+</html>

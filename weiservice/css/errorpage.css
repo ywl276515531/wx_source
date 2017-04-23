@@ -1,0 +1,89 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #f0edf0;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+#zzc{
+ 	width: 100%;
+ 	height: 100%;
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	background: black;
+ 	opacity: 0.5;
+ 	filter: alpha(filter=50);
+ }
+ .borderwindow,.borderwindow2{
+ 	width: 350px;
+ 	position: absolute;
+ 	border-radius: 4px;
+ 	left: 0;
+ 	right: 0;
+ 	top: 30%;
+ 	bottom: 0;
+ 	margin:0 auto;
+ 	height: 300px;
+ 	background: white;
+ }
+ .borderwindow .tit,.borderwindow2 .tit{
+ 	color: #1f1e1e;
+ 	font-size: 18px;
+ 	text-align: center;
+ 	letter-spacing: 1px;
+ 	margin-top: 20px;
+ 	margin-bottom: 30px;
+ }
+ .borderwindow .wen,.borderwindow2 .wen{
+ 	text-align: center;
+ 	color: #5f5e5e;
+ 	letter-spacing: 1px;
+ 	font-size: 16px;
+ }
+ .borderwindow a{
+ 	text-align: center;
+    	color: black;
+    	margin-top: 14px;
+    	display: block;
+ }
+@media (min-width: 480px) and (max-width: 639px){
+}
+@media (max-width: 479px){
+	iframe{
+		bottom: 0px;
+		width: 100%;
+		position: fixed;
+	}
+	.borderwindow,.borderwindow2{
+		width: 300px;
+		height: 260px;
+	}
+	.borderwindow .tit,.borderwindow2 .tit{
+		margin-bottom: 70px;
+	}
+	.borderwindow>div,.borderwindow2>div{
+		width: 90%;
+	}
+}

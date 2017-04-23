@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>会议室预定</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/yuding.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+
+<?php if(count($cdxq) > 0){ ?>
+<?php foreach($cdxq as $v){ ?>
+<?php if($v['i_id'] == $id){
+$v['as_pics'][0]=str_replace("http://www.wfyizhan.com","",$v['as_pics'][0]);
+ ?>
+	 <div id="yuding">
+	 	<ul>
+	 		<li>
+	 			<div class="left">
+	 				会议室名称
+	 			</div>
+	 			<div class="right">
+	 				<?php echo $v['s_title']; ?>
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室介绍
+	 			</div>
+	 			<div class="right">
+					<?php echo $v['s_room']; ?>
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室人数
+	 			</div>
+	 			<div class="right">
+					<?php echo $v['i_number']; ?>
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				参考价格/天
+	 			</div>
+	 			<div class="right">
+					<?php echo $v['i_price']/100; ?>
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li>
+	 			<div class="left">
+	 				会议室地址
+	 			</div>
+	 			<div class="right">
+					<?php echo $v['s_room_address']; ?>
+	 			</div>
+	 		</li>
+	 		<div class="clearfix"></div>
+	 		<li class="hou">
+	 			<div class="left">
+	 				会议室图册
+	 			</div>
+	 			<div class="right">
+	 				<a href="./serviceshop.php?act=picture&zid=<?php echo $_REQUEST['zid']; ?>&id=<?php echo $id; ?>"><img src="http://www.wfyizhan.com<?php echo $v['as_pics'][0]; ?>"></a>
+	 			</div>
+	 		</li>
+	 	</ul>
+	 </div>
+	<?php }}} ?>
+	 <div id="bot">
+	 	<div class="left">
+	 		<a href="tel:<?php echo htmlspecialchars($_GET['s_phone']); ?>">
+	 			<img src="./weiservice/serviceshop/images/ph.png"><p>在线咨询</p>
+	 		</a>
+		</div>
+		 <?php if($_SESSION['uid'] > 0 ){ ?>
+		<div class="right">
+			<a href="./serviceshop.php?act=zulin_yuding&id=<?php echo $id; ?>&zid=<?php echo $arr1['i_id']; ?>">立即预定</a>
+		</div>
+		 <?php }else{
+		  $_SESSION['beforeurl'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		  
+		  ?>
+		 <div class="right">
+			 <a href="grzx.php?act=index">立即预定</a>
+		 </div>
+		 <?php } ?>
+	 </div>
+	 <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/zulin_detail.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<a href=""><img src="images/zulinpic.png" alt=""></a>
+	</div>
+	<div id="changdi">
+		<p class="tit">绵阳科技城科技发展有限责任公司成都分公司</p>
+		<div class="xian"></div>
+		<div class="container">
+			<p class="type">场地类型：商务写字楼</p>
+			<p class="adress">场地地址：四川省成都市高新区天府4街199号长虹科技大厦B座</p>
+			<p class="phone">联系电话：18382357778</p>
+		</div>
+	</div>
+	<div id="cdjieshao">
+		<p class="tit"><span></span>场地简介</p>
+		<div class="xian"></div>
+		<div class="container">
+			<p>长虹科技大厦B座5楼会议室及相关配套设施,长虹科技大厦B座5楼会议室及相关配套设施长虹科技大厦B座5楼会议室及相关配套设施长虹科技大厦B座5楼会议室及相关配套设施长虹科技大厦B座5楼会议室及相关配套设施。</p>
+		</div>
+	</div>
+	<div id="cdadress">
+		<p class="tit"><span></span>场地地点</p>
+		<div class="xian"></div>
+		<div class="container">
+			<iframe src="map.html" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+	<div id="cddetail">
+		<p class="tit"><span></span>场地详情</p>
+		<div class="xian"></div>
+		<div class="container">
+			<ul>
+				<li>
+					<img src="images/cddetail.png" alt="">
+					<div class="right">
+						<div class="left">
+							<p class="name">名称：5楼会议室</p>
+							<p class="num">人数：20人</p>
+							<p class="price">价格：1000元/天</p>
+							<p class="adress">地址：长虹科技大厦B座5楼</p>
+						</div>
+						<div class="right">
+							<a href="yuding.html">查看详情</a>
+						</div>
+					</div>
+				</li>
+				<div class="clearifx"></div>
+				<li>
+					<img src="images/cddetail.png" alt="">
+					<div class="right">
+						<div class="left">
+							<p class="name">名称：5楼会议室</p>
+							<p class="num">人数：20人</p>
+							<p class="price">价格：1000元/天</p>
+							<p class="adress">地址：长虹科技大厦B座5楼</p>
+						</div>
+						<div class="right">
+							<a href="yuding.html">查看详情</a>
+						</div>
+					</div>
+				</li>
+				<div class="clearifx"></div>
+				<li>
+					<img src="images/cddetail.png" alt="">
+					<div class="right">
+						<div class="left">
+							<p class="name">名称：5楼会议室</p>
+							<p class="num">人数：20人</p>
+							<p class="price">价格：1000元/天</p>
+							<p class="adress">地址：长虹科技大厦B座5楼</p>
+						</div>
+						<div class="right">
+							<a href="yuding.html">查看详情</a>
+						</div>
+					</div>
+				</li>
+				<div class="clearifx"></div>
+				<li>
+					<img src="images/cddetail.png" alt="">
+					<div class="right">
+						<div class="left">
+							<p class="name">名称：5楼会议室</p>
+							<p class="num">人数：20人</p>
+							<p class="price">价格：1000元/天</p>
+							<p class="adress">地址：长虹科技大厦B座5楼</p>
+						</div>
+						<div class="right">
+							<a href="yuding.html">查看详情</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+   
+</script>
+</html>

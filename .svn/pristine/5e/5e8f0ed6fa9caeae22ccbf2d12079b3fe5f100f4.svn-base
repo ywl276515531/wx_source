@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/myinfo.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="myinfo">
+		<div class="info">
+			<div class="center">
+				<div class="touxiang"><a href=""><img src="" alt=""></a></div>
+				<div class="userinfo">
+					<p>152****4820</p>
+				</div>
+			</div>
+		</div>
+		<div class="detailinfo">
+			<ul>
+				<a href="ownziliao.html">
+					<li>
+						<img class="firstimg" src="images/user.png" alt="">
+						<p>个人资料</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="myorder.html">
+					<li>
+						<img class="firstimg" src="images/dingdan.png" alt="">
+						<p>我的订单</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="myact.html">
+					<li>
+						<img class="firstimg" src="images/xiu.png" alt="">
+						<p>我的活动</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="myzulin.html">
+					<li>
+						<img class="firstimg" src="images/pc.png" alt="">
+						<p>我的租赁</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="collect.html">
+					<li>
+						<img class="firstimg" src="images/add.png" alt="">
+						<p>我的收藏</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="mymessage.html">
+					<li>
+						<img class="firstimg" src="images/jianyi.png" alt="">
+						<p>我的消息</p>
+						<img  class="secondimg" src="images/jiantou.png" alt="">
+					</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+	<div class="bot">
+		<iframe src="../bottom.html" height="60" width="100%" frameborder="0"></iframe>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

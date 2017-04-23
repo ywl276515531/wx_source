@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/xzservice/css/new.css">
+	<script type="text/javascript" src="./weiservice/xzservice/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/xzservice/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="./weiservice/xzservice/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div class="pic">
+		<img src="./weiservice/xzservice/images/pic.png" alt="">
+	</div>
+	<?php $arr = array("#27c4ef",'#82dfd4','#ef7b7c','#a4e28f','#eec130','#a391fd'); ?>
+	<div id="ban">
+		<?php if(count($shuju) > 0 ){ $mm=1;   ?>
+		<?php foreach($shuju as $v1){ ?>
+		<?php if($mm % 3 == 1){ ?>
+		<ul>
+		<?php } ?>
+			<?php $aa = rand(0,5); ?>
+			<a href="./xzservice.php?act=second&id=<?php echo $v1['i_id']; ?>" style="background:<?php echo $arr[$aa]; ?>; <?php if($mm % 3 == 0 || $mm == count($shuju)){  ?> margin-right:0;<?php } ?>">
+				<li><?php echo $v1['s_title']; ?></li>
+			</a>
+		<?php if($mm % 3 == 0 || $mm == count($shuju)){ ?>
+		</ul>
+		<?php } ?>
+		<?php ++$mm; ?>
+		<?php }} ?>
+	</div>
+	<div style="margin-bottom:90px;">
+	<div id="tit" style="display:none;">
+		<p>公示公告</p>
+	</div>
+	<ul class="list" style="display:none;">
+		<?php if(count($sygg) > 0){  $i=1; ?>
+		<?php foreach($sygg as $key=>$v){ ?>
+		<li>
+			<span></span>
+			<p><a href="http://<?php echo $v['s_addr']; ?>" target="_blank"><?php echo $v['s_content']; ?></a></p>
+		</li>
+		<?php if($i >=4){break;}++$i; ?>
+		<?php }} ?>
+	</ul>
+	<div class="clearfix" style="display:none;"></div>
+	<div id="tit2" style="background:#ff6666">
+		<p><img src="./weiservice/xzservice/images/zwbs.png" alt="">政务展示</p>
+	</div>
+	<div class="clearfix"></div>
+	<ul class="list">
+		<?php if(count($syzwzs) > 0){  $i=1; ?>
+		<?php foreach($syzwzs as $key=>$v){ ?>
+		<li>
+			<span></span>
+			<p><a href="./xzservice.php?act=detail&id=<?php echo $v['i_id']; ?>"><?php echo $v['s_title']; ?></a></p>
+		</li>
+		<?php if($i >=4){break;}++$i; ?>
+		<?php }} ?>
+	</ul>
+	<div class="clearfix"></div>
+	<div id="tit2" style="background:#329abd">
+		<p><img src="./weiservice/xzservice/images/qybs.png" alt="">企业办事</p>
+	</div>
+	<div class="clearfix"></div>
+	<ul class="list">
+		<?php if(count($qybs) > 0){  $i=1; ?>
+		<?php foreach($qybs as $key=>$v){ ?>
+		<li>
+			<span></span>
+			<p><a href="./xzservice.php?act=detail&id=<?php echo $v['i_id']; ?>"><?php echo $v['s_title']; ?></a></p>
+		</li>
+		<?php if($i >=4){break;}++$i; ?>
+		<?php }} ?>
+	</ul>
+	<div class="clearfix"></div>
+	<div id="tit2" style="background:#6bb868">
+		<p><img src="./weiservice/xzservice/images/grbs.png" alt="">个人办事</p>
+	</div>
+	<div class="clearfix"></div>
+	<ul class="list">
+		<?php if(count($grbs) > 0){  $i=1; ?>
+		<?php foreach($grbs as $key=>$v){ ?>
+		<li>
+			<span></span>
+			<p><a href="./xzservice.php?act=detail&id=<?php echo $v['i_id']; ?>"><?php echo $v['s_title']; ?></a></p>
+		</li>
+		<?php if($i >=4){break;}++$i; ?>
+		<?php }} ?>
+	</ul>
+	<div class="clearfix"></div>
+	<div id="tit2" style="background:#b85fa9">
+		<p><img src="./weiservice/xzservice/images/remen.png" alt="">热门服务</p>
+	</div>
+	<div class="clearfix"></div>
+	<ul class="list">
+
+		<?php if(count($syrmyw) > 0){  $i=1; ?>
+		<?php foreach($syrmyw as $key=>$v){ ?>
+		<li>
+			<span></span>
+			<p><a href="./xzservice.php?act=detail&id=<?php echo $v['i_id']; ?>"><?php echo $v['s_title']; ?></a></p>
+		</li>
+		<?php if($i >=4){break;}++$i; ?>
+		<?php }} ?>
+	</ul>
+	<?php include_once './template/daohang.html'; ?>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/zhxx/css/newsdetail.css">
+	<script type="text/javascript" src="./weiservice/zhxx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/zhxx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="newsdetail">
+		<p class="tit"><?php echo $shuju[0]['title']; ?></p>
+		<div class="cen">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $shuju[0]['s_pic']; ?>">
+			</div>
+			<div class="right">
+				<p><?php echo $shuju[0]['description']; ?></p>
+				<p class="date"><?php echo date("Y-m-d",$shuju[0]['create_time']); ?></p>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="cont" id="cont">
+			<?php echo $shuju[0]['s_content']; ?>
+		</div>
+		<script>
+			$("#cont img").each(function(i,item){
+				var reg = /.*\/uploads\//gi;
+				var stt = $(item).attr("src");
+				var xinimg = stt.replace(reg,'http://www.wfyizhan.com/uploads/');
+				$(item).attr("src",xinimg);
+			});
+		</script>
+	</div>
+</body>
+<script type="text/javascript">
+  window.onload=function(){		
+		$('.ke-insertfile').each(function(){
+			var url=$(this).attr('href').replace('/uploads','http://www.wfyizhan.com/uploads');
+			$(this).attr('href',url);
+		});
+	};
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

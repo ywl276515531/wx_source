@@ -1,0 +1,7 @@
+<?php foreach($data as $v){ ?>
+	<a href="finance.php?action=prodetail&i_id=<?php echo $v['i_id']; ?>">
+		<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>">
+		<span class="addr"><?php echo $v['s_company_address']; ?></span>
+		<span class="money"><?php echo $v['i_money_total']; ?>万</span>
+	</a>	
+<?php } ?>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" style="background: white;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>店铺详情</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/home.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="1" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data4['i_pages']; ?>" id="i_pages" />
+	<div id="logo">
+		<a href=""><img src="http://www.wfyizhan.com<?php echo $shop_detail[0]['s_cover_pic']; ?>" alt=""></a>
+		<p class="name"><?php echo $shop_detail[0]['s_title']; ?></p>
+		<p class="cont">【质量：<?php echo $zhiliang; ?> | 速度：<?php echo $spee; ?>｜态度：<?php echo $taidu; ?>】</p>
+	</div>
+	<div id="cont">
+		<ul class="typegroup">
+			<a style="border-right:1px solid #ccc;border-left:none;background:#00b8ee">
+				<li style="color:white">关于我们</li>
+			</a>
+			<a style="border-left:none">
+				<li>购买服务</li>
+			</a>
+		</ul>
+		<div class="detail">
+			<ul>
+				<?php echo  $s_note; ?>
+			</ul>
+			<ul style="display:none">
+				<?php if(count($cp) > 0){ $ii = 0;  ?>
+				<?php foreach($cp as $v){ ?>
+				<?php $cha = $ii % 6; ?>
+				<li <?php echo $arr[$cha]; ?> >
+					<a href="./serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>" alt=""></a>
+					<p class="tit"><?php echo mb_substr($v['s_title'],0,10,"utf-8"); ?></p>
+					<p class="price">￥<?php echo $v['price']; ?></p>
+				</li>
+				<?php ++$ii; ?>
+				<?php }} ?>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<div class="loader-inner ball-pulse" style="display:none">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:30px;display:none">
+			已经没有内容了
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#cont .typegroup>a").click(function(){
+		$("#cont .typegroup>a").css("background","white").find("li").css("color","black");
+		$("#cont .detail>ul").hide();
+		var index=$(this).index();
+		$(this).css("background","#00b8ee").find("li").css("color","white");
+		$("#cont .detail>ul").eq(index).show();
+	});
+
+	// $(document).ready(function () {
+	// 	$(window).scroll(function () {
+	// 		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+	// 			$(".ball-pulse").show();
+	// 			setTimeout(function(){
+	// 				var i_page = $("#i_page").val();
+	// 				i_page = parseInt(i_page)+1;
+	// 				var i_pages = parseInt($("#i_pages").val());
+	// 				if(i_page <= i_pages){
+	// 					$(".ball-pulse").show();	
+	//        					$(".ball-text").hide();
+	// 					var data = {"page":i_page};
+	// 					$.post("./serviceshop.php?act=shopdetail",data,function(msg){
+	// 						$("#cont .detail .two").append(msg);
+	// 						$("#i_page").val(i_page);
+	// 					},"text")
+	// 				}else{
+	// 					$(".ball-pulse").hide();
+	// 					$(".ball-text").show();
+	// 				}
+	// 			},2000);
+	// 		}
+	// 	});
+	// });
+	// $("#i_pages").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

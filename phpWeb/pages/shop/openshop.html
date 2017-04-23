@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>创建店铺</title>
+	<link rel="stylesheet" type="text/css" href="../pages/shop/openshop.css">
+	<script type="text/javascript" src="../pages/shop/sha1.js"></script>
+	<script type="text/javascript" src='../pages/shop/lexicon.js'></script>
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		var s_session="<?php echo $_SESSION['s_session']; ?>";
+		var action='<?php echo $action; ?>'				 
+	</script>
+</head>
+<body>
+<div class="img_select">
+	<div class="img_content">
+		<div class="img_top">
+		<?php foreach((array)$data2 as $v){ ?>
+			<img src="http://www.wfyizhan.com<?php echo str_replace('http://www.wfyizhan.com','',$v['s_path']); ?>">
+		<?php } ?>
+		</div>
+		<div class="img_foot">
+			<span onclick="select_img()">确定</span>
+			<span onclick="img_cancle()">取消</span>
+		</div>
+	</div>
+	
+</div>
+<div class="lo">
+	<div class="file-box"> 
+  	  	<div class="up_top"> 
+        	<input type='text' name='textfield' id='textfield' class='txt' readonly="readonly" /><input type='button' class='btn' value='浏览...' />
+       	 	<input type="file" name="imgFile" class="file" id="inputfile" size="28" onchange="document.getElementById('textfield').value=this.value" /> 
+   		</div> 
+   		<div class="up_foot">
+    		<span onclick="img_upload()">确定</span>
+    		<span onclick="cancle()">取消</span>
+   		</div>
+	</div>
+</div>
+<div class="page_content" >
+	<div class="creat_shop" <?php if($data3&&$data3['i_sta']=='3'){ ?>style="display:none"<?php } ?>>
+		<span class="title">基本信息</span>
+		<div class="msg_box">
+			<span class="kind"><span style="color:#ff0000">*</span>店铺名称:</span>
+			<input type="text" maxlength="15" id="shop_name">
+		</div>
+		<div class="msg_box">
+			<span class="kind"><span style="color:#ff0000">*</span>客服QQ号:</span>
+			<input type="text" maxlength="10" id="qq1">
+			<input type="text" maxlength="10" id="qq2" style="margin-left: 80px;margin-top: 10px;">
+			<input type="text" maxlength="10" id="qq3" style="margin-left: 80px;margin-top: 10px;">
+		</div>
+		<p>提示：最少填写一个QQ号码</p>
+		<div class="msg_box">
+			<span class="kind"><span style="color:#ff0000">*</span>所在区域:</span>
+			<select id="province">
+				<option>四川</option>
+				<option>绵阳</option>
+			</select>
+			<select id="city" style="margin-left: 10px;">
+				<option>绵阳</option>
+				<option>成都</option>
+			</select>
+		</div>
+		<div class="msg_box">
+			<span class="kind"><span style="color:#ff0000">*</span>店铺封面:</span>
+			<div class="upload_img">
+				<img src="../images/upload_default.jpg">	
+				<div class="function">
+					<a href="javascript:void(0);" onclick="a_up()" id="upimg">本地上传</a>
+					<a href="javascript:void(0);" id="upimg_down" onclick="no_img()">没有准备封面</a>
+					<!-- <span style="color:#999;font-size:12px;margin-top:6px">仅支持jpg、jpeg、png格式的图片</span> -->
+				</div>
+			</div>
+		</div>
+		<div class="serviceKind">
+			<span class="title">服务类型</span>
+			<!-- <div class="service_kind_box">
+				<div class="service_title">
+					<span class="kind">行业类别</span>
+					<span class="service">经营范围</span>
+				</div>
+				<ul id="kindList">
+					<li class="box">
+						<span class="kind">创业服务</span>
+						<ol class="selectBox">
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+							<li>创业咨询</li>
+						</ol>
+					</li>
+				</ul>
+			</div> -->	
+			<div class="service_kind_box">
+				<ul id="kindList">
+				<?php foreach((array)$data as $key=>$value){ ?>
+					<li class="box">
+						<span class="kind"><?php echo $value['s_title'];  ?></span>
+						<ol class="selectBox">
+						<?php foreach((array)$value['as_typeList'] as $k=>$v){ ?>
+							<li kind="<?php echo $v['i_id']; ?>" ><?php echo $v['s_title']; ?></li>	
+						<?php } ?>	
+						</ol>
+					</li>
+				<?php }?>		 			
+				</ul>
+			</div>					
+		</div>
+		<div class="creat_shop_bottom">
+			<a href="javascript:void(0);" id="submit">提交</a>
+		</div>
+		
+	</div>
+	<div class="show_zt" <?php if(!$data3||$data3['i_sta']!=3){ ?>style="display:none"<?php } ?>>
+		<div class="result">
+			<div class="result_top">
+				<img src="<?php echo $data3['s_cover_pic']; ?>">
+				<div class="result_span">
+					<span id="result_name"><?php echo $data3['s_title']; ?></span>
+					<span id="result_address">所在区域  <?php echo $data3['s_address_name']; ?></span>
+				</div>				
+			</div>
+			<p class="clearfix"></p>
+			<div class="result_bottom">
+				<p>服务QQ号</p>
+				<?php foreach((array)$qqs as $v){ ?>
+				<span><?php echo $v; ?></span>
+				<?php } ?>				
+				<p>经营范围</p>
+				<?php foreach((array)$a_types as $v){ ?>
+				<span><?php echo $v; ?></span>
+				<?php } ?>				
+			</div>			
+		</div>
+		<div class="creat_shop_bottom">
+			<a href="shop.php?action=edit" id="result_edit">管理店铺</a>
+		</div>
+		
+		
+	</div>
+	<div class="end">
+		开店成功！
+	</div>
+</div>
+<script type="text/javascript" src="../pages/shop/city.js"></script>
+<script type="text/javascript" src="../pages/shop/openshop.js"></script>
+</body>
+</html>

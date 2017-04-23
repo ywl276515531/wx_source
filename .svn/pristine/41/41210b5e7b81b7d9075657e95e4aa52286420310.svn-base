@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/myact.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<ul id="myact">
+		<li  style="background:#20cce3;">
+			<a>我的发布<strong>(3)</strong></a>
+			<ul>
+				<a href="">
+					<li>已发布<strong>(2)</strong></li>
+				</a>
+				<a href="">
+					<li>已结束<strong>(1)</strong></li>
+				</a>
+			</ul>
+		</li>
+		<li class="hou">
+			<a>我的参与<strong>(4)</strong></a>
+			<ul>
+				<a href="">
+					<li>有效票<strong>(3)</strong></li>
+				</a>
+				<a href="">
+					<li>等待审核<strong>(1)</strong></li>
+				</a>
+			</ul>
+		</li>
+	</ul>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name">高端定制企业网站设计开发</p>
+				<p class="time">活动时间：2016-10-11</p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="canyu.html">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name">高端定制企业网站设计开发</p>
+				<p class="time">活动时间：2016-10-11</p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="canyu.html">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name">高端定制企业网站设计开发</p>
+				<p class="time">活动时间：2016-10-11</p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="canyu.html">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name">高端定制企业网站设计开发</p>
+				<p class="time">活动时间：2016-10-11</p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="canyu.html">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#myact>li").click(function(){
+		$("#myact>li>ul").hide();
+		$("#myact>li").css("background","white");
+		$(this).find("ul").slideToggle("show");
+		$(this).css("background","#00b8ee");
+	});
+</script>
+</html>

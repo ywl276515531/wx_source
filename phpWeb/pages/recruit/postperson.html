@@ -1,0 +1,12 @@
+<?php if(count($data)>0){ ?>
+		<?php foreach($data as $v){ ?>
+		<li class="people_list">
+			<a href="recruit.php?action=perdetail&id=<?php echo $v['i_id']; ?>">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_face_pic'] ?>">
+				<div id="people_item">
+					<span id="people_item_title"><?php echo $v['as_sex']['s_sex'].'|'.$v['as_year']['s_year'].'|'.$v['as_edu']['s_edu']; ?></span>
+					<span id="people_item_school"><?php echo $v['s_school'].'|'.$v['s_major']; ?></span>
+					<span id="people_item_time"><?php echo date("Y-m-d",$v['i_pub_time']); ?></span>
+				</div>
+			</a>
+		</li>

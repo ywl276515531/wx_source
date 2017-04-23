@@ -1,0 +1,11 @@
+<?php if(count($shuju) > 0){ $i=1; ?>
+<?php foreach($shuju as $v){ ?>
+<?php if($i % 2 == 1){echo "<ul>";} ?>
+<li <?php if($i % 2 == 0){echo "class='hou'";} ?>>
+<a href="./serviceshop.php?act=zlfw&id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_pic_cover']; ?>"></a>
+<p class="tit"><?php echo $v['s_title']; ?></p>
+<div class="adress"><img src="./weiservice/serviceshop/images/poc.png" alt=""><p><?php echo mb_substr( $v['s_address'], 0, 9, "utf-8" ); ?></p></div>
+</li>
+<?php if($i==count($shuju) || $i % 2 == 0){echo "</ul>"; } ?>
+<?php ++$i; ?>
+<?php }} ?>

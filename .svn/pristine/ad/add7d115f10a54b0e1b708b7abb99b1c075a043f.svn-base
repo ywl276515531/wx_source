@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>首页特效</title>
+	<link rel="stylesheet" href="css/base.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+	<div class="bg">
+		<div class="container">
+			<ul id="box">
+				<a href="activity/jiaoliu.html" class="list" style="top: 0px; left: 0px; position: absolute;opacity:0">
+					<li>
+						<img src="images/1.png" alt="">
+					</li>
+				</a>
+				<a href="index.html" class="list" style="top: 0px; left: 33.33%;  position: absolute;opacity:0">
+					<li><img src="images/2.png" alt=""></li>
+				</a>
+				<a href="serviceshop/service_mask.html" class="list" style="top: 0px; left: 66.66%;  position: absolute;opacity:0">
+					<li>
+						<img src="images/3.png" alt="">
+					</li>
+				</a>
+				<a href="xzservice/service.html" class="list" id="hou" style="top: 160px; left: 0px;  position: absolute;opacity:0">
+					<li>
+						<img src="images/4.png" alt="">
+					</li>
+				</a>
+				<a href="zhxx/news.html"  class="list" id="hou1" style="top: 160px; left: 33.33%; position: absolute;opacity:0">
+					<li>
+						<img src="images/5.png" alt="">
+					</li>
+				</a>
+				<a href="" class="list" id="hou2" style="top: 160px; left: 66.66%; position: absolute;opacity:0">
+					<li>
+						<img src="images/6.png" alt="">
+					</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/move.js"></script>
+<script>
+	
+	window.onload = function(){
+	var Box = document.getElementById('box');
+	var list_l = myclass('list',Box);
+	var alist = [];
+	var olist = true;
+	$("#hou").css("top",$("#box .list").height());
+	$("#hou1").css("top",$("#box .list").height());
+	$("#hou2").css("top",$("#box .list").height());
+	for(var i=0; i<list_l.length; i++){
+		var Oleft = list_l[i].offsetLeft;
+		var Otop = list_l[i].offsetTop;
+		alist[i] = {left:Oleft,top:Otop}
+	}
+	if(olist===false){
+		return;
+	}
+	olist = false;
+	list_l = myclass('list',Box);
+	var Dates = sst(6);
+	var n=list_l.length-1;
+	var cont = 0;
+	var i=0;
+	var arr=["activity/jiaoliu.html","index.html","serviceshop/service_mask.html","xzservice/service.html","zhxx/news.html","http://www.sohu.com"]
+	var t=setInterval(function(){
+		if(i==5){
+			clearInterval(t);
+			olist=true;
+		}
+		var Odiv = document.createElement('a');
+		var li=document.createElement("li");
+		var Oimg = document.createElement('img');
+		Odiv.className="list";
+		Odiv.href=arr[i];
+		Oimg.src =Dates[i];
+		Box.appendChild(Odiv);
+		Odiv.appendChild(li);
+		li.appendChild(Oimg);
+		Odiv.style.top= 150 +'px';
+		Odiv.style.left=150+'px';
+		Odiv.style.width = "33.33%";
+		Odiv.style.height=$(".list").height()+'px';
+		Odiv.style.position ='absolute';
+		Odiv.style.margin=0+'px';
+		Odiv.style.opacity=1;
+		fiexible(Odiv,{
+			left:alist[i].left,
+			top:alist[i].top,
+			width:"33.33%",
+			height:$(".list").height(),
+		},3)
+		i++;
+		},100)
+	function sst(nums){
+		var end = nums;
+		var rest = [];
+		for(var i=1; i<=end; i++){
+			rest.push("images/"+i+'.png')
+		}
+		return rest;
+	}
+}
+function myclass(names,docu){
+	var obj = docu.getElementsByTagName('*');
+	var arr = [];
+	for(var i=0; i<obj.length; i++){
+		if(obj[i].className == names){
+			arr.push(obj[i]);
+			}
+		} 
+		return arr;
+	}
+</script>
+</html>

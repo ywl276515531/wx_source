@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/xzservice/css/bumen.css">
+	<script type="text/javascript" src="./weiservice/xzservice/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/xzservice/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="bumen">
+		<div class="juzhong">
+			<p class="tit"><?php echo $bumen_name[0]['s_title']; ?></p>
+			<ul class="top">
+				<li>
+					<div class="left">审批时限</div>
+					<div class="right"><?php echo $bumen_name[0]['s_wait_time']; ?></div>
+				</li>
+				<li>
+					<div class="left">有无前置情况</div>
+					<div class="right"><?php if($bumen_name[0]['s_condition'] == 0){echo "否";}else{echo "是";} ?></div>
+				</li>
+				<li>
+					<div class="left">有效期</div>
+					<div class="right"><?php echo date("Y-m-d",$bumen_name[0]['i_effect_time']); ?></div>
+				</li>
+				<li>
+					<div class="left">收费情况</div>
+					<div class="right"><?php if($bumen_name[0]['i_money'] == 0){echo "否";}else{echo "是";} ?></div>
+				</li>
+			</ul>
+			<ul class="middle">
+				<a style="background:#00b8ee;">
+					<li>应缴材料</li>
+				</a>
+				<a>
+					<li>详细介绍</li>
+				</a>
+				<a style="border-right:none">
+					<li>审批流程</li>
+				</a>
+			</ul>
+			<div class="en">
+				<ul class="bottom">
+					<?php $ii=1; ?>
+					<?php foreach($sxcl as $key=>$v){  ?>
+					<li <?php if($ii == 1){ ?> style="border-top:none;" <?php } ?>>
+						<div class="left"><span style="margin-right:5px;color:red">+</span>材料<?php echo $ii; ?></div>
+						<div class="right"><?php echo $v['s_payable']; ?></div>
+						<div class="clearfix"></div>
+						<ul class="xia">
+							<li>
+								<div class="left">纸质份数</div>
+								<div class="right"><?php echo $v['i_num']; ?></div>
+							</li>
+							<div class="clearfix"></div>
+							<li>
+								<div class="left">格式文件</div>
+								<div class="right"><?php echo $v['s_require']; ?></div>
+							</li>
+							<div class="clearfix"></div>
+							<li>
+								<div class="left">文件样本</div>
+								<div class="right"><?php if($v['s_example'] != ''){ ?><a href="http://www.wfyizhan.com/<?php echo $v['s_example']; ?>">范例下载</a>    <?php } ?></div>
+							</li>
+							<div class="clearfix"></div>
+							<li>
+								<div class="left">电子文件</div>
+								<div class="right"><?php echo $v['s_efile']; ?></div>
+							</li>
+							<div class="clearfix"></div>
+							<li>
+								<div class="left">材料说明</div>
+								<div class="right"><?php echo $v['s_note']; ?></div>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</li>
+					<div class="clearfix"></div>
+					<?php ++$ii; ?>
+					<?php } ?>
+				</ul>
+				<ul style="display:none">
+					<p><?php echo $s_introduce; ?></p>
+				</ul>
+				<ul style="display:none">
+					<?php 
+					$s_flow_pic = $bumen_name[0]['s_flow_pic'];
+					if(!empty($s_flow_pic)){
+					 $s_flow_pic = str_replace("http://www.wfyizhan.com/","",$s_flow_pic);
+					 ?>
+					<p style="width: 96%; margin: auto;text-indent: 0;"><img style="width: 100%" src="http://www.wfyizhan.com/<?php echo $s_flow_pic; ?>" /></p>
+					<?php } ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	// $(document).ready(function(){
+	// 	$('.ke-insertfile').each(function(){
+	// 		var url=$(this).attr('href').replace('/uploads','http://www.wfyizhan.com/uploads');
+	// 	});
+	// });
+	window.onload=function(){		
+		$('.ke-insertfile').each(function(){
+			var url=$(this).attr('href').replace('/uploads','http://www.wfyizhan.com/uploads');
+			$(this).attr('href',url);
+		});
+	};
+	$("#bumen .middle>a").click(function(){
+		$("#bumen .en>ul").hide();
+		$("#bumen .middle>a").css("background","#f2f2f2");
+		$(this).css("background","#00b8ee");
+		var index=$(this).index();
+		$("#bumen .en>ul").eq(index).show();
+	});
+	$("#bumen>.juzhong .bottom>li").click(function(){
+		var index=$(this).find(".xia li").index();
+		var h=$(this).find(".xia li").eq(index).find(".right").height();
+		console.log(h);
+		$("#bumen>.juzhong .bottom>li>.xia").slideUp();
+		$("#bumen>.juzhong .bottom>li .left>span").html("+");
+		if($(this).find(".xia").css("display")=="block"){
+			$(this).find(".xia").slideUp();
+			$(this).find(".left>span").html("+");
+		}else{
+			$(this).find(".xia").slideDown();
+			$(this).find(".left>span").html("-");
+		}
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

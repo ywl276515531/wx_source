@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/service_mask.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<a href=""><img src="images/servermask.png" alt=""></a>
+	</div>
+	<div id="ee">
+		<img src="images/ee.jpg" alt="">
+	</div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>促销专区</p><a href="">+MORE</a></div>
+		<div class="xian"></div>
+		<ul>
+				<li>
+					<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000/<strong>￥8000</strong></p>
+				</li>
+				<li class="hou frist">
+					<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000/<strong>￥8000</strong></p>
+				</li>
+				<li class="hou">
+					<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+					<p class="tit">高端定制企业网站设计...</p>
+					<p class="price">￥5000/<strong>￥8000</strong></p>
+				</li>
+			</ul>
+	</div>
+	<div id="pic">
+		<a href=""><img src="images/yellowpic.png" alt=""></a>
+	</div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>服务大厅</p><a href="shaiselect.html">+MORE</a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<li>
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+			<li class="hou frist">
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+			<li class="hou">
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+			<li class="frist">
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+			<li class="hou">
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+			<li class="hou frist">
+				<a href="service_detail.html"><img src="images/pic.png" alt=""></a>
+				<p class="tit">高端定制企业网站设计...</p>
+				<p class="price">￥5000/<strong>￥8000</strong></p>
+			</li>
+		</ul>
+	</div>
+	<div id="zulin" style="margin-bottom:50px;">
+		<div class="tit"><p class="left"><span></span>租赁服务</p><a href="zulin_service.html">+MORE</a></div>
+		<div class="xian"></div>
+		<ul>
+			<li>
+				<a href="zulin_detail.html"><img src="images/zl.png" alt=""></a>
+				<p class="tit">绵阳创新资产经营管理有限公司</p>
+				<div class="adress"><img src="images/poc.png" alt=""><p>绵阳创新中心二期</p></div>
+			</li>
+			<li class="hou">
+				<a href="zulin_detail.html"><img src="images/zl.png" alt=""></a>
+				<p class="tit">绵阳创新资产经营管理有限公司</p>
+				<div class="adress"><img src="images/poc.png" alt=""><p>绵阳创新中心二期</p></div>
+			</li>
+			<li>
+				<a href="zulin_detail.html"><img src="images/zl.png" alt=""></a>
+				<p class="tit">绵阳创新资产经营管理有限公司</p>
+				<div class="adress"><img src="images/poc.png" alt=""><p>绵阳创新中心二期</p></div>
+			</li>
+			<li class="hou">
+				<a href="zulin_detail.html"><img src="images/zl.png" alt=""></a>
+				<p class="tit">绵阳创新资产经营管理有限公司</p>
+				<div class="adress"><img src="images/poc.png" alt=""><p>绵阳创新中心二期</p></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

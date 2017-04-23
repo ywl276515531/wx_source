@@ -1,0 +1,162 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+/*	background: #efedf0;*/
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#login{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#login>form{
+	width: 60%;
+	margin:auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#login>form>input{
+	width: 100%;
+	height: 35px;
+	border:1px solid #ccc;
+	line-height: 35px;
+	border-radius: 4px;
+	color: black;
+	outline: none;
+	margin-top: 10px;
+}
+#login>form>.frist{
+	width: 100%;
+	margin-top: 10px;
+	background: #efedf0;
+}
+#login>form>.frist>p{
+	width: 95%;
+	margin:auto;
+	padding:10px 0;
+}
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+#login>form>.three{
+	width: 100%;
+	height: 35px;
+	margin-top: 10px;
+}
+#login>form>.three>.inputnum{
+	width: 55%;
+	height: 100%;
+	border-radius: 4px;
+	border:1px solid #ccc;
+	float: left;
+	outline: none;
+}
+#login>form>.three>.getnum{
+	width: 35%;
+	height: 40px;
+	border-radius: 4px;
+	border:1px solid #ccc;
+	float: right;
+	background: white;
+	cursor: pointer;
+	color: #6e6c6c;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+}
+#login>form>.second{
+	width: 70%;
+	margin:auto;
+	height: 35px;
+	margin-top: 20px;
+}
+#login>form>.second>.btn{
+	width: 100%;
+	height: 100%;
+	border:none;
+	background: #00b8ee;
+	color: white;
+	font-size: 14px;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+#login>.xian{
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+#login>.agroup{
+	height: 30px;
+	line-height: 30px;
+	width: 60%;
+	margin:auto;
+	padding-bottom: 30px;
+}
+#login>.agroup>div{
+	width: 70%;
+	margin:auto;
+}
+#login>.agroup>div>a{
+	color: #00b8ee;
+	text-decoration: underline;
+}
+#login>.agroup>div>.left{
+	float: left;
+}
+#login>.agroup>div>.right{
+	float: right;
+}
+@media (min-width: 480px) and (max-width: 645px){
+
+}
+@media (max-width: 479px){
+	#login{
+		width: 100%;
+	}
+	#login>form{
+		width: 95%;
+	}
+	#login>.agroup{
+		width: 80%;
+	}
+}

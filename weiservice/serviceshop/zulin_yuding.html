@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/zulin_yuding.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<a href=""><img src="images/yuding.png"></a>
+			</div>
+			<div class="right">
+				<p class="name">绵阳科技城科技发展有限责任公司成都分公司</p>
+				<p class="adress">5楼会议室</p>
+				<p class="poc">地址：长虹科技大厦B座5楼</p>
+			</div>
+		</div>
+		
+	</div>
+	<div id="baoming">
+		<div class="juzhong">
+			<p>填写预定信息</p>
+		</div>
+		<div class="xian"></div>
+		<form action="../grzx/myzulin.html">
+			<div>
+				<label><strong>*</strong>姓名 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>电话 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>人数 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>时间 ：</label>
+				<input type="text"/>
+			</div>
+			<div style="height:auto;">
+				<label>&nbsp;备注 ：</label>
+				<textarea></textarea>
+			</div>
+			<div class="btn">
+				<input type="submit" value="确认提交"/>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+  	$("#piaotype .type>ul>a").click(function(){
+  		$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+  		$(this).css("border","1px solid red");
+  	});
+</script>
+</html>

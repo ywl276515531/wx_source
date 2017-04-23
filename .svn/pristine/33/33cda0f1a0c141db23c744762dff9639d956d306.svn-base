@@ -1,0 +1,29 @@
+<?php if(count($shuju) > 0){ ?>
+<?php foreach($shuju as $key=>$v){ ?>
+<li>
+    <div class="center">
+        <div class="left">
+            <a href="zulin_detail.html">
+                <?php if(count($v['pic']) > 0){ ?>
+                <img src="http://www.wfyizhan.com/<?php echo $v['pic'][0]; ?>">
+                <?php }else{ ?>
+                <img src="./weiservice/grzx/images/zulin.png">
+
+                <?php } ?>
+            </a>
+        </div>
+        <div class="right">
+            <div class="cont">
+                <p class="name">名称：<?php echo mb_substr($v['s_room_title'],0,5,'utf-8'); ?></p>
+                <p class="num">人数：<?php echo $v['i_meeting_number']; ?>人</p>
+                <p class="price">价格：<?php echo $v['i_total_adj']/100; ?>元</p>
+                <p class="status">状态：<strong><?php if($v['i_cancle']){echo "订单已取消";}else{echo $ddzt[$v['i_meeting_sta']];}  ?> </strong></p>
+            </div>
+            <div class="btn">
+                <a href="./zulin.php?act=detail&id=<?php echo $v['i_id']; ?>">查看详情</a>
+            </div>
+        </div>
+    </div>
+</li>
+<div class="clearfix"></div>
+<?php }} ?>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>现场图片</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/moreactivity.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script src="./weiservice/serviceshop/js/layer.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="detail">
+			<?php if(count($cdxq) > 0){ ?>
+			<?php foreach($cdxq as $v){ ?>
+			<?php if($v['i_id'] == $id){ $ii = 1;    ?>
+			<?php foreach($v['as_pics'] as $vv){    ?>
+			<?php if($ii % 2 == 1){echo "<ul>"; } ?>
+			<li <?php if($ii % 2 == 0){echo "class='hou'"; } ?>>
+				<a><img src="http://www.wfyizhan.com<?php echo $vv; ?>" alt="" layer-src="http://www.wfyizhan.com<?php echo $vv; ?>" layer-pid=""></a>
+				<p class="tit"><?php echo $v['s_title']; ?></p>
+			</li>
+			<?php if($ii % 2 == 0){echo "</ul>"; } ?>
+			<?php ++$ii; ?>
+			<?php }}}} ?>
+	</div>
+</body>
+<script>
+;!function(){
+
+//页面一打开就执行，放入ready是为了layer所需配件（css、扩展模块）加载完毕
+layer.ready(function(){ 
+  
+  //使用相册
+  layer.photos({
+    photos: '#detail'
+  });
+});
+}();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

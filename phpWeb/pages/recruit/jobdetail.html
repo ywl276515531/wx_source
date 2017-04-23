@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/jobdetail.css">
+	<title>招聘详情</title>
+</head>
+<body>
+<div id="view">
+	<div id="news">		
+		<div class="top">			
+			<h2><?php echo $data['s_title']; ?></h2>
+			<h5><?php echo $data['s_company_title']; ?></h5>		
+		</div>	
+		<div id="content">
+			<p id="money"><?php echo $money; ?></p>
+			<div id="time_addr">
+				<img src="../images/poc.png" width="15px" height="15px"><span><?php echo $addr['address']; ?></span>
+				<img src="../images/clock.png" width="15px" height="15px"><span><?php echo date("Y-m-d",$data['i_pub_time']); ?></span>
+			</div>
+			<p id="require"><?php echo $require; ?></p>
+			<p id="point"><?php echo $point; ?></p>
+			<p id="e_mail">E-mail:<?php echo $e_mail; ?></p>
+			<p id="phone">联系电话：<?php echo $phone; ?></p>
+		</div>
+		<div class="line"></div>	
+		<div id="jobnew">
+			<p><span>|</span>职位描述</p>
+			<div id="jobdetail" style="font-size: 14px">
+				<?php echo $jobdetail; ?>
+			</div>
+		</div>
+		<div class="line"></div>
+		<div id="bottom">
+			<p id="bottom_title">微服驿站温馨提示</p>
+			<p id="botom_content">如在投递及面试过程中遇到招聘方的任何收费要求（如培训费、体检费、资料费、置装费、押金等），则存在诈骗风险，请您务必警惕。</p>
+		</div>
+	</div>	
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

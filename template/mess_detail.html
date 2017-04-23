@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/grzx/css/mymessage.css">
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<?php if(count($shuju) > 0){ ?>
+<?php foreach($shuju as $key=>$v){ ?>
+	<div id="mess_detail">
+		<p class="tit"><?php echo $v['s_title']; ?></p>
+		<div class="xian"></div>
+		<div class="cont">
+			<p><?php echo $v['s_content']; ?></p>
+		</div>
+		<div class="xian2"></div>
+		<span><?php echo date("Y-m-d",$v['i_time']); ?></span>
+	</div>
+<?php }} ?>
+<script>
+	$("a").css("color","black").removeAttr("href");
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

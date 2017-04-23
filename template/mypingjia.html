@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><?php echo $title; ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="./pingjia/files/zui.min.css">
+    <!--放置自定义css开始-->
+    <link rel="stylesheet" href="./pingjia/files/service_shop_order_comment.css" type="text/css">
+    <!--放置自定义css结束-->
+    <link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+    <script src="./pingjia/files/jquery.min.js"></script>
+    <script src="./hh/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<form>
+<div id="_pageContent">
+    <div class="divMiddle">
+        <div class="main">
+            <div class="title">
+                <p>交易评价</p>
+            </div>
+            <input type="hidden" id="i_id" name="i_id" value="<?php echo $dd['i_id']; ?>" />
+            <div class="appraise_box">
+                <div class="order_info"><img src="http://www.wfyizhan.com/<?php echo $dd['s_pic']; ?>" alt="">
+
+                    <p class="order_number">订单号：<span><?php echo $dd['s_sn']; ?></span></p>
+
+                    <p class="order_type"><a href="javascript:" title="<?php echo $dd['s_goods_name']; ?>"><?php echo $dd['s_goods_name']; ?></a></p>
+
+                    <p class="price">￥<?php echo $dd['i_total_adj']/100; ?></p></div>
+                <div class="order_appraise">
+                    <div class="check_box">
+                        <label>
+                            <input class="dxk" type="radio" name="radioOrder" value="1" id="radioBest" checked>
+                            <img src="./pingjia/files/best.jpg" alt=""> 好评
+                        </label>
+                        <label>
+                            <input class="dxk" type="radio" name="radioOrder" value="2" id="radioGood">
+                            <img src="./pingjia/files/good.jpg" alt=""> 中评
+                        </label>
+                        <label>
+                            <input class="dxk" type="radio" name="radioOrder" value="3" id="radioBad">
+                            <img src="./pingjia/files/bad.jpg" alt=""> 差评
+                        </label>
+                        <span class="check_box_tips"></span>
+                    </div>
+                    <div class="text_box">
+                        <textarea  class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="必填"  rows="10" id="s_quality_content" name="s_quality_content" placeholder="最多可以输入100字" maxlength="100"></textarea>
+                        <span class="text_box_tips"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="line_shot">
+                <hr>
+            </div>
+            <div class="starts">
+                <div class="shop_marks">
+                    <a href="javascript:">店铺动态评分</a>
+                </div>
+                <div class="shop_appraise">
+                    <div class="shop_service" id="shop_service" value="5">
+                        <span>服务态度</span>
+                        <img class="star1" src="./pingjia/files/good_str.jpg" value="1" alt="">
+                        <img class="star2" src="./pingjia/files/good_str.jpg" value="2" alt="">
+                        <img class="star3" src="./pingjia/files/good_str.jpg" value="3" alt="">
+                        <img class="star4" src="./pingjia/files/good_str.jpg" value="4" alt="">
+                        <img class="star5" src="./pingjia/files/good_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_service_grade">5</span>分</span>
+                        <span class="shop_appraise_tips"></span>
+                    </div>
+                    <div class="shop_work" id="shop_work" value="5">
+                        <span>工作速度</span>
+                        <img class="star1" src="./pingjia/files/good_str.jpg" value="1" alt="">
+                        <img class="star2" src="./pingjia/files/good_str.jpg" value="2" alt="">
+                        <img class="star3" src="./pingjia/files/good_str.jpg" value="3" alt="">
+                        <img class="star4" src="./pingjia/files/good_str.jpg" value="4" alt="">
+                        <img class="star5" src="./pingjia/files/good_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_work_grade">5</span>分</span>
+                        <span class="shop_work_tips"></span>
+                    </div>
+                    <div class="shop_qc" id="shop_qc" value="5">
+                        <span>完成质量</span>
+                        <img class="star1" src="./pingjia/files/good_str.jpg" value="1" alt="">
+                        <img class="star2" src="./pingjia/files/good_str.jpg" value="2" alt="">
+                        <img class="star3" src="./pingjia/files/good_str.jpg" value="3" alt="">
+                        <img class="star4" src="./pingjia/files/good_str.jpg" value="4" alt="">
+                        <img class="star5" src="./pingjia/files/good_str.jpg" value="5" alt="">
+                        <span class="appraise_grade"><span class="grade" id="shop_qc_grade">5</span>分</span>
+                        <span class="shop_qc_tips"></span>
+                    </div>
+                    <input type="hidden" id="hh" name="shop_service" value="5" />
+                    <input type="hidden" id="bb" name="shop_work" value="5" />
+                    <input type="hidden" id="cc" name="shop_qc" value="5" />
+                </div>
+            </div>
+        </div>
+        <input name="sub" value="11" type="hidden" />
+        <div class="appraise_btn_box" class="tooltip-show" data-toggle="tooltip" data-placement="top" id="pp">
+            <a class="center-block" id="order_btn" href="javascript:">发表评论</a>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $("#order_btn").click(function(){
+        if($("#s_quality_content").val().replace(/\s/g,'').length<1){
+            $(function () { $('#s_quality_content').tooltip('show');});
+            return false;
+        }
+        var i_id = $("#i_id").val();
+        var radioOrder = $(".dxk:checked").val();
+        var s_quality_content = $("#s_quality_content").val();
+        var shop_service = $("#hh").val();
+        var shop_work = $("#bb").val();
+        var shop_qc = $("#cc").val();
+        var sub = "meme";
+        var data = {"i_id":i_id,"radioOrder":radioOrder,"s_quality_content":s_quality_content,"shop_service":shop_service,"shop_work":shop_work,
+        "shop_qc":shop_qc,"sub":sub};
+        $.post("./order.php?act=pjdd",data,function(msg){
+            if(msg.stat == 1){
+                setTimeout(function(){
+                    window.location.href="./order.php?act=myorder";
+                },"1000");
+            }else{
+                $("#pp").attr("title",msg.err);
+                $(function () { $('#pp').tooltip('show');});
+            }
+        },"json");
+    });
+    $("#shop_qc img").click(function(){
+        /**
+         * 完成质量评价
+         */
+        var index = $(this).index();
+        $("#shop_qc").attr("value",index);
+        $("#shop_qc_grade").html(index);
+        $("input[name='shop_qc']").val(index);
+        $("#shop_qc img").attr("src","./pingjia/files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_qc img").eq($i).attr("src","./pingjia/files/good_str.jpg");
+        }
+    });
+
+    $("#shop_work img").click(function(){
+        /**
+         * 工作速度的评分
+         */
+        var index = $(this).index();
+        $("#shop_work").attr("value",index);
+        $("#shop_work_grade").html(index);
+        $("input[name='shop_work']").val(index);
+        $("#shop_work img").attr("src","./pingjia/files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_work img").eq($i).attr("src","./pingjia/files/good_str.jpg");
+        }
+    });
+
+    $("#shop_service img").click(function(){
+        /**
+         * 服务态度的评分
+         */
+        var index = $(this).index();
+        $("#shop_service").attr("value",index);
+        $("#shop_service_grade").html(index);
+        $("input[name='shop_service']").val(index);
+        $("#shop_service img").attr("src","./pingjia/files/default_str.jpg");
+        for(var $i=0;$i<=index-1;++$i){
+            $("#shop_service img").eq($i).attr("src","./pingjia/files/good_str.jpg");
+        }
+    });
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

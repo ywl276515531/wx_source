@@ -1,0 +1,97 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border: none;
+	max-width: 100%;
+}
+#top{
+	max-width: 640px;
+	margin: auto;
+}
+#top_img{
+	width: 100%;	
+	float: left;
+}
+#top_img img{
+	width: 30%;
+	margin-top: 8px;
+	margin-left: 34%;
+	margin-right: 34%;
+}
+#top_name{
+	width: 100%;
+	line-height: 25px;
+	float: left;
+}
+#top_name span{
+	width: 100%;
+	float: left;
+	font-weight: 900;
+	font-size: 16px;
+	height: 25px;
+	text-align: center;
+}
+#menu{
+	max-width: 640px;
+	margin: auto;
+}
+#menu ul{
+	float: left;
+	width: 98%;
+	margin: auto;
+	margin-top: 10px;
+
+}
+#menu ul li{
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+	width: 49%;
+	border: 1px solid grey;
+}
+#content{
+	max-width: 640px;
+	margin: auto;
+}
+.con_list{
+	width: 98%;
+	margin: auto;
+	float: left;
+	margin-top: 10px;
+}
+.con_list div{
+	width: 100%;
+	float: left;
+}
+.con_list div .con_title{
+	width: 100%;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #fcf5e2;
+}
+.con_tent{
+	width: 100%;
+	padding-left: 20px;
+}

@@ -1,0 +1,189 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #efedf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#order{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#order>.juzhong{
+	width: 95%;
+	margin:auto;
+	height: 30px;
+}
+#order>.juzhong>p{
+	float: left;
+	line-height: 30px;
+	height: 100%;
+	font-size: 14px;
+	color: #7d7b7b;
+}
+#order>.juzhong>strong{
+	font-size: 14px;
+	color: red;
+	letter-spacing: 1px;
+	float: right;
+	height: 100%;
+	line-height: 30px;
+}
+#lxr{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+}
+#lxr>p{
+	height: 30px;
+	line-height: 30px;
+	color: #7d7b7b;
+	font-size: 14px;
+	width: 95%;
+	margin: auto;
+}
+#pro{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	margin-top: 10px;
+}
+#pro>ul{
+	width: 100%;
+	border-bottom: 1px dashed #ccc;
+}
+#pro>ul>a{
+	width: 95%;
+	margin:0 auto;
+	height: 130px;
+	display: block;
+}
+#pro>ul>a>li{
+	width: 100%;
+	height: 100%;
+}
+#pro>ul>a>li>div{
+	height: 104px;
+	padding-top: 13px;
+}
+#pro>ul .left{
+	float: left;
+}
+#pro>ul .left img{
+	border:1px solid #ccc;
+}
+#pro>ul .right{
+	float: left;
+	padding-left: 15px;
+}
+#pro>ul .right>.name{
+	color: #7d7b7b;
+	font-size: 16px;
+	line-height: 104px;
+}
+#pro .money{
+	height: 40px;
+	width: 100%;
+}
+#pro .money>p{
+	float: left;
+	height: 100%;
+	line-height: 40px;
+	padding-left: 2.5%;
+	color: #7d7b7b;
+}
+#pro .money>p>strong{
+	color: red;
+}
+#pro .money>button{
+	float: right;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 80px;
+	height: 25px;
+	background: none;
+	margin-top: 7.5px;
+	margin-right: 2.5%;
+	color: #7d7b7b;
+}
+#btngroup{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	margin-top: 10px;
+	height: 40px;
+}
+#btngroup>.right{
+	float: right;
+	margin-right: 2.5%;
+	height: 100%;
+	margin-top: 7.5px;
+}
+#btngroup>.right>button{
+	width: 85px;
+	height: 25px;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	background: white;
+}
+#btngroup>.right>button>a{
+	color: #7d7b7b;
+}
+@media (min-width: 480px) and (max-width: 645px){
+
+}
+@media (max-width: 479px){
+	#order{
+		width: 100%;
+	}
+	#lxr{
+		width: 100%;
+	}
+	#btngroup{
+		width: 100%;
+	}
+	#pro>ul>a{
+		height: auto;
+	}
+	#pro>ul .left{
+		float: none;
+	}
+	#pro>ul .right{
+		float: none;
+		padding-left: 0;
+	}
+	#pro>ul>a>li>div{
+		height: auto;
+	}
+	#pro>ul .right>.name{
+		line-height: 30px;
+		padding-bottom: 10px;
+	}
+}

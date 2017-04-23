@@ -1,0 +1,23 @@
+/******************************* global*/
+
+* {
+    font-family: "Microsoft YaHei", "微软雅黑", ZenIcon !important;
+}
+
+a {
+    font-family: "Microsoft YaHei", "微软雅黑" !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.divMiddle {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+#_pageContent{
+    width: 100%;
+}
+/*icon font*/
+
+

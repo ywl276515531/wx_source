@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/collect.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<ul id="collect">
+		<a>
+			<li>活动收藏</li>
+		</a>
+		<a class="hou">
+			<li>服务收藏</li>
+		</a>
+	</ul>
+	<div class="one">
+		<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="two" style="display:none">
+		<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="../serviceshop/service_detail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>取消收藏</button>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#pro>.juzhong2 .right>button").click(function(){
+		$(this).parents("#pro").remove();
+	});
+	$("#collect>a").click(function(){
+		if($(this).index()==0){
+			$(".two").hide();
+			$(".one").show();
+		}else{
+			$(".one").hide();
+			$(".two").show();
+		}
+	});
+</script>
+</html>

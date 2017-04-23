@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="./weiservice/grzx/css/collect.css">
+    <link rel="stylesheet" href="./weiservice/css/loader.css">
+    <script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data['i_pages']; ?>" id="i_pages" />
+<ul id="collect">
+    <a href="./collect.php?act=zhu&pp=1" <?php if($pp == 1){ ?>style="background:#00b8ee;color:white" <?php } ?>>
+        <li>活动收藏</li>
+    </a>
+    <a href="./collect.php?act=zhu&pp=2" <?php if($pp == 2){ ?>style="background:#00b8ee;color:white" <?php } ?>  class="hou">
+        <li>服务收藏</li>
+    </a>
+</ul>
+<div class="one">
+    <?php if(count($shuju) > 0){ ?>
+    <?php foreach($shuju as $key=>$v){ ?>
+    <?php if($pp == 1){ ?>
+    <div id="pro">
+        <a href="./activity.php?act=detail&id=<?php echo $v['row_id']; ?>">
+        <div class="juzhong">
+            <div class="left">
+                <img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>">
+            </div>
+            <div class="right">
+                <p class="name"><?php echo $v['s_event_name']; ?></p>
+            </div>
+        </div>
+        </a>
+        <div class="xian"></div>
+        <div class="juzhong2">
+            <div class="right">
+                <button class="qxsc"  mm="./collect.php?act=quxiao&id=<?php echo $v['row_id']; ?>&mod=<?php echo $v['mod']; ?>&pp=<?php echo $pp; ?>">取消收藏</button>
+            </div>
+        </div>
+    </div>
+    <?php }elseif($pp == 2){ ?>
+    <div id="pro">
+        <a href="./serviceshop.php?act=detail&i_id=<?php echo $v['row_id']; ?>">
+            <div class="juzhong">
+                <div class="left">
+                    <img src="http://www.wfyizhan.com/<?php echo $v['s_service_pic']; ?>">
+                </div>
+                <div class="right">
+                    <p class="name"><?php echo $v['s_service_name']; ?></p>
+                </div>
+            </div>
+        </a>
+            <div class="xian"></div>
+            <div class="juzhong2">
+                <div class="right">
+                    <button class="qxsc" mm="./collect.php?act=quxiao&id=<?php echo $v['row_id']; ?>&mod=<?php echo $v['mod']; ?>&pp=<?php echo $pp; ?>">取消收藏</button>
+                </div>
+            </div>
+
+    </div>
+    <?php } ?>
+    <?php }} ?>
+</div>
+<script>
+    $(".qxsc").click(function(){
+        var url = $(this).attr("mm");
+        $.get(url,'',function(msg){
+            location.reload();
+        },"text")
+    });
+</script>
+ <p class="clearfix"></p>
+    <div class="loader-inner ball-pulse" style="display:none;background:#efedf0;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>  
+    <div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none;background:#efedf0;">
+        已经没有内容了
+    </div>
+</body>
+<script type="text/javascript">
+    $("#collect>a").click(function(){
+        $("#collect>a").css("background","white");
+        $(this).css("background","#00b8ee");
+    });
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+                $(".ball-pulse").show();
+                setTimeout(function(){
+                    var i_page = $("#i_page").val();
+                    i_page = parseInt(i_page)+1;
+                    var i_pages = parseInt($("#i_pages").val());
+                    if(i_page <= i_pages){
+                        $(".ball-pulse").show();
+                        $(".ball-text").hide();
+                        var pp = <?php echo $pp; ?>
+                        var data = {"page":i_page,'pp':pp};
+                        $.post("./collect.php?act=zhu",data,function(msg){
+                            $(".one").append(msg);
+                            $("#i_page").val(i_page);
+                        },"text")
+                    }else{
+                        $(".ball-pulse").hide();
+                        $(".ball-text").show();
+                    }
+                },2000);
+            }
+        });
+    });
+    $("#i_page").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

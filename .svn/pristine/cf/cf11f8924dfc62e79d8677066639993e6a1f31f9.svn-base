@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/orderdetail.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="order">
+		<div class="juzhong">
+			<p>订单号：23214123806</p>
+			<strong>已完成</strong>
+		</div>
+	</div>
+	<div id="lxr">
+		<p>姓名：张三</p>
+		<p>电话：15284744580</p>
+	</div>
+	<div id="pro">
+		<ul>
+			<a href="">
+				<li>
+					<div class="left">
+						<img src="images/proname.png" alt="">
+					</div>
+					<div class="right">
+						<p class="name">高端定制企业网站设计开发</p>
+					</div>
+				</li>
+			</a>
+		</ul>
+		<div class="money">
+			<p>金额：<strong>￥5000</strong></p>
+			<button>联系卖家</button>
+		</div>
+	</div>
+	<div id="btngroup">
+		<div class="right">
+			<button><a href="">评价订单</a></button>
+			<button><a href="">再次购买</a></button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no" />
+	<title>回复评论</title>
+	<link rel="stylesheet" href="./weiservice/activity/css/pinglun.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="./weiservice/activity/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<?php foreach($plnr as $v){ ?>
+	<div id="pl_detail">
+		<div class="top">
+			<p><?php echo $v['s_uid_name']; ?>:</p>
+		</div>
+		<div class="bottom" style="padding-top: 5px;">
+			<p><?php echo $v['content']; ?></p>
+		</div>
+	</div>
+	<div id="huifu">
+		<div class="top">
+			<a>回复 <strong>(<?php if($v['subs'] == ''){echo 0;}else{echo count($v['subs']);} ?>)</strong></a>
+		</div>
+		<?php if($v['subs'] != ''){ ?>
+		<?php foreach($v['subs'] as $vv){ ?>
+		<div class="bottom">
+			<div class="bot_top">
+				<p style="float: left"><?php echo $vv['s_uid_name']; ?></p>
+				<p style="float: right;color: gray;font-size: 12px"><?php echo date("m-d H:i",$vv['create_time']); ?></p>
+			</div>
+			<div class="bot_bottom">
+				<p><?php echo $vv['content']; ?></p>
+			</div>
+		</div>
+		<?php }} ?>
+	</div>
+	<?php if($_SESSION['uid'] != $v['uid']){ ?>
+	<div id="huifu_text">
+		<form action="./activity.php?act=sendpl&s_kind=event&i_id=<?php echo $hid; ?>&i_pid=<?php echo $id; ?>" method="post">
+			<input type="hidden" name="yzm" value="<?php echo $_SESSION['yzm']; ?>" />
+			<textarea name="s_content" required id="s_content" data-toggle="tooltip" data-placement="bottom" title="必填">
+
+			</textarea>
+			<div class="btn">
+				<input type="submit" name="sub" value="回复"/>
+			</div>
+		</form>
+		<script>
+			$("form").submit(function(){
+				if($("#s_content").val().replace(/\s/g,'').length<1){
+					$(function () { $('#s_content').tooltip('show');});
+					return false;
+				}
+			});
+		</script>
+	</div>
+	<?php }} ?>
+</body>
+<script type="text/javascript">
+  	$("#huifu_text textarea").val("");
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

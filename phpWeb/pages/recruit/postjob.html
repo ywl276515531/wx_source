@@ -1,0 +1,13 @@
+
+<?php if(count($data)>0){ ?>
+<?php foreach($data as $v){ ?>
+		<li class="job_item">
+			<a href="recruit.php?action=detail&id=<?php echo $v['i_id']; ?>">
+				<div id="item_info">
+					<span id="item_info_title"><?php echo str_replace('&frasl;', '/', $v['s_title']); ?></span>
+					<span id="item_info_money"><?php if($v['i_money_end']==0){echo '面议';} else{echo ($v['i_money_start']/100000).'k~'.($v['i_money_end']/100000).'k';} ?></span>
+					<span id="item_info_time"><?php echo $v['s_note']; ?></span>
+				</div>				
+			</a>
+		</li>
+	<?php }} ?>

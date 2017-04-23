@@ -1,0 +1,153 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: white;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#yuding{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+	padding-bottom: 20px;
+}
+#yuding>ul{
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+#yuding>ul>li{
+	width: 100%;
+	line-height: 40px;
+	border-top: 1px solid #ccc;
+}
+#yuding>ul>li.hou{
+	height: 75px;
+}
+#yuding li>.left{
+	float: left;
+	width: 110px;
+	height: 100%;
+	text-align: center;
+	font-size: 14px;
+}
+#yuding li.hou>.left{
+	line-height: 75px;
+	border-right: 1px solid #ccc;
+}
+#yuding li.hou>.right{
+	border-left: none;
+}
+#yuding li>.right{
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	border-left: 1px solid #ccc;
+	padding-left: 10px;
+	width:81%;
+}
+#yuding li>.right img{
+	padding: 8px 10px;
+	width: 100px;
+	height: 60px;
+}
+#bot{
+	max-width: 640px;
+	margin:auto;
+	height: 40px;
+	margin-top: 10px;
+	background: white;
+	position: fixed;
+	bottom:0;
+	left: 0;
+	right: 0;
+	border-top: 1px solid #ccc;
+}
+#bot>div{
+	width: 50%;
+	float: left;
+}
+#bot .left{
+	float: left;
+	width: 50%;
+}
+#bot .left>a{
+	width: 100px;
+	margin:auto;
+	overflow: hidden;
+	height: 100%;
+	display: block;
+	line-height: 50px;
+}
+#bot .left>a>img{
+	float: left;
+	width: 25px;
+	margin-right: 5px;
+	padding-top: 12px;
+}
+#bot .left>a>p{
+	float: left;
+	font-size: 16px;
+	color: black;
+}
+#bot .right{
+	width: 50%;
+	float: right;
+}
+#bot .right>a{
+	background: #00b8ee;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+@media (min-width: 529px) and (max-width: 645px){
+	#yuding li>.right{
+		width: 77%;
+	}
+}
+@media (max-width: 528px){
+	#yuding{
+		width: 100%;
+	}
+	#bot{
+		width: 100%;
+	}
+	#yuding li>.right{
+		width: 62%;
+	}
+	#yuding>ul>li{
+		line-height: 30px;
+	}
+}

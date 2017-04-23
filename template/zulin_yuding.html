@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+
+	<script src="http://www.wfyizhan.com/kcy/assets/jquery.min.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/zui/js/zui.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/jquery.cityselect.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/icheck.min.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/jquery.fs.selecter.min.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/jquery.fs.stepper.min.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/bootbox.min.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/cfg/web.php?loadmode=javascript&amp;r=1489397717"></script>
+<script src="http://www.wfyizhan.com/kcy/assets/base64.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/osSlider.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/sha1.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/comm/js/city.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/comm/js/global.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/kindeditor/kindeditor.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/assets/kindeditor/lang/zh_CN.js?t="></script>
+<script src="http://www.wfyizhan.com/kcy/comm/js/sign.js?t="></script>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>正在预定</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/zulin_yuding.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://www.wfyizhan.com/kcy/web/inc/meeting/calendar/calendar.css?t=1484204665" type="text/css">
+    <link rel="stylesheet" href="http://www.wfyizhan.com/kcy/assets/datetimepicker/datetimepicker.css?t=1484204665" type="text/css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+	<script src="http://www.wfyizhan.com/kcy/comm/js/global.js?t=1484204665"></script>
+</head>
+<body>
+	<div id="pro">
+		<?php if(count($cdxq) > 0){ ?>
+		<?php foreach($cdxq as $v){ ?>
+		<?php if($v['i_id'] == $id){
+		$v['as_pics'][0]=str_replace("http://www.wfyizhan.com/","",$v['as_pics'][0]);
+		 ?>
+		<div class="juzhong">
+			<div class="left">
+				<a href=""><img src="http://www.wfyizhan.com/<?php echo $v['as_pics'][0]; ?>"></a>
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $jdxq[0]['s_title'] ?></p>
+				<p class="adress"><?php echo $v['s_room_address']; ?></p>
+				<p class="poc">地址：<?php echo $jdxq[0]['s_address'] ?></p>
+			</div>
+		</div>
+		<?php $renshu = $v['i_number']; ?>
+		<?php }}} ?>
+	</div>
+	<div id="baoming">
+		<div class="juzhong">
+			<p>填写预定信息</p>
+		</div>
+		<div class="xian"></div>
+		<form action="./serviceshop.php?act=zulin_yuding" method="post">
+			<!--会议室id-->
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<!--酒店id-->
+			<input type="hidden" name="zid" value="<?php echo $zid; ?>">
+			<!--酒店价格-->
+			<input type="hidden" name="i_price" value="<?php echo $cdxq[0]['i_price']; ?>">
+			<div>
+				<label><strong>*</strong>姓名 ：</label>
+				<input type="text" name="name" id="name" placeholder="请输入姓名"  class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="不能为空" />
+			</div>
+			<div>
+				<label><strong>*</strong>电话 ：</label>
+				<input type="text" name="phone" id="phone" placeholder="请输入电话" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="电话号码错误" />
+			</div>
+			<div>
+				<label><strong>*</strong>人数 ：</label>
+				<input type="number" name="man" placeholder="请输入人数"  mm="<?php echo $renshu; ?>" id="man" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="只能为数字" />
+			</div>
+			<div>
+				<label><strong>*</strong>时间 ：</label>
+				<input style="cursor:auto;" placeholder="请输入时间" type="text" name="sTime" id="sTime" data-toggle="tooltip" data-placement="bottom" 
+				title="必填" class="time fabu_title  fabu_title_time form-control form_check tooltip-show" value="" readonly check-type="Text"/>
+			</div>
+			<div style="height:auto;">
+				<label>&nbsp;备注 ：</label>
+				<textarea name="bz" id="bz" placeholder="请输入备注"></textarea>
+			</div>
+			<input name="sub" value="111111111" type="hidden" />
+			<div class="btn">
+				<input type="button" name="sub1" id="sub" value="确认提交"/>
+			</div>
+		</form>
+	</div>
+</body>
+<script src="http://www.wfyizhan.com/kcy/web/inc/meeting/calendar/calendar.js?t=1484204665"></script>
+    <script>
+    var key = _getQueryString("key");
+    var used_day = [];
+    $(function() {
+        // 初始化日历
+        var temp_disp = ['2016-08-10'];
+    })
+    //  $('#sTime').click(function(event) {
+    //     requestTime();
+    // });
+    // // 日历验证
+    $('#sTime').click(function(event) {
+        $('#eTime').siblings('.tips').html('会议时间不能大于30天');
+    });
+
+    function setEventTime(id) {
+        var stime = $('#sTime').val();
+        var etime = $('#eTime').val();
+        switch (id) {
+            case "sTime":
+                WdatePicker({
+                    dateFmt: 'yyyy-MM-dd',
+                    minDate: '%yyyy-%MM-%dd',
+                    maxDate: "#F" + '{' + "$dp.$D('eTime')}"
+                });
+                break;
+            case "eTime":
+                if (stime != "") {
+                    WdatePicker({
+                        dateFmt: 'yyyy-MM-dd',
+                        minDate: "#F" + '{' + "$dp.$D(\'sTime\')}"
+                    });
+                } else {
+                    alert('请选择会议截止时间');
+                }
+                break;
+        }
+    }
+
+    function get_unix_time(dateStr) {
+        var time_str = "";
+        if (typeof(dateStr) != "undefined") {
+            var newstr = dateStr.replace(/-/g, '/');
+            var date = new Date(newstr);
+            time_str = (date.getTime() / 1000).toString();
+            //time_str.substr(0, 10);
+        }
+        return time_str;
+
+    }
+    // function requestTime() {
+    //     var meeting_time = {
+    //         "i_id": key,
+    //         "s_time": '',
+    //     };
+    //     _sendAjax("meeting_time", 200, meeting_time);
+    // }
+    var mydate = new Date();
+    var today = "" + mydate.getFullYear() + "-";
+    today += (mydate.getMonth() + 1) + "-";
+    today += mydate.getDate();
+    now_day = get_unix_time(today);
+    //console.log(today);
+    //获取1个月的时间戳
+    var date = new Date();
+    var last_day = formatTimer(new Date(mydate.getFullYear(), mydate.getMonth() + 1, mydate.getDate()) / 1000, "yyyy-MM-dd");
+    var calendar = new Calendar();
+    calendar.init({
+        target: $('#sTime'),
+        range: [today, last_day], //筛选时间段，从当天开始
+        multiple: true,
+        overdays: function(a) {
+            //alert('添加已达上限 ' + a + ' 天');
+        },
+        filter: function(time) {
+            var date = formatTimer(time / 1000, "yyyy-MM-dd");
+            // 判断
+            used_day = <?php echo $data3['as_days'];?>;
+            // console.log(used_day);
+            for (var i = 0; i < used_day.length; i++) {
+                if (date == used_day[i]) {
+                    return false;
+                }
+            }
+            return true;
+        },
+        afterSelected: function(obj, date) {
+            //console.log(date)
+        }
+    });
+    </script>
+<script type="text/javascript">
+  	$("#piaotype .type>ul>a").click(function(){
+  		$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+  		$(this).css("border","1px solid red");
+  	});
+	$("#sub").click(function(){
+		var cc = 1;
+		var time = $("#sTime").val();
+		var com = false;
+			console.log(time);
+			if(time.length == 0) {
+				cc = 0;
+				$(function () {
+					$(function () { $('#sTime').tooltip('show');});
+				});
+			}else{
+				//时间是否正确
+				var timeArr = time.split(",");
+				var timestamp = Date.parse(new Date());
+				for(var i=0;i<timeArr.length;i++){
+					if(timestamp > Date.parse(new Date(timeArr[i]))){
+						cc = 0;
+						com = true;
+						$("#sTime").attr('title','请选择正确的时间');
+						$(function () {
+							$(function () { $('#sTime').tooltip('show');});
+						});
+					}
+				}
+				if(com){
+					$("#sTime").attr('title','请选择正确的时间');
+					$(function () {
+						$(function () { $('#sTime').tooltip('show');});
+					});
+				}
+			}
+						
+
+			//说明时间是正确的
+			if($("#name").val().replace(/\s/g,'').length < 1){
+				cc = 0;
+				$(function () { $('#name').tooltip('show');});
+			}
+			var tel = $("#phone").val();
+			var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+			if (!reg.test(tel)) {
+				cc = 0;
+				$(function () { $('#phone').tooltip('show');});
+			};
+			var reg1 = new RegExp("^[0-9]*$");
+			var obj1 = $("#man").val();
+			if(!reg1.test(obj1) || $("#man").val().replace(/\s/g,'').length < 1){
+				cc = 0;
+				$("#man").attr("title","必须为数字");
+				$(function () { $('#man').tooltip('show');});
+			}else if(parseInt(obj1) > <?php echo $renshu; ?>){
+				cc = 0;
+				var yuyu = "人数不能大于"+$("#man").attr("mm");
+				$("#man").attr("title",yuyu);
+				$(function () { $('#man').tooltip('show');});
+			}
+			if(cc == 0){
+				return false;
+			}else if(cc == 1){
+				$("form").submit();
+			}
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 

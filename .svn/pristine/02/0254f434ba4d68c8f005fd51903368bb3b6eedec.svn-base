@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/service_mask.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<a><img src="./weiservice/serviceshop/images/servermask.png"></a>
+	</div>
+	<div class="clearfix"></div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>促销专区</p><a href="./serviceshop.php?act=morecx&cx=1">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul>
+			<?php if(isset($cuxiao)){  $i=1;  ?>
+			<?php foreach($cuxiao as $v){ ?>
+				<li <?php if($i == 2 || $i == 6){ ?> class="hou first" <?php }elseif($i == 3 || $i == 5){ ?> class="hou" <?php }elseif($i == 4){ ?>class='first' <?php } ?> >
+					<a href="serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>" ></a>
+					<p class="tit"><?php echo $v['s_title']; ?></p>
+					<p class="price">￥<?php echo $v['shop_price']; ?>/<strong>￥<?php echo $v['market_price']; ?></strong></p>
+				</li>
+			<?php if($i >= 6){break ;} ++$i; ?>
+			<?php }} ?>
+			</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>服务大厅</p><a href="./serviceshop.php?act=morecx">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<?php if(count($fwdt) > 0){ $i=1; ?>
+			<?php foreach($fwdt as $key=>$v){ ?>
+			<?php if($i==1){echo "<li>";}elseif($i== 2 || $i==6){echo "<li class='hou first'>";}elseif($i == 3 || $i == 5){echo "<li class='hou'>";}else{echo "<li class='first'>";} ?>
+				<a href="./serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>"></a>
+				<p class="tit"><?php echo $v['s_title']; ?></p>
+				<p class="price">￥<?php echo $v['shop_price']; ?></strong></p>
+			</li>
+			<?php if($i >= 6){break ;} ++$i; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div id="zulin">
+		<div class="tit"><p class="left"><span></span>租赁服务</p><a href="./serviceshop.php?act=morezlfw">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul  style="margin-bottom:50px;">
+			<?php if(count($zlfw) > 0){ $i=1; ?>
+			<?php foreach($zlfw as $v){ ?>
+			<li <?php if($i%2 == 0){echo "class=hou";} ?> >
+				<a href="./serviceshop.php?act=zlfw&id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_pic_cover']; ?>" alt=""></a>
+				<p class="tit"><?php echo $v['s_title']; ?></p>
+				<div class="adress"><img src="./weiservice/serviceshop/images/poc.png" alt=""><p><?php echo mb_substr( $v['s_address'], 0, 9, "utf-8" ); ?></p></div>
+			</li>
+			<?php if($i >= 4){break;}++$i; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<?php include_once './template/daohang.html'; ?>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

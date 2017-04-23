@@ -1,0 +1,43 @@
+<?php if(count($shuju) > 0){ ?>
+<?php foreach($shuju as $key=>$v){ ?>
+<?php if($pp == 1){ ?>
+<div id="pro">
+    <a href="./activity.php?act=detail&id=<?php echo $v['row_id']; ?>">
+        <div class="juzhong">
+            <div class="left">
+                <img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>">
+            </div>
+            <div class="right">
+                <p class="name"><?php echo $v['s_event_name']; ?></p>
+            </div>
+        </div>
+    </a>
+    <div class="xian"></div>
+    <div class="juzhong2">
+        <div class="right">
+            <button class="qxsc"  mm="./collect.php?act=quxiao&id=<?php echo $v['row_id']; ?>&mod=<?php echo $v['mod']; ?>&pp=<?php echo $pp; ?>">取消收藏</button>
+        </div>
+    </div>
+</div>
+<?php }elseif($pp == 2){ ?>
+<div id="pro">
+    <a href="./serviceshop.php?act=detail&i_id=<?php echo $v['row_id']; ?>">
+        <div class="juzhong">
+            <div class="left">
+                <img src="http://www.wfyizhan.com/<?php echo $v['s_service_pic']; ?>">
+            </div>
+            <div class="right">
+                <p class="name"><?php echo $v['s_service_name']; ?></p>
+            </div>
+        </div>
+    </a>
+    <div class="xian"></div>
+    <div class="juzhong2">
+        <div class="right">
+            <button class="qxsc" mm="./collect.php?act=quxiao&id=<?php echo $v['row_id']; ?>&mod=<?php echo $v['mod']; ?>&pp=<?php echo $pp; ?>">取消收藏</button>
+        </div>
+    </div>
+
+</div>
+<?php } ?>
+<?php }} ?>

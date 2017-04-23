@@ -1,0 +1,114 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #efedf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#myzulin{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	min-height: 600px;
+}
+#myzulin>ul{
+	width: 100%;
+}
+#myzulin>ul>li{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	float: left;
+}
+#myzulin>ul .center{
+	width: 96%;
+	margin:0 2%;
+	padding:10px;
+	float: left;
+}
+#myzulin>ul .center .left{
+	height: 100%;
+	float:left;
+	width:30%;
+}
+#myzulin>ul .center .left>a{
+	display: block;
+	width: 100%;
+}
+#myzulin>ul .center .left>a>img{
+	width: 100%;
+}
+#myzulin>ul .center .right{
+	float: left;
+	margin-left: 2%;
+	width: 65%;
+}
+#myzulin>ul .center .right>.cont{
+	float: left;
+}
+#myzulin>ul .center .right>.cont>p{
+	font-size: 14px;
+	color: black;
+	padding-bottom: 2px;
+}
+#myzulin>ul .center .right>.cont>p>strong{
+	color: red;
+}
+#myzulin>ul .center .right>.btn{
+	float: right;
+}
+#myzulin>ul .center .right>.btn>a{
+	width: 90px;
+	height: 30px;
+	color: white;
+	display: block;
+	background: #00b8ee;
+	text-align: center;
+	line-height: 30px;
+	margin-top: 20px;
+}
+@media (min-width: 480px) and (max-width: 645px){
+	#myzulin>ul .center .right{
+		width: 56%;
+	}
+}
+@media (max-width: 479px){
+	#myzulin{
+		width: 100%;
+	}
+	#myzulin>ul .center .left>a{
+		width: 100%;
+		height: auto;
+	}
+	#myzulin>ul .center .left{
+		width: 25%
+	}
+	#myzulin>ul .center .right{
+		margin-left: 3%;
+		width: 65%;
+	}
+}

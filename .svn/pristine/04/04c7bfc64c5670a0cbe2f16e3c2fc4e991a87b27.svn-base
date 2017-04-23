@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/prodetail.css">
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>项目详情</title>
+</head>
+<body>
+<div id="top">
+	<img id="top_img" src="http://www.wfyizhan.com/<?php echo $data['s_cover_path']; ?>">
+	<div id="top_con">
+		<span id="com_name"><?php echo $data['s_title']; ?></span>
+		<div id="bottom">
+			<img src="../images/addr.png"><span id="addr"><?php  echo $addr; ?></span>		
+			<div style="display: block;">
+				<img src="../images/type.png"><span id="type"><?php echo $type; ?></span>
+			</div>
+			
+		</div>		
+	</div>
+</div>
+<div id="menu">
+	<ul >
+		<li style="background:#00b8ee;border-right: none;">项目信息</li>
+		<li  style="border-right: none;">公司介绍</li>
+		<li  style="border-right: none;">团队介绍</li>
+		<li >融资需求</li>
+	</ul>
+</div>
+<div id="clearfix"></div>
+<div id="content">
+	<div id="con_pro" class="menu_con">
+		<div id="note">
+			<span class="con_title">一句简介</span>
+			<span class="con_con"><?php echo $data['s_note']; ?></span>
+		</div>
+		<div id="market">
+			<span class="con_title">市场规模</span>
+			<span class="con_con"><?php echo $data['s_market']; ?></span>
+		</div>
+		<div id="core">
+			<span class="con_title">解决核心问题</span>
+			<span class="con_con"><?php echo $data['s_core']; ?></span>
+		</div>
+		<div id="business_mode">
+			<span class="con_title">商业模式</span>
+			<span class="con_con"><?php echo $data['s_business_mode']; ?></span>
+		</div>
+		<div id="competer">
+			<span class="con_title">竞品</span>
+			<span class="con_con"><?php echo $data['s_competer']; ?></span>
+		</div>
+		<div id="advantage">
+			<span class="con_title">项目优势</span>
+			<span class="con_con"><?php echo $data['s_advantage']; ?></span>
+		</div>
+		<div id="dev_level">
+			<span class="con_title">产品研发阶段</span>
+			<span class="con_con"><?php echo $dev_level[$data['i_dev_level']]; ?></span>
+		</div>
+		<div id="product">
+			<span class="con_title">产品截图</span>
+			<img src="http://www.wfyizhan.com/<?php echo $pro_path[0]; ?>">
+		</div>
+		<div id="future">
+			<span class="con_title">发展规划</span>
+			<span class="con_con"><?php echo $data['s_future']; ?></span>
+		</div>
+		<div id="bp">
+			<span class="con_title">项目BP</span>
+			<a href="http://www.wfyizhan.com/<?php echo $data['s_bp_path']; ?>">文件下载</a>
+		</div>
+	</div>
+	<div id="con_com" class="menu_con" style="display: none;">
+		<div id="company_title">
+			<span class="con_title">公司名称</span>
+			<span class="con_con"><?php echo $data['s_company_title']; ?></span>
+		</div>
+		<div id="company_born">
+			<span class="con_title">成立时间</span>
+			<span class="con_con"><?php echo date("Y-m-d",$data['i_company_born']); ?></span>
+		</div>
+		<div id="company_address">
+			<span class="con_title">公司地址</span>
+			<span class="con_con"><?php echo $data['s_company_address']; ?></span>
+		</div>
+		<div id="company_note">
+			<span class="con_title">公司简介</span>
+			<span class="con_con"><?php echo $data['s_company_note']; ?></span>
+		</div>		
+	</div>
+	<div id="con_team" class="menu_con" style="display: none;">
+		<div id="people1">
+			<span class="con_title">创始人</span>
+			<div class="people_con">
+				<div id="first">
+					<img src="http://www.wfyizhan.com/<?php echo $founder_info[0]['s_facepic']; ?>">
+				</div>				
+				<div id="second">
+					<span><?php echo $founder_info[0]['s_realname']; ?></span>					
+					<span><?php echo date('Y-m-d',$founder_info[0]['i_born']); ?></span>
+					<span><?php echo $founder_info[0]['s_job']; ?></span>
+					<span><?php echo $founder_info[0]['s_education']; ?></span>
+					<span><?php echo $founder_info[0]['s_experience']; ?></span>
+				</div>
+			</div>
+		</div>
+		<div id="people2">
+			<span class="con_title">联合创始人</span>
+			<div class="people_con">
+				<div id="first">
+					<img src="http://www.wfyizhan.com/<?php echo $founder_info[1]['s_facepic']; ?>">
+				</div>				
+				<div id="second">
+					<span><?php echo $founder_info[1]['s_realname']; ?></span>
+					<span><?php echo date('Y-m-d',$founder_info[1]['i_born']); ?></span>
+					<span><?php echo $founder_info[1]['s_job']; ?></span>
+					<span><?php echo $founder_info[1]['s_education']; ?></span>
+					<span><?php echo $founder_info[1]['s_experience']; ?></span>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div id="con_money" class="menu_con" style="display: none;">
+		<div id="money_level">
+			<span class="con_title">融资轮数</span>
+			<span class="con_con"><?php echo $money_level[$data['i_money_level']]; ?></span>
+		</div>
+		<div id="money_total">
+			<span class="con_title">融资金额</span>
+			<span class="con_con"><?php echo $data['i_money_total']; ?>万</span>
+		</div>
+		<div id="money_shares">
+			<span class="con_title">出让股份</span>
+			<span class="con_con"><?php echo $data['i_money_shares']; ?>%</span>
+		</div>
+		<div id="s_money_use">
+			<span class="con_title">用途</span>
+			<span class="con_con"><?php echo $data['s_money_use']; ?></span>
+		</div>		
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$('#menu ul li').click(function(){
+		$('#content .menu_con').hide();
+		$('#menu ul li').css("background","white");
+		$(this).css("background","#00b8ee");
+		var index=$(this).index();
+		$('#content .menu_con').eq(index).show();
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

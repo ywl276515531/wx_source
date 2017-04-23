@@ -1,0 +1,143 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: white;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+.pic{
+	max-width: 640px;
+	margin:auto;
+}
+.pic>img{
+	width: 100%;
+}
+#ban{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+}
+#ban>ul{
+	width: 96%;
+	margin:0 2%;
+	margin-bottom:12px;
+	height: 100px;
+}
+#ban>ul>a{
+	width:32%;
+	height: 100px;
+	display: block;
+	line-height: 100px;
+	text-align: center;
+	float: left;
+	margin-right: 2%;
+	font-size: 16px;
+	color: white;
+}
+#ban>ul>a.hou{
+	margin-right: 0;
+}
+#ban>ul>a>li{
+	width: 100%;
+	height: 100%;
+}
+#tit{
+	max-width: 640px;
+	height: 40px;
+	margin:auto;
+	margin-top: 10px;
+	line-height: 40px;
+}
+#tit2{
+	max-width: 640px;
+	height: 40px;
+	margin:auto;
+	margin-top: 10px;
+	line-height: 40px;
+}
+#tit>p{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: #66ccff;
+	color: white;
+	font-size: 16px;
+}
+#tit2>p{
+	width: 100px;
+	margin:auto;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
+#tit2>p>img{
+	float: left;
+	margin-top: 8px;
+}
+.list{
+	max-width: 640px;
+	margin:auto;
+}
+.list>li{
+	line-height: 35px;
+	width: 95%;
+	margin:auto;
+	clear:both;
+}
+.list>li>span{
+	width: 8px;
+	height: 8px;
+	background: #66ccff;
+	float: left;
+	margin-top: 13px;
+}
+.list>li>p{
+	float: left;
+	margin-left: 10px;
+	line-height: 35px;
+	height: 35px;
+	width: 93%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+@media (min-width: 480px) and (max-width: 640px){
+	
+}
+@media (max-width: 479px){
+	#ban>ul{
+		height: 60px;
+		margin-bottom: 6px;
+	}
+	#ban>ul>a{
+		height: 60px;
+		line-height: 60px;
+	}	
+}
+
+.list>li>p>a{color: black}

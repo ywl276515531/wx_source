@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="../css/finance.css">	
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>金融桥梁</title>
+</head>
+<body>
+	<div id="pic">
+		<a href=""><img src="../images/banner.jpg" alt=""></a>
+	</div>	
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>最新项目</p><a href="finance.php?action=morepro">更多>></a></div>
+		<div class="xian"></div>
+		<ul>
+			<?php $i=0; 
+			if(is_array($result_pro)){
+			foreach($result_pro as $v){ ?>
+				<li <?php if($i%3!=0){ ?> class="hou"<?php } ?> >
+					<a href="finance.php?action=prodetail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt=""></a>
+					<p class="tit"><?php echo $v['s_title']; ?></p>
+					<p class="price"><?php echo date('Y-m-d',$v['i_create_time']); ?></p>
+				</li>
+			<?php $i++;}} ?>
+		</ul>
+	</div>	
+	<div id="youhui" class="tt">
+		<div class="tit"><p class="left"><span></span>投资人</p><a href="finance.php?action=moreper">更多>></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+		<?php $j=0; 
+		if(is_array($result_per)){
+		foreach($result_per as $v){ ?>
+			<li <?php if($j%3!=0){ ?> class="hou"<?php } ?> >
+				<a href="finance.php?action=perdetail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt=""></a>
+				<p class="tit"><?php echo $v['s_education'] ?></p>
+				<p class="price"><?php echo date('Y-m-d',$v['i_create_time']); ?></p>
+			</li>
+		<?php $j++;}} ?>
+		</ul>
+	</div>
+	<link href="../../../11/weiservice/css/main.css" rel="stylesheet" type="text/css"/>
+<!--[if IE]>
+<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+<style>
+	.mobile-inner-nav {
+		overflow: hidden;
+	}
+	.mobile-inner-nav a{
+		-webkit-animation-duration: 0.5s;
+		animation-duration: 0.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+
+		-webkit-animation-name: ReturnToNormal;
+		animation-name: ReturnToNormal;
+	}
+
+
+	@-webkit-keyframes ReturnToNormal {
+		100% {
+			-webkit-transform: translateX(0%) rotate(0deg);
+			transform: translateX(0%) rotate(0deg);
+		}
+
+
+	}
+
+	@keyframes ReturnToNormal {
+		100% {
+			-webkit-transform: translateX(0%) rotate(0deg);
+			transform: translateX(0%) rotate(0deg);
+		}
+	}
+</style>
+<div id="bottom">
+	<ul>
+		<li style="position:relative;" class="mobile-inner-header-icon mobile-inner-header-icon-out two">
+			<a><img src="../../weiservice/images/home.png" alt=""><p>微服</p></a>
+			<div class="mobile-inner-nav">
+				<a href="http://m.qlchat.com/live/270000241158353.htm"><img src="../images/zhibo.png" alt=""><p>直播</p></a>
+				<a style="padding-top:15px" href="../../../index.php"><img src="../images/home.png" alt=""><p>首页</p></a>
+			</div>
+		</li>
+		<li style="position:relative;" class="mobile-inner-header-icon mobile-inner-header-icon-out two">
+			<a><img src="../../weiservice/images/daohang.png" alt=""><p>服务</p></a>
+			<div class="mobile-inner-nav">
+				<a href="../../activity.php"><img src="../images/hdjl.png" alt=""><p>活动交流</p></a>
+				<a style="padding-top:15px" href="../../serviceshop.php"><img src="../images/fwcs.png" alt=""><p>服务超市</p></a>
+				<a style="padding-top:15px" href="../../xzservice.php"><img src="../images/xzfw.png" alt=""><p>行政服务</p></a>
+				<a style="padding-top:15px" href="../../zhxx.php"><img src="../images/zhxx.png" alt=""><p>综合信息</p></a>
+				<a style="padding-top:15px" href="recruit.php"><img src="../images/rc.png" alt=""><p>人才集市</p></a>
+				<a style="padding-top:15px" href="finance.php"><img src="../images/jr.png" alt=""><p>金融桥梁</p></a>
+			</div>
+		</li>
+		<li class="three"><a href="../../grzx.php?act=zhu"><img src="../../weiservice/images/person.png" alt=""><p>用户</p></a></li>
+	</ul>
+</div>
+<script>
+	$(window).load(function () {
+		$(".mobile-inner-header-icon").click(function(){
+			$(this).toggleClass("mobile-inner-header-icon-click mobile-inner-header-icon-out");
+			$(this).find(".mobile-inner-nav").slideToggle(250);
+		});
+		$(".mobile-inner-nav a").each(function( index ) {
+			$( this ).css({'animation-delay': (index/20)+'s'});
+		});
+
+		$(".mobile-inner-nav a:odd").css({'transform': 'translateX(50%) rotate(30deg)'});
+		$(".mobile-inner-nav a:even").css({'transform': 'translateX(-50%) rotate(-30deg)'});
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

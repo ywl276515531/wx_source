@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/act_detail.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<img src="images/act_de.png">
+		<p class="tit">创智青羊行·青创巅峰会</p>
+		<div class="xian"></div>
+		<div class="detail">
+			<div>
+				<img src="images/clock.png"><p>2016-08-12 14:00~2016-08-12 17:00</p>
+			</div>
+			<div>
+				<img src="images/poc.png"><p>四川省成都市光谷创业咖啡青羊孵化器沙龙区（长发街55号）</p>
+			</div>
+			<div>
+				<img src="images/people.png"><p>限额100人</p>
+			</div>
+			<div>
+				<img src="images/hui.png"><p>四川七一二众创空间企业管理有限公司</p>
+			</div>
+			<div class="btn">
+				<a href="xianchanglist.html" class="act">活动现场图片</a>
+				<a href=""><img src="images/sc.png"></a>
+			</div>
+		</div>
+	</div>
+	<div id="act-cont">
+		<div class="juzhong">
+			<div><img src="images/edit.png"><p>活动内容</p></div>
+			<p>为帮助各会员单位和人力资源机构了解掌握系列劳动保障法律法规及省人社厅在2016年有哪些新规定、举措，提高管理人员依法管理的理念和实际操作的技能技巧，有效规避防范用工风险和化解劳动争议，实现低风险、低成本、高绩效的人力资源管理目标。</p>
+			<p>省人才服务行业协会和绵阳市人才交流中心共同举办人力资源管理培训班。</p>
+			<p>届时，将邀请省人社厅和四川聚点人力资源管理咨询师的专家前往绵阳讲授解答人力资源管理方面的法律法规，本次培训采取讲授和互动解答的形势，互动性强。</p>
+			<p>10月14日本周星期五《劳资纠纷风险控制实务》我们不见不散！诚邀您及相关人员届时莅临！</p>
+			<p style="padding-bottom:5px">联系电话：15681931888</p>
+			<div><img src="images/map.png"><p>活动地点</p></div>
+			<iframe src="../serviceshop/map.html"></iframe>
+			<div><img src="images/two.png"><p>最近参与</p><a href="canyudetail.html">+MORE</a></div>
+			<ul>
+				<li>
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou first">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="pinglun">
+		<div class="juzhong">
+			<div><img src="images/two.png"><p>评论 <strong>(16)</strong></p><a href="pinglun.html">+MORE</a></div>
+			<ul>
+				<li>
+					<div class="top">
+						<a href="pinglun_detail.html">回复 <strong>(0)</strong></a>
+						<p>152****4845</p>
+					</div>
+					<div class="bottom">
+						<p>后市大幅拉升的理发师傅哈克斯的上岛咖啡回拨卡四季度会发生地服啊斯蒂芬呼啦啦十大疯狂拉升的分艾丝凡，的打算离开饭后啊第四佛</p>
+					</div>
+				</li>
+				<li>
+					<div class="top">
+						<a href="pinglun_detail.html">回复<strong>(0)</strong></a>
+						<p>152****4845</p>
+					</div>
+					<div class="bottom">
+						<p>后市大幅拉升的理发师傅哈克斯的上岛咖啡回拨卡四季度会发生地服啊斯蒂芬呼啦啦十大疯狂拉升的分艾丝凡，的打算离开饭后啊第四佛</p>
+					</div>
+				</li>
+				<li>
+					<div class="top">
+						<a href="pinglun_detail.html">回复<strong>(0)</strong></a>
+						<p>152****4845</p>
+					</div>
+					<div class="bottom">
+						<p>后市大幅拉升的理发师傅哈克斯的上岛咖啡回拨卡四季度会发生地服啊斯蒂芬呼啦啦十大疯狂拉升的分艾丝凡，的打算离开饭后啊第四佛</p>
+					</div>
+				</li>
+				<li>
+					<div class="top">
+						<a href="pinglun_detail.html">回复<strong>(0)</strong></a>
+						<p>152****4845</p>
+					</div>
+					<div class="bottom">
+						<p>后市大幅拉升的理发师傅哈克斯的上岛咖啡回拨卡四季度会发生地服啊斯蒂芬呼啦啦十大疯狂拉升的分艾丝凡，的打算离开饭后啊第四佛</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="bot">
+			<div class="left">
+				<a href="question.html"><img src="images/edit.png"><p>去提问</p></a>
+			</div>
+			<div class="right">
+				<a href="piao.html">立即报名</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+  	
+</script>
+</html>

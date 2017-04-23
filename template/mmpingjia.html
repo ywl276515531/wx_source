@@ -1,0 +1,10 @@
+<?php if(count($list) > 0){ $ii=1; ?>
+<?php foreach($list as $key=>$v){ ?>
+<?php if($ii % 2 == 1){echo "<ul>";} ?>
+<li <?php if($ii % 2 == 0){  ?> class="hou"<?php } ?>  >
+<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>"></a>
+<p class="tit"><?php echo mb_substr($v['title'],0,10,"utf-8"); ?></p>
+</li>
+<?php if($ii % 2 == 0 || $ii == count($list)){echo "</ul>";} ?>
+<?php ++$ii; ?>
+<?php }} ?>

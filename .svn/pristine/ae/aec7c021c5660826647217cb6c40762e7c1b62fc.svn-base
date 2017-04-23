@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/perdetail.css">
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>投资人详情</title>
+</head>
+<body>
+<div id="top">
+	<div id="top_img">
+		<img src="http://www.wfyizhan.com/<?php echo $data['s_cover_path']; ?>">
+	</div>
+	<div id="top_name">
+		<span><?php echo $data['s_realname']; ?></span>
+	</div>
+</div>
+<div id="menu">
+	<ul>
+		<li style="border-right: none; background:#00b8ee; ">投资背景</li>
+		<li>投资意向</li>
+	</ul>
+</div>
+<div id="content">
+	<div id="con_back" class="con_list">
+		<div>
+			<span class="con_title">学历背景</span>
+			<span class="con_tent"><?php echo $data['s_education']; ?></span>
+		</div>
+		<div>
+			<span class="con_title">工作履历</span>
+			<span class="con_tent"><?php echo $data['s_experience']; ?></span>
+		</div>
+		<div>
+			<span class="con_title">投资案例</span>
+			<span class="con_tent"><?php echo $data['s_note']; ?></span>
+		</div>
+	</div>
+	<div id="con_want" class="con_list" style="display: none;">
+		<div>
+			<span class="con_title">关注城市</span>
+			<span class="con_tent"><?php echo $city; ?></span>
+		</div>
+		<div>
+			<span class="con_title">关注领域</span>
+			<span class="con_tent"><?php echo $type; ?></span>
+		</div>
+		<div>
+			<span class="con_title">融资阶段</span>
+			<span class="con_tent"><?php echo $money_level[$data['i_money_level']]; ?></span>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$('#menu ul li').click(function(){
+		$('#content .con_list').hide();
+		$('#menu ul li').css("background","white");
+		$(this).css("background","#00b8ee");
+		var index=$(this).index();
+		$('#content .con_list').eq(index).show();
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

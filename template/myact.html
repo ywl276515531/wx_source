@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/grzx/css/myact.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="1" id="i_page" />
+<!--总页码-->
+<?php if($state <=3){ ?>
+<input type="hidden" value="<?php echo $data['i_pages']; ?>" id="i_pages" />
+<?php }else{ ?>
+<input type="hidden" value="<?php echo $data1['i_pages']; ?>" id="i_pages" />
+<?php } ?>
+	<ul id="myact">
+		<li <?php if($state <= 3){ ?>style="background:#00b8ee;color:white" <?php } ?>>
+			<a>我的发布<strong>(<?php echo $myfabu; ?>)</strong></a>
+			<ul>
+				<a href="./order.php?act=myact&state=2">
+					<li>已发布<strong>(<?php echo $zchdgs; ?>)</strong></li>
+				</a>
+				<a href="./order.php?act=myact&state=3">
+					<li>已结束<strong>(<?php echo $jshdgs; ?>)</strong></li>
+				</a>
+			</ul>
+		</li>
+		<li class="hou" <?php if($state > 3){ ?>style="background:#00b8ee;color:white" <?php } ?>>
+			<a>我的参与<strong>(<?php echo $myjoin; ?>)</strong></a>
+			<ul>
+				<a href="./order.php?act=myact&state=4">
+					<li>有效票<strong>(<?php echo $yxp; ?>)</strong></li>
+				</a>
+				<a href="./order.php?act=myact&state=5">
+					<li>等待审核<strong>(<?php echo $watsh; ?>)</strong></li>
+				</a>
+				<a href="./order.php?act=myact&state=6">
+					<li>已取消<strong>(<?php echo $qxddM; ?>)</strong></li>
+				</a>
+				<a href="./order.php?act=myact&state=7">
+					<li>待付款<strong>(<?php echo $dfkM; ?>)</strong></li>
+				</a>
+			</ul>
+		</li>
+	</ul>
+	<?php if($state == 1 || $state == 2 || $state == 3){$xunhuan=$fabu_list;}else{$xunhuan=$join_list;} ?>
+	<?php if(count($xunhuan)>0){ ?>
+	<?php foreach($xunhuan as $key=>$v){ ?>
+	<?php if($state == 1){ ?>
+	<!--所有活动-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['title']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['sTime']); ?>~<?php echo date("Y-m-d",$v['eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 2 && $v['is_now'] == 1){ ?>
+	<!--已经发布的活动-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['title']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['sTime']); ?>~<?php echo date("Y-m-d",$v['eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 3 && $v['is_now'] == 0){ ?>
+	<!--已经结束的活动-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['title']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['sTime']); ?>~<?php echo date("Y-m-d",$v['eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 4 && $v['i_event_vote_sta'] == 0){ ?>
+	<!--有效票-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['s_event_name']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['s_event_sTime']); ?>~<?php echo date("Y-m-d",$v['s_event_eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button><a href="./order.php?act=myhdxq&id=<?php echo $v['i_id']; ?>">查看详情</a></button>
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 6){ ?>
+	<!--已取消-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['s_event_name']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['s_event_sTime']); ?>~<?php echo date("Y-m-d",$v['s_event_eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<!-- <button><a href="./order.php?act=myhdxq&id=<?php echo $v['i_id']; ?>">查看详情</a></button> -->
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 7){ ?>
+	<!--待付款-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['s_event_name']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['s_event_sTime']); ?>~<?php echo date("Y-m-d",$v['s_event_eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<?php 
+					$ssmoney = $v['i_total_adj']/100;
+					$signarr = array("order_id"=>$v['s_sn'],"money"=>$ssmoney);
+					$newss = encryption($signarr);
+				 ?>
+				<button class="quxiao lijizfEvent" sign="<?php echo $newss; ?>" shopname="<?php echo $v['s_event_name']; ?>">立即支付</a></button>
+			</div>
+		</div>
+	</div>
+	<?php }elseif($state == 5 && $v['i_event_vote_sta'] == 1){ ?>
+	<!--等待审核-->
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_event_pic']; ?>" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><?php echo $v['s_event_name']; ?></p>
+				<p class="time">活动时间：<?php echo date("Y-m-d",$v['s_event_sTime']); ?>~<?php echo date("Y-m-d",$v['s_event_eTime']); ?></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="right">
+				<button>等待审核</button>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
+	<?php }} ?>
+	<p class="clearfix"></p>
+	<div class="loader-inner ball-pulse" style="display:none;">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+		已经没有内容了
+	</div>
+</body>
+<script type="text/javascript">
+	$(".lijizfEvent").click(function(){
+		var sign = $(this).attr("sign");
+		var shopname = $(this).attr("shopname");
+		var url = "./serviceshop.php?act=choosepay&shopname="+shopname+sign;
+		window.location.href=url;
+	});
+	// var h=$("#myact>li").height();
+	// var h1=$("#myact>li>ul").height();
+	// $("#myact").height();
+	$("#myact>li").click(function(){
+		$("#myact>li>ul").hide();
+		$("#myact>li").css("background","white");
+		$(this).css("background","#00b8ee");
+		$(this).find("ul").slideToggle("show");
+	});
+	$(document).ready(function () {
+		$(window).scroll(function () {
+			if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+				$(".ball-pulse").show();
+				setTimeout(function(){
+					var i_page = $("#i_page").val();
+					i_page = parseInt(i_page)+1;
+					var i_pages = parseInt($("#i_pages").val());
+					if(i_page <= i_pages){
+						$(".ball-pulse").show();
+						$(".ball-text").hide();
+						var state = <?php echo $state; ?>;
+						var data = {"i_page":i_page,"state":state};
+						$.post("./order.php?act=myact",data,function(msg){
+							$("body").append(msg);
+							$("#i_page").val(i_page);
+						},"text")
+					}else{
+						$(".ball-pulse").hide();
+						$(".ball-text").show();
+					}
+				},2000);
+			}
+		});
+	});
+$("#i_page").val(1);
+
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

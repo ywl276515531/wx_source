@@ -1,0 +1,386 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #f0edf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd,input{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#logo{
+	max-width: 640px;
+	margin:auto;
+	height: 150px;
+	background: white;
+}
+#logo>a{
+	width: 115px;
+	padding-top: 5px;
+	height: 85px;
+	margin:auto;
+	display: block;
+}
+#logo>a>img{
+	width: 100%;
+	height: 100%;
+}
+#logo .name{
+	text-align: center;
+	font-size: 16px;
+	color: black;
+	padding-top: 10px;
+}
+#logo .cont{
+	text-align: center;
+	color: gray;
+	padding-top: 5px;
+}
+#cont{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#cont>.typegroup{
+	width: 100%;
+	height: 38px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+#cont>.typegroup>a{
+	width: 49.5%;
+	height: 100%;
+	display: block;
+	float: left;
+}
+#cont>.typegroup>a>li{
+	width: 100%;
+	height: 100%;
+	line-height: 38px;
+	text-align: center;
+	font-size: 14px;
+	color: black;
+}
+#cont .detail{
+	width: 100%;
+	padding-top: 10px;
+}
+#cont .detail>ul{
+	width: 96%;
+    	margin: 0 2%;
+    	float: left;
+    	padding-bottom: 20px;
+    	min-height: 305px;
+}
+#cont .detail>ul>li{
+	width: 180px;
+	float: left;
+	height: 160px;
+}
+#cont .detail li.hou{
+	margin-left: 30px;
+}
+#cont .detail li>a{
+	width: 100%;
+	height: 115px;
+	display: block;
+}
+#cont .detail li>a>img{
+	width: 100%;
+	height: 100%;
+}
+#cont .detail li>.tit{
+	width: 80%;
+	margin:auto;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: black;
+	padding-top: 5px;
+}
+#cont .detail li>.price{
+	text-align: center;
+	color: red;
+	font-size: 14px;
+	padding-top: 5px;
+}
+/**
+	筛选
+ */
+#shai{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+	margin-bottom: 10px;
+}
+#shai>.juzhong{
+	width: 95%;
+	margin:auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#shai>.juzhong>div{
+	font-size: 12px;
+	color: black;
+	height: 25px;
+	line-height: 25px;
+	margin-top: 5px;
+}
+#shai>.juzhong>div>p{
+	float: left;
+	width: 12%;
+}
+#shai>.juzhong>div>.right{
+	float: left;
+	width: 88%;
+}
+#shai>.juzhong>div>.right>a{
+	padding:0 10px;
+	height: 25px;
+	display:inline-block;
+	text-align: center;
+	color: grey;
+}
+#shai .two input{
+	width: 70px;
+	border:1px solid #ccc;
+}
+#search{
+	max-width: 640px;
+	height: 50px;
+	background: white;
+	margin:auto;
+}
+#search>form{
+	width: 95%;
+    margin: auto;
+}
+#search>form>input{
+	width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    outline: none;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+#cont>ul{
+	height: 40px;
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+	border-bottom: 1px solid #00b8ee;
+}
+#cont>ul>a{
+	width: 20%;
+	height: 100%;
+	display: block;
+	float: left;
+	border-left: 1px solid #00b8ee;
+	text-align: center;
+	line-height: 40px;
+	color: black;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+#cont>ul>a>li{
+	width: 100%;
+	height: 100%;
+}
+.current{
+	background:#00b8ee;
+}
+#touming{
+	position: absolute;
+	top: 0;
+	right: 0%;
+	background: #333333;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+#rightmenu{
+	width: 0%;
+	height: 100%;
+	background: -webkit-linear-gradient(top, #ccc 0%, #ffffff 100%);
+	background: -moz-linear-gradient(top, #ccc 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ccc 0%, #ffffff 100%);
+	position: absolute;
+	height: 100%;
+	top: 0;
+	right: 0%;
+	display: none;
+}
+#rightmenu .tit{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+#rightmenu .tit .juzhong{
+	width: 90%;
+	margin:auto;
+	height: 50px;
+}
+#rightmenu .tit .juzhong .left{
+	float: left;
+	width: 33%;
+}
+#rightmenu .tit .juzhong .middle{
+	float: left;
+	width: 33%;
+}
+#rightmenu .tit .juzhong .middle>p{
+	text-align: center;
+}
+#rightmenu .tit .juzhong .right{
+	float: right;
+	width: 33%;
+}
+#rightmenu .tit .juzhong .right>p{
+	text-align: right;
+}
+#rightmenu .tit .juzhong .right>p>a{
+	color: black;
+}
+#rightmenu>ul{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+}
+#rightmenu>ul>li{
+	width: 100%;
+	margin:auto;
+	height: 100%;
+	line-height: 30px;
+	color: black;
+	border-top: 1px solid #ccc;
+	height: 30px;
+	cursor: pointer;
+}
+#rightmenu>ul>li>p{
+	float: left;
+	height: 30px;
+	padding-left: 5%;
+}
+#rightmenu>ul>li>img{
+	float: right;
+	padding-top: 13px;
+	padding-right: 5%;
+}
+#rightmenu>ul>div{
+	width: 90%;
+	margin:auto;
+	display: none;
+	padding-bottom: 5px;
+}
+#rightmenu>ul .all>ul{
+	width: 90%;
+	margin:auto;
+}
+#rightmenu>ul .all>ul>a{
+	width: 100%;
+	background: gray;
+	color: white;
+	float: left;
+	display: block;
+	margin-bottom:5px;
+	text-align: center;
+	font-size: 12px;
+	border-radius: 4px;
+}
+#rightmenu>ul .all>ul>a>li{
+	padding:5px 5px;
+}
+#rightmenu>ul .price>p{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+#rightmenu>ul .price>form{
+	width: 100%;
+}
+#rightmenu>ul .price>form>label{
+	width: 100px;
+}
+#rightmenu>ul .price>form>label>input{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	outline: none;
+	background: white;
+	margin-bottom: 10px;
+}
+#rightmenu>ul>div>div>input{
+	width: 75px;
+}
+#rightmenu>ul .adress>select{
+	width: 60px;
+	height: 30px;
+	padding-left: 5px;
+	margin-right:10px;
+	margin-bottom: 10px;
+}
+@media (min-width: 480px) and (max-width: 645px){
+	#cont .detail>ul>li{
+		width: 32%;
+	}
+	#cont .detail li.hou{
+		margin-left: 9px;
+	}
+}
+@media (max-width: 479px){
+	#logo{
+		width: 100%;
+		max-width: 100%;
+	}
+	#cont{
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+	}
+	#search{
+		width: 100%;
+		max-width: 100%;
+	}
+	#cont .detail>ul>li{
+		width: 47%;
+		margin-left: 0px;
+	}
+	#cont .detail li.hou{
+		margin-left: 0px;
+	}
+	#cont .detail li.frist{
+		margin-left: 15px;
+	}
+	/*#shai>.juzhong>div>.right{
+		width: 85%;
+	}*/
+}

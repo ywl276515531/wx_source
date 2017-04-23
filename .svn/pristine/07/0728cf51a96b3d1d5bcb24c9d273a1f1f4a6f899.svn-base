@@ -1,0 +1,11 @@
+<?php if(count($fwdt) > 0){ $i=1; ?>
+<?php foreach($fwdt as $v){ ?>
+<?php $cc = $i%6; ?>
+<li <?php echo $class_my[$cc]; ?>>
+<a href="./serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>"></a>
+<p class="tit"><?php echo $v['s_title']; ?></p>
+<p class="price">￥<?php echo $v['shop_price']; ?></p>
+</li>
+<?php ++$i; ?>
+<?php } ?>
+<?php } ?>

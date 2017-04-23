@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>会议室场地列表</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/zulin_service.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<link rel="stylesheet" type="text/css" href="./weiservice/serviceshop/css/DateTimePicker.css" />
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/DateTimePicker.js"></script>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="./weiservice/serviceshop/css/DateTimePicker-ltie9.css" />
+		<script type="text/javascript" src="./weiservice/serviceshop/js/DateTimePicker-ltie9.js"></script>
+	<![endif]-->
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data['i_pages']; ?>" id="i_pages" />
+	<div id="cont">
+		<form action="">
+			<input type="text" placeholder="会议开始时间" onchange="xiugai()" data-format="yyyy-MM-dd" value="<?php echo $start_time; ?>" data-field="date"  readonly id="start">
+			<div id="dtBox" ></div>
+			<input type="text" placeholder="会议结束时间" onchange="xiugai()" class="hou" value="<?php echo $end_time; ?>" data-field="date" data-format="yyyy-MM-dd" id="end"  readonly>
+			<div class="first"><input type="text" placeholder="参加人数" class="hou" <?php if($rs != ''){echo "value='".$mymy[$rs]."'"; } ?> >
+				<div>
+					<ul id="rs">
+						<li type="0" <?php if($rs == "0"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?>     >全部</li>
+						<li type="1" <?php if($rs == "1"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >30人以下</li>
+						<li type="2" <?php if($rs == "2"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >30-60人</li>
+						<li type="3" <?php if($rs == "3"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >60-100人</li>
+						<li type="4" <?php if($rs == "4"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >100-200人</li>
+						<li type="5" <?php if($rs == "5"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >200-300人</li>
+						<li type="6" <?php if($rs == "6"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >300-500人</li>
+						<li type="7" <?php if($rs == "7"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >500人以上</li>
+					</ul>
+				</div>
+			</div>
+			<div class="two">
+				<input  type="text" placeholder="预算价格" class="hou" <?php if($price != ''){echo "value='".$mymy[$price]."'"; } ?> >
+				<div>
+					<ul id="price" >
+						<li type="8" <?php if($price == "8"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >全部</li>
+						<li type="9" <?php if($price == "9"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >2000元以下/天</li>
+						<li type="10" <?php if($price == "10"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >2000-4000元/天</li>
+						<li type="11" <?php if($price == "11"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >4000-6000元/天</li>
+						<li type="12" <?php if($price == "12"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >6000-8000元/天</li>
+						<li type="13" <?php if($price == "13"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >8000-10000元/天</li>
+						<li type="14" <?php if($price == "14"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >10000-20000元/天</li>
+						<li type="15" <?php if($price == "15"){ ?>xz="1" <?php }else{ ?>xz="0" <?php } ?> >20000-40000元/天</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$("#dtBox").DateTimePicker();
+			});
+		
+		</script>
+	</div>
+	<div id="zulin">
+			<?php if(count($shuju) > 0){ $i=1; ?>
+			<?php foreach($shuju as $v){ ?>
+			<?php if($i % 2 == 1){echo "<ul>";} ?>
+			<li <?php if($i % 2 == 0){echo "class='hou'";} ?>>
+				<a href="./serviceshop.php?act=zlfw&id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_pic_cover']; ?>"></a>
+				<p class="tit"><?php echo $v['s_title']; ?></p>
+				<div class="adress"><img src="./weiservice/serviceshop/images/poc.png" alt=""><p><?php echo mb_substr( $v['s_address'], 0, 9, "utf-8" ); ?></p></div>
+			</li>
+			<?php if($i==count($shuju) || $i % 2 == 0){echo "</ul>"; } ?>
+			<?php ++$i; ?>
+			<?php }} ?>
+	</div>
+	<p class="clearfix"></p>
+	<div class="loader-inner ball-pulse" style="display:none;">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+		已经没有内容了
+	</div>
+</body>
+<script type="text/javascript">
+    $("#cont>ul>li").click(function(){  
+        $(this).addClass('current').css("color","white").siblings().removeClass('current').css("color","black");  
+    }); 
+    $("#cont>form>input").click(function(){
+    	$(this).attr("placeholder","");
+    });
+    $("#cont>form>div").click(function(){
+    	var index=$(this).index();
+    	$(this).find("div").slideToggle();
+    });
+    $("#cont>form>div>div>ul>li").click(function(){
+    	var va=$(this).html();
+    	$(this).parent().parent().parent().find("input").val(va);
+		$(this).parent().find("li").attr("xz","0");
+		$(this).attr("xz","1");
+		xiugai();
+    });
+	function xiugai(){
+		var start_time = $("#start").val();
+		var end_time = $("#end").val();
+		if($("#rs li[xz='1']").length > 0){
+			var rs = $("#rs li[xz='1']").attr('type');
+		}else{
+			var rs = '';
+		}
+
+		if($("#price li[xz='1']").length > 0){
+			var price = $("#price li[xz='1']").attr('type');
+		}else{
+			var price = '';
+		}
+
+		var href = "./serviceshop.php?act=morezlfw&is_submit=1&start_time="+start_time+"&end_time="+end_time+"&rs="+rs+"&price="+price;
+		window.location.href=href;
+	}
+	$(document).ready(function () { 
+	    	$(window).scroll(function () {
+	       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+	       		$(".ball-pulse").show();	
+	          			setTimeout(function(){
+							var i_page = $("#i_page").val();
+							i_page = parseInt(i_page)+1;
+							var i_pages = parseInt($("#i_pages").val());
+							if(i_page <= i_pages){
+								$(".ball-pulse").show();	
+	       							$(".ball-text").hide();
+								var start_time = $("#start").val();
+								var end_time = $("#end").val();
+								if($("#rs li[xz='1']").length > 0){
+									var rs = $("#rs li[xz='1']").attr('type');
+								}else{
+									var rs = '';
+								}
+
+								if($("#price li[xz='1']").length > 0){
+									var price = $("#price li[xz='1']").attr('type');
+								}else{
+									var price = '';
+								}
+								var data = {"start_time":start_time,"end_time":end_time,"rs":rs,"price":price,"i_page":i_page};
+								$.post("./serviceshop.php?act=postzulin",data,function(msg){
+									$("#zulin").append(msg);
+									$("#i_page").val(i_page);
+								},"text")
+							}else{
+								$(".ball-pulse").hide();
+								$(".ball-text").show();
+							}
+				},2000);
+	        		}
+	    	});
+	});
+	$("#i_page").val(1);
+</script>
+</html>

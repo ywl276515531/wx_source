@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/service_detail.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="banner">
+		<div class="container">
+			<div id="slideBox" class="slideBox">
+				<div class="hd">
+					<ul><li></li><li></li><li></li></ul>
+				</div>
+				<div class="bd">
+					<ul>
+						<li><a href="" target="_blank"><img src="images/banner.png" /></a></li>
+						<li><a href="" target="_blank"><img src="images/banner.png" /></a></li>
+						<li><a href="" target="_blank"><img src="images/banner.png" /></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true,effect:"leftLoop"});
+	</script>
+	<div id="info">
+		<div class="container">
+			<p class="tit">高端定制企业网站设计开发</p>
+			<div class="xian"></div>
+			<p class="price">价格：￥8000</p>
+			<p class="newprice">促销价：￥5000</p>
+		</div>
+	</div>
+	<div id="dianpuinfo">
+		<div class="ls">
+			<a href=""><img src="images/ls.png" alt=""></a>
+			<p>四川银巢会计师事务所</p>
+		</div>
+		<ul>
+			<a href="home.html" style="border-right:1px solid #ccc">
+				<li >进入店铺</li>
+			</a>
+			<a href="">
+				<li><img src="images/save.png" alt=""></li>
+			</a>
+		</ul>
+	</div>
+	<div id="service_detail">
+		<p class="tit"><span></span>服务详情</p>
+		<div class="xian"></div>
+		<div class="container">
+			<img src="images/bz2.png" alt="">
+			<p>上的飞机拉萨江东父老快接啊电视里看见阿萨德垃圾分类大赛希丁克解放军卡得很搜房卡的火山口附近海底拉升幅度看啥</p>
+		</div>
+	</div>
+	<div id="service_baoz">
+		<p class="tit"><span></span>服务保障</p>
+		<div class="xian"></div>
+		<div class="container">
+			<img src="images/bz3.png" alt="">
+			<p>上的飞机拉萨江东父老快接啊电视里看见阿萨德垃圾分类大赛希丁克解放军卡得很搜房卡的火山口附近海底拉升幅度看啥</p>
+		</div>
+	</div>
+	<div id="pinglun">
+		<div class="tit"><p class="left"><span></span>评论（205）</p><a href="pingjia.html">+MORE</a></div>
+		<div class="xian"></div>
+		<ul>
+			<li>
+				<div class="juzhong">
+					<img src="images/stargroup.png" alt="">  <p class="phone">152****4580</p>
+					<div class="clearfix"></div>
+					<div class="cont">
+						<p>届时，将邀请省人社厅和四川聚点人力资源管理咨询师的专家前往绵阳讲授解答人力资源管理方面的法律法规，本次培训采取讲授和互动解答的形势，互动性强。</p>
+					</div>
+				</div>
+			</li>
+			<li>
+					<div class="juzhong">
+					<img src="images/stargroup.png" alt="">  <p class="phone">152****4580</p>
+					<div class="clearfix"></div>
+					<div class="cont">
+						<p>届时，将邀请省人社厅和四川聚点人力资源管理咨询师的专家前往绵阳讲授解答人力资源管理方面的法律法规，本次培训采取讲授和互动解答的形势，互动性强。</p>
+					</div>
+				</div>
+			</li>
+			<li>
+					<div class="juzhong">
+					<img src="images/stargroup.png" alt="">  <p class="phone">152****4580</p>
+					<div class="clearfix"></div>
+					<div class="cont">
+						<p>届时，将邀请省人社厅和四川聚点人力资源管理咨询师的专家前往绵阳讲授解答人力资源管理方面的法律法规，本次培训采取讲授和互动解答的形势，互动性强。</p>
+					</div>
+				</div>
+			</li>
+			<li>
+					<div class="juzhong">
+					<img src="images/stargroup.png" alt="">  <p class="phone">152****4580</p>
+					<div class="clearfix"></div>
+					<div class="cont">
+						<p>届时，将邀请省人社厅和四川聚点人力资源管理咨询师的专家前往绵阳讲授解答人力资源管理方面的法律法规，本次培训采取讲授和互动解答的形势，互动性强。</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="bot">
+			<a href="goumai.html">立即购买</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?php if(count($shuju1)>0){ ?>
+<?php foreach($shuju1 as $v){ 
+$v['s_pic']=str_replace('..','/kcy/web',$v['s_pic']);
+?>
+<a href="./zhxx.php?act=detail&id=<?php echo $v['id']; ?>">
+    <li>
+        <div class="img"><img src="http://www.wfyizhan.com<?php echo $v['s_pic']; ?>" alt=""></div>
+        <p class="tit"><?php echo $v['title']; ?></p>
+        <p class="cont"><?php echo $v['description']; ?></p>
+        <p class="bot"><?php echo date("Y-m-d",$v['create_time']); ?>	<span>浏览量:<strong><?php echo $v['view']; ?></strong></span></p>
+    </li>
+</a>
+<?php }} ?>

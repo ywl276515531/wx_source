@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/act_detail.css">
+	<link rel="stylesheet" href="../css/loader.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="act-cont">
+		<div class="juzhong">
+			<ul>
+				<li>
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+				<li class="hou">
+					<a href=""><img src="images/pic.png"></a>
+					<p>152****4580</p>
+					<p>1分钟前</p>
+				</li>
+			</ul>
+		</div>
+		<p class="clearfix"></p>
+		<div class="loader-inner ball-pulse">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>	
+	</div>
+</body>
+<script type="text/javascript">
+  	$(document).ready(function () { 
+	    	$(window).scroll(function () {
+	    		$(".ball-pulse").show();
+	       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {	
+	          			setTimeout(function(){
+					var ul='<ul>'+
+						'<li>'+
+							'<a href=""><img src="images/pic.png"></a>'+
+							'<p>152****4580</p>'+
+							'<p>1分钟前</p>'+
+						'</li>'+
+						'<li class="hou">'+
+							'<a href=""><img src="images/pic.png"></a>'+
+							'<p>152****4580</p>'+
+							'<p>1分钟前</p>'+
+						'</li>'+
+						'<li class="hou first">'+
+							'<a href=""><img src="images/pic.png"></a>'+
+							'<p>152****4580</p>'+
+							'<p>1分钟前</p>'+
+						'</li>'+
+						'<li class="hou">'+
+							'<a href=""><img src="images/pic.png"></a>'+
+							'<p>152****4580</p>'+
+							'<p>1分钟前</p>'+
+						'</li>'+
+					'</ul>';
+				$("#act-cont .juzhong").append(ul);
+				$(".ball-pulse").hide();
+				},2000);
+	        		}
+	    	});
+	});
+</script>
+</html>

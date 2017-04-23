@@ -1,0 +1,230 @@
+@charset "utf-8";
+* {
+    font-family: "Microsoft YaHei", "微软雅黑", ZenIcon !important;
+}
+
+a {
+    font-family: "Microsoft YaHei", "微软雅黑" !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+#_pageContent{
+    max-width: 640px;
+    margin:auto;
+}
+.divMiddle {
+   width: 96%;
+    margin: 0 auto;
+}
+.main{
+    width: 100%;
+    border:1px solid #d6d6d6;
+}
+.main .title{
+    width: 100%;
+    height: 50px;
+    background-color: #d6d6d6;
+}
+.main .title>p{
+    font-size: 16px;
+    color: #000;
+    line-height: 50px;
+    padding-left: 36px;
+    margin:0;
+}
+.main .appraise_box{
+    padding: 40px 40px 20px 40px;
+    overflow: hidden;
+}
+.main .appraise_box .order_info{
+    width: 300px;
+}
+.main .appraise_box .order_info>img{
+    width: 283px;
+    height: 213px;
+}
+.main .appraise_box .order_info>p{
+    font-size: 14px;
+    line-height: 30px;
+    color: #000;
+    margin:0;
+}
+
+.main .appraise_box .order_info>p.order_number{
+    margin-top: 10px;
+}
+.main .appraise_box .order_info>p.order_type{
+    width: 284px;
+    height: 30px;
+    overflow: hidden;
+}
+.main .appraise_box .order_info>p.order_type>a{
+    width: 284px;
+    height: 30px;
+    display: block;
+    color: #000;
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+    overflow: hidden;
+}
+.main .appraise_box .order_info>p.price{
+    color: #ff0000;
+}
+.order_appraise{
+    width: 100%;
+}
+
+.order_appraise label{
+    margin: 0;
+    margin-right: 50px;
+    overflow: hidden;
+
+    font-size: 16px;
+}
+.order_appraise input{
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+}
+.order_appraise img{
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: -6px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.order_appraise textarea{
+    width: 100%;
+    margin-top: 14px;
+    resize: none;
+}
+.line_shot{
+    width: 100%;
+    padding: 0 40px;
+}
+.line_shot hr{
+    margin: 0;
+}
+.starts{
+    width: 100%;
+    height: 250px;
+    padding: 0 40px;
+}
+.starts .shop_marks{
+    width: 20%;
+    height: 250px;
+    float: left;
+}
+.starts .shop_marks>a{
+    width: 100%;
+    height: 50px;
+    display: block;
+    background-color: #f0f0f0;
+    font-size: 12px;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 77px;
+}
+.starts .shop_appraise{
+    width: 70%;
+    height: 250px;
+    margin-left:10%;
+    padding-top: 80px;
+    float: left;
+}
+.starts .shop_appraise .shop_service{
+    width: 100%;
+    height: 22px;
+}
+.starts .shop_appraise .shop_work{
+    width: 400px;
+    height: 22px;
+    margin:15px 0;
+}
+.starts .shop_appraise .shop_qc{
+    width: 400px;
+    height: 22px;
+}
+.starts .shop_appraise>div>span{
+    font-size: 14px;
+    line-height: 22px;
+}
+.starts .shop_appraise>div>img{
+    margin-left: 5px;
+    margin-top: -6px;
+}
+.starts .shop_appraise>div>span.appraise_grade{
+    margin-left: 20px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #f9722e;
+}
+.appraise_btn_box{
+    padding: 50px 0 70px 0;
+}
+.appraise_btn_box>a{
+    width: 150px;
+    height: 50px;
+    display: block;
+    background-color: #00b8ee;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+}
+.appraise_btn_box>a:hover{
+    background-color: #01aadb;
+}
+@media (min-width: 486px)and (max-width: 540px){
+      .order_appraise label{
+        margin-right:30px;
+    }
+}
+@media (max-width: 485px){
+    .order_appraise label{
+        margin-right:20px;
+    }
+    .starts .shop_marks{
+        height: auto;
+        float: none;
+        width: 100%;
+    }
+    .starts .shop_marks>a{
+        height: auto;
+        margin-top: 10px;
+    }
+    .starts .shop_appraise{
+        height: auto;
+        width: 100%;
+        padding-top: 20px;
+        float: none;
+        margin-left:0;
+    }
+    .starts{
+        padding:0 20px;
+    }
+    .starts .shop_appraise>div>img{
+        margin-left: 3px;
+    }
+    .main .appraise_box{
+        width: 96%;
+        margin:auto;
+        overflow: hidden;
+        padding:20px 0;
+    }
+    .main .appraise_box .order_info{
+        width: 100%;
+    }
+    .main .appraise_box .order_info>img{
+        width: 100%;
+        height: auto;
+    }
+    .main .appraise_box .order_info>p{
+        font-size: 12px;
+    }
+}

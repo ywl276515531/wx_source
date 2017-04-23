@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/canyu.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/layer.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="canyu">
+		<div class="juzhong">
+			<ul>
+				<li>
+					<div class="left">活动名称</div>
+					<div class="right">《劳资纠纷风险控制实务》培训班</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">活动时间</div>
+					<div class="right">2016-10-16</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">活动票号</div>
+					<div class="right">14761578299191360</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">票种类型</div>
+					<div class="right">免费票</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">活动人数</div>
+					<div class="right">1人</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">联系人姓名</div>
+					<div class="right">张先生</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">联系方式</div>
+					<div class="right">18252846359</div>
+				</li>
+				<div class="clearfix"></div>
+				<li>
+					<div class="left">状态</div>
+					<div class="right">已付款</div>
+				</li>
+				<div class="clearfix"></div>
+				<li style="height:90px;line-height:90px">
+					<div class="left">活动票据</div>
+					<div class="right" id="photos">
+						<img layer-src="images/erweima.png" layer-pid="" src="images/erweima.png">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	;!function(){
+
+	//页面一打开就执行，放入ready是为了layer所需配件（css、扩展模块）加载完毕
+	layer.ready(function(){ 
+	  
+	  //使用相册
+	  layer.photos({
+	    photos: '#photos'
+	  });
+	});
+	}();
+</script>
+</html>

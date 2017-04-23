@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/jiaoliu.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="jiaoliu">
+		<div class="left">
+			<ul>
+				<a class="current">
+					<li>热门活动</li>
+				</a>
+				<a>
+					<li>最新活动</li>
+				</a>
+				<a>
+					<li>最多参与</li>
+				</a>
+				<a>
+					<li>往期精彩</li>
+				</a>
+				<a href="moreactivity.html">
+					<li>更多活动</li>
+				</a>
+			</ul>
+		</div>
+		<div class="right">
+			<div>
+				<ul>
+					<li>
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+					<li class="hou">
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+					<li class="hou">
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+					<li class="hou">
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+					<li class="hou">
+						<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+						<p class="tit">创智青羊行·青创巅峰会</p>
+					</li>
+				</ul>
+			</div>
+			<div style="display:none"></div>
+			<div style="display:none"></div>
+			<div style="display:none"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+  	$("#jiaoliu>.left>ul>a").click(function(){
+  		$("#jiaoliu>.left a").removeClass("current");
+  		$(this).addClass("current");
+  		var index=$(this).index();
+  		$("#jiaoliu .right>div").hide();
+  		$("#jiaoliu .right>div").eq(index).show();
+  	});
+</script>
+</html>

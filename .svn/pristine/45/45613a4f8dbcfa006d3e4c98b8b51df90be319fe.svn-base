@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/moreactivity.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="search">
+		<input type="search" placeholder="输入您的关键字">
+	</div>
+	<div id="shai">
+		<div class="juzhong">
+			<div class="one">
+				<p>时间：</p>
+				<div class="right">
+					<a class="current" style="color:white">全部</a>
+					<a>最近一周</a>
+					<a>今天</a>
+					<a>明天</a>
+				</div>
+			</div>
+			<p class="clearfix"></p>
+			<div class="two">
+				<p>兴趣：</p>
+				<div class="right">
+					<a class="current" style="color:white">全部</a>
+					<a>金融</a>
+					<a>创业</a>
+					<a>科研</a>
+					<a>生活</a>
+				</div>
+			</div>
+			<p class="clearfix"></p>
+			<div class="three">
+				<p>城市：</p>
+				<div class="right">
+					<a class="current" style="color:white">全部</a>
+					<a>绵阳</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div id="cont">
+		<div class="lr_nb">  
+	        <div class="slider_wrap line">  
+	            <div class="wx_items">  
+	                <div class="item_cell current">  
+	                    <span>最新发布</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">热门点击</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">最多参与</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">只看免费</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">热门点击</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">最多参与</span>  
+	                </div>  
+	                <div class="item_cell">  
+	                    <span class="hou">只看免费</span>  
+	                </div>  
+	            </div>  
+	         </div>  
+	    </div> 
+	</div>
+	<div id="detail">
+			<ul>
+				<li>
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+				<li class="hou">
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+				<li class="hou">
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+				<li class="hou">
+					<a href="act_detail.html"><img src="images/act.png" alt=""></a>
+					<p class="tit">活动现场图片</p>
+				</li>
+			</ul>
+		</div>
+</body>
+<script type="text/javascript">
+  	$("#shai .juzhong>.one>.right>a").click(function(){
+  		$("#shai .juzhong>.one>.right>a").removeClass("current").css("color","gray");
+  		$(this).addClass("current").css("color","white");
+  	});
+  	$("#shai .juzhong>.two>.right>a").click(function(){
+  		$("#shai .juzhong>.two>.right>a").removeClass("current").css("color","gray");
+  		$(this).addClass("current").css("color","white");
+  	});
+  	$("#shai .juzhong>.three>.right>a").click(function(){
+  		$("#shai .juzhong>.three>.right>a").removeClass("current").css("color","gray");
+  		$(this).addClass("current").css("color","white");
+  	});
+  	$(".wx_items .item_cell").click(function(){  
+        $(this).addClass('current').siblings().removeClass('current');  
+    }); 
+</script>
+</html>

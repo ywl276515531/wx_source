@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/renzheng.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="renzheng">
+		<form>
+			<input type="text" placeholder="请输入您的姓名">	
+			<input type="text" placeholder="请输入您的身份证号">	
+			<input type="text" placeholder="请输入您的性别">	
+			<div class="liang">
+				<input type="text" placeholder="请上传您的身份证正面" class="first">
+				<div class="second"><input type="file" class="file1">上传附件</div>
+			</div>
+			<div class="liang">
+				<input type="text" placeholder="请上传您的身份证反面" class="first">
+				<div class="second"><input type="file" class="file2">上传附件</div>
+			</div>
+			<div class="frist">
+				<p>备注：<br/>
+					1.请上传本人手持正面头部照片和上半生照片。<br/>
+					2.仅支持jpg、bmp、png、gif的图片格式，图片大小不超过3M.<br/>
+					3.照片未免冠原始照片，且证件信息不能被遮挡，持证人清晰可见.
+				</p>
+			</div>
+			<div class="second">
+				<input class="btn" type="submit" value="确定">	
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	$(".file1").change(function(){
+		var va=$(this).val();
+		$(this).parents(".liang").find(".first").val(va);
+	});
+	$(".file2").change(function(){
+		var va=$(this).val();
+		$(this).parents(".liang").find(".first").val(va);
+	});
+	var va;
+  	$("#renzheng>form input").focus(function(){
+  		va=$(this).attr("placeholder");
+  		$(this).attr("placeholder","");
+  	});
+  	$("#renzheng>form input").blur(function(){
+  		$(this).attr("placeholder",va);
+  	});
+</script>
+</html>

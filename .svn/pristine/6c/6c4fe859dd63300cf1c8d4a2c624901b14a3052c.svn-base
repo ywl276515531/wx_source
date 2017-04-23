@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/bumen.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="bumen">
+		<div class="juzhong">
+			<p class="tit">派出所</p>
+			<div class="cont">
+				<p>1.收集、掌握、报告影响社会稳定和治安大局稳定的情报信息；</p>
+				<p>2.管理辖区内的实有人口（包括常住人口、暂住人口和境外在本辖区居住人员）；</p>
+				<p>3.依法管理辖区内的特种行业、公共娱乐服务场所和枪支、弹药、爆炸、剧毒等危险物品；</p>
+				<p>4.配合有关部门预防火灾、爆炸、中毒等治安灾害事故；</p>
+				<p>5.依法监督、指导辖区内的机关、团体、企业、事业单位的治安保卫工作，组织、指导单位保卫组织和群众开展安全防范；在辖区内开展以治保会为主体的多层次的群防群治工作，预防可防性案件的发生；</p>
+				<p>6.通过日常治安防范和管理工作发现违法犯罪线索，破获刑事案件。</p>
+				<p>7.依法查处治安案件，调解治安纠纷；</p>
+				<p>8.协助上级公安机关做好处置群体性事件；</p>
+				<p>9.加强对非法宗教、邪教活动的掌握控制工作；</p>
+				<p>10.对辖区群众进行法制宣传，对辖区内违法青少年进行帮教，被判处管制、剥夺政治权利、缓刑、假释、监外执行、保外就医的罪犯进行监督、考察和改选工作，对少管人员进行社会协同教育和放回后的接茬帮助教育工作，做好群众违法犯罪的预防工作；</p>
+				<p>11.接受群众的报警、求助，为民排忧解难，解决群众的实际困难，积极为群众办好事、办实事。</p>
+
+				<p style="padding-top:30px;">联系电话：0816-2530529</p>
+				<p>办公地址：绵阳科技城科教创业园区管委会（八角北路中段）</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+</script>
+</html>

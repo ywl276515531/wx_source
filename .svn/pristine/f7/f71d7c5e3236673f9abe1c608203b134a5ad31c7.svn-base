@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>购买服务</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/goumai.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="shop">
+		<div class="juzhong">
+			<a href=""><img src="./weiservice/serviceshop/images/shoppic.png" alt=""></a>
+			<div class="right">
+				<p class="name"><?php echo $shuju[0]['s_title']; ?></p>
+				<p class="fws">服务商：<?php echo $shop_detail[0]['s_title']; ?></p>
+				<p class="price">服务价格：<strong>￥<?php echo $shuju[0]['pro_price']; ?></strong>/套</p>
+			</div>
+		</div>
+	</div>
+	<div id="jiaoyi_info">
+		<div style="background: white">
+			<p class="tit"><span></span>交易信息</p>
+			<div class="xian"></div>
+			<div class="container">
+				<p class="name">姓名：<?php echo $_SESSION['s_nickname']; ?></p>
+				<p class="contact">电话：<?php echo $_SESSION['s_phone']; ?></p>
+			</div>
+		</div>
+	</div>
+	<div id="beizhu">
+		<div style="background: white;">
+			<p class="tit"><span></span>备注信息</p>
+		</div>
+		<div class="xian"></div>
+		<div style="background: white;overflow: hidden;">
+			<form action="./serviceshop.php?act=buyservice" method="post" class="container">
+				<input type="hidden" name="id" value="<?php echo $id; ?>" />
+				<input type="hidden" name="shopname" value="<?php echo $shuju[0]['s_title']; ?>" />
+				<input type="hidden" name="money" value="<?php echo $shuju[0]['pro_price']; ?>" />
+				<label for="">备注 : </label>
+				<input type="hidden" name="sub" value="1111" />
+				<textarea name="s_content" id="" cols="30" rows="10" placeholder="*若您购买的是实物，请在备注里填上您的收货地址。"></textarea>
+			</form>
+		</div>
+		
+	</div>
+	<div id="bot">
+		<div class="left">
+			<p>总计金额：<strong>￥<?php echo $shuju[0]['pro_price']; ?></strong></p>
+		</div>
+		<div class="right">
+			<a onclick="tijiao()">去支付</a>
+		</div>
+	</div>
+<script>
+	function tijiao(){
+		$("form").submit();
+	}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

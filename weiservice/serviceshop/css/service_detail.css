@@ -1,0 +1,383 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #f0edf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#banner{
+	max-width: 640px;
+	margin:auto;
+}
+#banner .container{
+	width: 100%;
+}
+.slideBox{ width:100%; max-height:480px; overflow:hidden; position:relative;}
+.slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:45%; bottom:0px; z-index:1; }
+.slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.slideBox .hd ul li{ float:left; margin-right:7px;  width:5px; height:5px;border-radius: 50%; line-height:14px; text-align:center;cursor:pointer;background: white; }
+.slideBox .hd ul li.on{ background: red }
+.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox .bd li{ zoom:1; vertical-align:middle; }
+.slideBox .bd img{ width:100%;max-height:480px; display:block;height: 300px;  }
+#info{
+	max-width: 640px;
+	height: 100px;
+	margin:auto;
+	background:white;
+}
+#info p{
+	width: 95%;
+	margin:auto;
+	height: 25px;
+    line-height: 25px;
+}
+#info .tit{
+	font-size: 16px;
+	color: black;
+	height: auto;
+	overflow: hidden;
+}
+#info .xian{
+	width: 100%;
+	border-top: 3px solid #00b8ee;
+}
+#info .price{
+	text-decoration: line-through;
+	color: gray;
+	font-size: 14px;
+}
+#info .newprice{
+	color: red;
+	font-size: 14px;
+}
+.container{
+	width: 100%;
+	height: 100%;
+}
+#dianpuinfo{
+	max-width: 640px;
+	height: 130px;
+	background: white;
+	margin:10px auto;
+
+}
+#dianpuinfo .ls{
+	width: 95%;
+	height: 80px;
+	margin:0px auto;
+	padding-top: 10px;
+}
+#dianpuinfo .ls>a{
+	width: 85px;
+	height: 70px;
+	border:1px solid #ccc;
+	display: block;
+	float: left;
+}
+#dianpuinfo .ls>a>img{
+	width:100%;
+	height: 100%;
+}
+#dianpuinfo .ls>p{
+	float: left;
+	margin-left: 20px;
+	font-size: 14px;
+	color: black;
+	height: 100%;
+	line-height: 80px;
+}
+#dianpuinfo>ul{
+	width: 100%;
+	height: 38px;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+#dianpuinfo>ul>a{
+	width: 49.5%;
+	float: left;
+	height: 100%;
+	display: block;
+	line-height: 38px;
+}
+#dianpuinfo>ul>a>img{
+	width: 14px;
+	height: 14px;
+	float: left;
+	margin-left:40%;
+	margin-top: 12px;
+}
+#dianpuinfo>ul>a>p{
+	float: left;
+	margin-left: 5px;
+}
+#dianpuinfo>ul>a>li{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 38px;
+	color: black;
+	font-size: 14px;
+}
+#dianpuinfo>ul>a>li>img{
+	padding-top: 2%;
+}
+#service_detail{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#service_detail .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#service_detail .tit>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#service_detail .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#service_detail .container{
+	width: 95%;
+	margin:0 auto;
+	margin-top: 10px;
+}
+#service_detail .container>img{
+	width: 100%;
+}
+#service_detail .container>p{
+	padding:10px 0;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: black;
+}
+#service_baoz{
+	font-size: 13px;
+	float: left;
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#service_baoz .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#service_baoz .tit>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#service_baoz .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#service_baoz .container{
+	width: 95%;
+	margin:0 auto;
+	margin-top: 10px;
+}
+#service_baoz .container>.container_sell{
+	float: left;
+	margin-top: 10px;
+	height: 50px;
+	width: 50%;
+}
+#service_baoz .container>.container_sell>img{
+	float: left;
+	height: 100%;
+	width: 50px;
+}
+#service_baoz .container>.container_sell>div{
+	float: left;
+	height: 100%;
+	display: table;
+	width: 100px;
+}
+#service_baoz .container>.container_sell>div>span{
+	/*float: left;*/
+	padding-left: 5px;
+	vertical-align: middle;
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+}
+#service_baoz .container>.container_sell>div>.blue{
+	/*float: left;*/
+	color: #00b8ee;
+}
+#service_baoz .container>p{
+	width: 100%;
+	float: left;
+	margin-top: 5px;
+}
+#service_baoz .container>.shouming{
+	width: 100%;
+	float: left;
+	margin-top: 5px;
+}
+#service_baoz .container>.shouming>img{
+	width: 60px;
+	height: 20px;	
+}
+#service_baoz .container>.shouming>p{
+	width: 100%;
+}
+#service_baoz .container>img{
+	float: left;
+	margin-top: 5px;
+	height: 120px;
+    width: 100%;
+    margin-left: -18px;
+}
+#pinglun{
+	float: left;
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+	margin-bottom: 50px;
+}
+#pinglun .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#pinglun .left{
+	float: left;
+}
+#pinglun .left>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#pinglun .tit>a{
+	float: right;
+	color: black;
+	font-size: 12px;
+}
+#pinglun .tit>a>img{
+	width: 11px;
+	float: right;
+	margin-top: 14px;
+}
+#pinglun .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#pinglun ul{
+	width: 100%;
+	margin-top: 10px;
+}
+#pinglun ul>li{
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+#pinglun ul .juzhong{
+	width: 95%;
+	margin:auto;
+	margin-top: 10px;
+}
+#pinglun ul .juzhong>img{
+	float: left;
+	width: 14px;
+}
+#pinglun ul .juzhong>.phone{
+	float: right;
+	letter-spacing: 1px;
+	color: gray;
+}
+#pinglun ul .juzhong>.cont{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#pinglun ul .juzhong>.cont p{
+	color: gray;
+}
+#bot{
+	max-width: 640px;
+	margin:auto;
+	height: 50px;
+	background: #00b8ee;
+	position: fixed;
+	bottom:0;
+	left: 0;
+	right: 0;
+}
+#bot>a{
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	display: block;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
+@media (max-width: 479px){
+	#banner{
+		width: 100%;
+	}
+	#info{
+		width: 100%;
+	}
+	#dianpuinfo{
+		width: 100%;
+	}
+	#service_detail{
+		width: 100%;
+	}
+	#service_baoz{
+		width: 100%;
+	}
+	#pinglun{
+		width: 100%;
+	}
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./hh/activity/css/moreactivity.css">
+	<link rel="stylesheet" href="./hh/css/loader.css">
+	<script type="text/javascript" src="./hh/activity/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./hh/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data['i_pages']; ?>" id="i_pages" />
+	<div id="detail" style="min-height:590px;">
+			<?php if(count($list) > 0){ $ii=1; ?>
+			<?php foreach($list as $key=>$v){ ?>
+			<?php if($ii % 2 == 1){echo "<ul>";} ?>
+			<li <?php if($ii % 2 == 0){  ?> class="hou"<?php } ?>  >
+				<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>"></a>
+				<p class="tit"><?php echo mb_substr($v['title'],0,10,"utf-8"); ?></p>
+			</li>
+			<?php if($ii % 2 == 0 || $ii == count($list)){echo "</ul>";} ?>
+			<?php ++$ii; ?>
+			<?php }} ?>
+	</div>
+	<p class="clearfix"></p>
+	<div class="loader-inner ball-pulse" style="display:none;">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+		已经没有内容了
+	</div>
+</body>
+<script type="text/javascript">
+ 	$(document).ready(function () { 
+	    	$(window).scroll(function () {
+	       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+	       			$(".ball-pulse").show();	
+	          			setTimeout(function(){
+							var i_page = $("#i_page").val();
+							 i_page = parseInt(i_page)+1;
+							var i_pages = parseInt($("#i_pages").val());
+							if(i_page <= i_pages){
+								$(".ball-pulse").show();	
+	       							$(".ball-text").hide();
+								var type = <?php echo $type; ?>;
+								var data = {"i_page":i_page,"type":type};
+								$.post("./activity.php?act=post1",data,function(msg){
+									$("#detail").append(msg);
+									$("#i_page").val(i_page);
+								},"text")
+							}else{
+								$(".ball-pulse").hide();
+								$(".ball-text").show();
+							}
+				},2000);
+	        		}
+	    	});
+	});
+	$("#i_page").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

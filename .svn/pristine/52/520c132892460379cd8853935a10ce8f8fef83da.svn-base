@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>更多评价</title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/service_detail.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data2['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data2['i_pages']; ?>" id="i_pages" />
+	<div id="pinglun">
+		<ul>
+			<?php if(count($plsl) > 0){ ?>
+			<?php foreach($plsl as $v){ ?>
+			<li>
+				<div class="juzhong">
+					<?php for($q=1;$q<=$v['star'];++$q){ ?>
+					<img src="./weiservice/serviceshop/images/star-1.png" alt="">
+					<?php } ?>
+					<?php for($q=1;$q<=(5-$v['star']);++$q){ ?>
+					<img src="./weiservice/serviceshop/images/star.png" alt="">
+					<?php } ?>
+					<p class="phone"><?php echo $v['s_uid_name']; ?></p>
+					<div class="clearfix"></div>
+					<div class="cont">
+						<p><?php echo $v['s_comment_content']; ?></p>
+					</div>
+				</div>
+			</li>
+			<?php }} ?>
+		</ul>
+		<div class="clearfix"></div>
+		<div class="loader-inner ball-pulse" style="display:none">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function () { 
+    	$(window).scroll(function () {
+       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+          		setTimeout(function(){
+					var i_page = $("#i_page").val();
+					i_page = parseInt(i_page)+1;
+					var i_pages = parseInt($("#i_pages").val());
+					if(i_page <= i_pages){
+						var data={"page":i_page};
+						$.post("./serviceshop.php?act=morepl",data,function(msg){
+							$("#pinglun ul").append(msg);
+							$("#i_page").val(i_page);
+						},"text")
+					}else{
+						$(".ball-pulse").hide();
+						$(".ball-text").show();
+					}
+			},2000);
+        		}
+    	});
+});
+	$("#i_page").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

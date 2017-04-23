@@ -1,0 +1,150 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	height: 100%;
+	padding: 0;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	overflow-x: hidden;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border: none;
+	max-width: 100%;
+}
+#clearfix{
+	clear: none;
+}
+#top{
+	max-width: 640px;
+	margin: auto;
+	height: 160px;
+}
+#top_img{
+	width: 40%;
+	height: 150px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+#top_con{
+	height: 150px;
+	width: 50%;
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+#com_name{
+	height: 50px;
+	padding-top: 20px;
+	line-height: 25px;
+	font-size: 20px;
+	width: 100%;
+	color: #00b8de;
+	display: block;
+}
+#top_con img{
+	width: 14px;
+	height: 14px;
+}
+#addr,#type{
+	margin-left: 5px;
+	font-size: 14px;
+}
+#bottom{
+	margin-top: 40px;
+}
+#menu{
+	max-width: 640px;
+	margin: auto;
+	margin-top: 10px;
+}
+#menu ul{	
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	width: 99%;
+	margin: auto;
+}
+#menu li{
+	cursor: pointer;
+	width: 24.5%;
+	float: left;
+	border: 1px solid grey;
+}
+#product img{
+	margin-top: 10px;
+	width: 90%
+	height: 100px;
+}
+#content{
+	max-width: 640px;
+	margin: auto;
+	margin-top: 10px;
+}
+.menu_con{
+	width: 99%
+	margin:auto;
+}
+.menu_con div{
+	width: 100%;
+
+}
+.menu_con span{
+	line-height: 25px;
+	display: block;
+}
+.con_title{
+	width: 100%;
+	text-align: center; 
+	background-color: #fcf5e2;
+}
+.current{
+	background-color: #00b8de;
+	color: white;
+}
+.con_con{
+	width: 96%;
+	margin: auto;
+}
+.people_con{
+	width: 90%;
+	margin: auto 10px;
+	height: 300px;
+}
+.people_con #first{
+	width: 60px;
+	height: 100%;
+	float: left;
+}
+.people_con #second{
+	margin-left: 5px;
+	padding-top: 10px;
+	height: 100%;
+	line-height: 28px;
+}
+.people_con img{
+	margin-top: 20px;	
+	height: 60px;
+	width: 60px;
+	border-radius: 50px;
+}
+#bp a{
+	float: left;
+	margin-top: 10px;
+	margin-left: 43%;
+	padding-bottom: 25px;
+}
+

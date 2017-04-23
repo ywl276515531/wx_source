@@ -1,0 +1,122 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	height: 100%;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+.bg{
+	width: 640px;
+	background: url("../images/bg.png") no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	margin:0 auto;
+}
+.bg .container{
+	max-width: 470px;
+	margin:auto;
+	padding-top:30px;
+}
+.bg .container>ul{
+	width: 100%;
+	position: relative;
+}
+.bg .container>ul>a{
+	display: block;
+	width: 150px;
+	height: 150px;
+	float: left;
+	opacity: 0;
+}
+.bg .container>ul li{
+	width: 100%;
+	height: 100%;
+}
+.bg .container>ul li>img{
+	width: 100%;
+	height: 100%;
+}
+/*.bg .container>ul .one{
+	background:#27c4ef;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.bg .container>ul .two{
+	position: absolute;
+	left: 33.33%;
+	top: 0px;
+}
+.bg .container>ul .three{
+	background:#e87c7e;
+	position: absolute;
+	left: 66.66%;
+	top: 0px;
+}
+.bg .container>ul .four{
+	background:#a5e290;
+	position: absolute;
+	left: 0px;
+	top: 160px;
+}
+.bg .container>ul .five{
+	background:#f1c232;
+	position: absolute;
+	left: 33.33%;
+	top: 160px;
+}
+.bg .container>ul .six{
+	background:#a391fd;
+	position: absolute;
+	left: 66.66%;
+	top: 160px;
+}
+.bg .container>ul li>p{
+	text-align: center;
+	color: white;
+	font-size: 12px;
+}
+.bg .container>ul .ch{
+	color: black;
+    	padding-top: 40%;
+    	font-size: 18px;
+}*/
+@media (min-width: 480px) and (max-width: 639px){
+	.bg{
+		width: 100%;
+	}
+}
+@media (max-width: 479px){
+	.bg{
+		width: 100%;
+	}
+	.bg .container{
+		max-width: 290px;
+	}
+	.bg .container>ul>a{
+		height: 90px;
+		width: 90px;
+	}
+}
+

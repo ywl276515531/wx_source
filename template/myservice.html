@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./hh/xzservice/css/service.css">
+	<script type="text/javascript" src="./hh/xzservice/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./hh/xzservice/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="./hh/xzservice/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="bmhome">
+		<img src="http://www.wfyizhan.com/<?php echo $bumenjj[0]['s_pic']; ?>" alt="">
+		<p><?php echo $s_note; ?>
+		</p>
+	</div>
+	<div id="bm">
+		<ul>
+			<?php if(count($shuju) > 0 ){   ?>
+			<?php foreach($shuju as $v1){
+				if($v1['i_id'] == $id){
+			?>
+			<?php foreach($v1['sub'] as $v2){ ?>
+			<?php $jj = rand(0,6); ?>
+			<li <?php echo $color[$jj]; ?>>
+				<div>
+					<span class="bian">-</span>
+					<p> <?php echo $v2['s_title']; ?></p>
+				</div>
+				<ul>
+					<?php foreach($v2['sub'] as $v3){ ?>
+					<a href="./xzservice.php?act=detail&id=<?php echo $v3['i_id']; ?>"><li><span></span><p><?php echo mb_substr( $v3['s_title'], 0, 20, 'utf-8' ); ?></p></li></a>
+					<?php } ?>
+				</ul>
+			</li>
+			<?php } ?>
+			<?php }}} ?>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	$.easing.def = "easeOutBounce";
+	$("#bm>ul>li").click(function(){
+		if($(this).find("ul").css("display")=="block"){
+			$(this).find("ul").slideUp();
+			$(this).find(".bian").text("+");
+		}else{
+			$(this).find("ul").slideDown();
+			$(this).find(".bian").text("-");
+		}
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

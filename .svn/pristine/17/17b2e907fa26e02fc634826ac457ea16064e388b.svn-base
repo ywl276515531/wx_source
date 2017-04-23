@@ -1,0 +1,143 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #efedf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#renzheng{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	min-height: 880px;
+}
+#renzheng>form{
+	width: 60%;
+	margin:auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#renzheng>form>input{
+	width: 100%;
+	height: 35px;
+	border:1px solid #ccc;
+	line-height: 35px;
+	border-radius: 4px;
+	color: black;
+	outline: none;
+	margin-top: 10px;
+}
+#renzheng>form>.frist{
+	width: 100%;
+	margin-top: 10px;
+	background: #efedf0;
+}
+#renzheng>form>.frist>p{
+	width: 95%;
+	margin:auto;
+	padding:10px 0;
+}
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+#renzheng form>.liang{
+	height: 40px;
+	width: 100%;
+	margin-top: 10px;
+}
+#renzheng form>.liang .first{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 55%;
+	float: left;
+	height: 36px;
+}
+#renzheng form>.liang .second{
+	float: right;
+	position: relative;
+	width: 120px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	height: 36px;
+	text-align: center;
+	line-height: 36px;
+	color: #585757;
+}
+#renzheng form>.liang .second>input{
+	width: 100%;
+	height: 38px;
+	border:none;
+	z-index: 3;
+	position: absolute;
+	top: 0	;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+	font-size: 12px;
+}
+#renzheng>form>.second{
+	width: 70%;
+	margin:auto;
+	height: 35px;
+	margin-top: 10px;
+}
+#renzheng>form>.second>.btn{
+	width: 100%;
+	height: 100%;
+	border:none;
+	background: #00b8ee;
+	color: white;
+	font-size: 14px;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+@media (min-width: 480px) and (max-width: 645px){
+
+}
+@media (max-width: 479px){
+	#renzheng{
+		width: 100%;
+	}
+	#renzheng>form{
+		width: 95%;
+	}
+}

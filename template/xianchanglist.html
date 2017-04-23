@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/activity/css/moreactivity.css">
+	<script type="text/javascript" src="./weiservice/activity/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="detail">
+			<?php $ii = 1; ?>
+			<?php foreach($shuju as $key=>$v){ ?>
+			<?php if($ii % 2 == 1){echo "<ul>";} ?>
+			<li <?php if($ii % 2 == 0){echo "class='hou'"; } ?>  >
+				<a href="./activity.php?act=picdetail&pid=<?php echo $v['id']; ?>&id=<?php echo $id; ?>"><img src="<?php echo $v['pics']; ?>"></a>
+				<p class="tit"><?php echo $v['name']; ?></p>
+			</li>
+			<?php if($ii % 2 == 0 || $ii == count($shuju)){echo "</ul>";} ?>
+			<?php ++$ii; ?>
+			<?php } ?>
+	</div>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

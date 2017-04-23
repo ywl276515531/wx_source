@@ -1,0 +1,192 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: white;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#renzheng{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	min-height: 880px;
+}
+#renzheng>form{
+	width: 60%;
+	margin:auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#renzheng>form>input{
+	width: 100%;
+	height: 35px;
+	border:1px solid #ccc;
+	line-height: 35px;
+	border-radius: 4px;
+	color: black;
+	outline: none;
+	margin-top: 10px;
+}
+#renzheng>form>.frist{
+	width: 100%;
+	margin-top: 10px;
+	background: #efedf0;
+}
+#renzheng>form>.frist>p{
+	width: 95%;
+	margin:auto;
+	padding:10px 0;
+}
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	padding-left: 10px;
+	color: #6e6c6c;
+} 
+#grinfo{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#grinfo>ul{
+	width: 100%;
+}
+#grinfo>ul>a{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	border-bottom: 1px solid #ccc;
+}
+#grinfo>ul>a>li{
+	width: 90%;
+	margin: 0 auto;
+	height: 100%;
+}
+#grinfo>ul>a>li>p{
+	float: left;
+	color: #666464;
+	font-size: 14px;
+}
+#grinfo>ul>a .right{
+	float: right;
+}
+#grinfo>ul>a .right>strong{
+	color: #666464;
+	font-size: 12px;
+}
+#grinfo>ul>a .right>span{
+	color: #666464;
+}
+#zzc{
+ 	width: 100%;
+ 	height: 100%;
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	background: black;
+ 	opacity: 0.5;
+ 	filter: alpha(filter=50);
+ }
+ .borderwindow,.borderwindow1{
+ 	width: 310px;
+ 	position: absolute;
+ 	border-radius: 4px;
+ 	left: 0;
+ 	right: 0;
+ 	top: 30%;
+ 	bottom: 0;
+ 	margin:0 auto;
+ 	height: 190px;
+ 	background: white;
+ }
+ .borderwindow .tit,.borderwindow1 .tit1{
+ 	color: #1f1e1e;
+ 	font-size: 18px;
+ 	text-align: center;
+ 	letter-spacing: 1px;
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ }
+ .borderwindow form,.borderwindow1 form{
+ 	width: 90%;
+ 	margin:0 5%;
+ 	text-align: center;
+ }
+ .borderwindow form>input,.borderwindow1 form>input{
+ 	height: 40px;
+ 	width: 100%;
+ 	border-radius: 4px;
+ 	border:1px solid #ccc;
+ 	margin:auto;
+ }
+ .borderwindow strong,.borderwindow1 strong{
+ 	text-align: center;
+ 	margin-left:16%;
+ 	color: red;
+ 	font-size: 12px;
+ 	font-weight: normal;
+ }
+ .borderwindow>div,.borderwindow1>div{
+ 	width: 80%;
+ 	margin:0 auto;
+ 	margin-top:25px;
+ }
+ .borderwindow>div>button,.borderwindow1>div>button{
+ 	width: 120px;
+ 	height: 40px;
+ 	background: red;
+ 	border:none;
+ 	border-radius: 4px;
+ 	color: white;
+ 	cursor:pointer;
+ 	font-size: 16px;
+ }
+ .borderwindow>div .cancel,.borderwindow1>div .cancel1{
+ 	float: left;
+ }
+ .borderwindow>div .confrim,.borderwindow1>div .confrim1{
+ 	float: right;
+ }
+@media (min-width: 480px) and (max-width: 645px){
+
+}
+@media (max-width: 479px){
+	
+}

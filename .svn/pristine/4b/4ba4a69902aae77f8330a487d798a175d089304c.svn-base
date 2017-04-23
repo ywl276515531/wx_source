@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/ownziliao.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="grinfo">
+		<ul>
+			<a>
+				<li>
+					<p>用户名</p>
+					<div class="right">
+						<strong>152****2014</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a>
+				<li>
+					<p>手机号</p>
+					<div class="right">
+						<strong>15224812014</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a>
+				<li>
+					<p>邮箱</p>
+					<div class="right">
+						<strong>邮箱</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a>
+				<li>
+					<p>性别</p>
+					<div class="right">
+						<strong>男</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a>
+				<li>
+					<p>QQ</p>
+					<div class="right">
+						<strong>QQ</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a>
+				<li>
+					<p>生日</p>
+					<div class="right">
+						<strong>生日</strong>
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a href="renzheng.html">
+				<li>
+					<p>实名认证</p>
+					<div class="right">
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+			<a href="safeset.html">
+				<li>
+					<p>安全设置</p>
+					<div class="right">
+						<span>&gt;</span>
+					</div>
+				</li>
+			</a>
+		</ul>
+	</div>
+	<div id="zzc" style="display:none">
+	</div>
+	<div class="borderwindow" style="display:none">
+		<p class="tit"></p>
+		<form action="">
+			<input type="text">
+		</form>
+		<div>
+			<button calss="cancel" onclick="cancel()">取消</button>
+			<button class="confrim">提交</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var index;
+	$("#grinfo>ul>a").click(function(){
+		if($(this).index()==6||$(this).index()==7){
+			return;
+		}else{
+			index=$(this).index();
+			$("#zzc").show();
+			$(".borderwindow").show();
+			var news=$(this).find("li>p").html();
+			$(".borderwindow .tit").html("修改"+news);
+			$(".borderwindow form>input").attr("placeholder","请输入您的"+news);
+		}
+	});
+	$(".borderwindow .confrim").click(function(){
+		var va=$(".borderwindow form>input").val();
+		$("#zzc").hide();
+		$(".borderwindow").hide();
+		$("#grinfo>ul>a").eq(index).find("strong").html(va);
+	});
+	$(".borderwindow form>input").focus(function(){
+		$(this).attr("placeholder","");
+	});
+	$(".borderwindow form>input").bind("keydown",function(e){
+		if(e.keyCode==13){
+			e.preventDefault();
+			var va=$(".borderwindow form>input").val();
+			$("#zzc").hide();
+			$(".borderwindow").hide();
+			$("#grinfo>ul>a").eq(index).find("strong").html(va);
+		}
+	});
+   	function cancel(){
+   		$("#zzc").hide();
+   		$(".borderwindow").hide();
+   	}
+</script>
+</html>

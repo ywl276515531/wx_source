@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/persondetail.css">
+	<title>简历详情</title>
+</head>
+<body>
+<div id="personnews">
+	<p class="common">个人信息</p>
+	<div class="item_info">
+		<b>基本信息：</b>
+		<div class="self">
+			<span><?php echo $commonnews; ?></span>
+		</div>
+	</div>	
+	<div class="item_info">
+		<b id="edu">教育经历：</b>
+		<div class="self">
+			<span><?php echo $eduexp; ?></span>
+		</div>
+	</div>	
+	<div class="item_info">
+		<b id="other">其他情况：</b>
+		<div class="self">
+			<span><?php echo $other; ?></span>
+		</div>
+	</div>	
+	<div class="item_info">
+		<b id="job_want">求职意向：</b>
+		<div class="self">
+			<span><?php echo $job; ?></span>
+		</div>
+	</div>	
+	<div class="item_info">
+		<b>联系方式：</b>
+		<div class="self">
+			<span><?php echo $data['s_phone']; ?></span><br>
+			<span style="margin-left: 70px"><?php echo $data['s_email']; ?></span>
+		</div>
+	</div>	
+	<div class="item_info">
+		<b id="info_in">自我介绍：</b>
+		<div class="self1">
+			<?php echo $intr; ?>
+		</div>
+	</div>	
+	<div id="clear"></div>
+	<div>
+		<p class="common">工作经历</p>
+		<div id="workexp">
+		<span><?php echo $workexp; ?></span>
+		</div>
+	</div>
+	
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

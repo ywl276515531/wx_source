@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/piao.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="piaotype">
+		<div class="juzhong">
+			<img src="images/piao.png"><p>活动票种</p>
+		</div>
+		<div class="xian"></div>
+		<div class="type">
+			<ul>
+				<a style="border:1px solid red">
+					<li>免费票</li>
+				</a>
+				<a class="hou">
+					<li>免费票</li>
+				</a>
+				<a class="hou">
+					<li>免费票</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+	<div id="baoming">
+		<div class="juzhong">
+			<p>填写报名信息</p>
+		</div>
+		<div class="xian"></div>
+		<form>
+			<div>
+				<label><strong>*</strong>姓名 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>电话 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>邮箱 ：</label>
+				<input type="text"/>
+			</div>
+			<div>
+				<label><strong>*</strong>公司 ：</label>
+				<input type="text"/>
+			</div>
+			<div class="btn">
+				<input type="submit" value="报名"/>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+  	$("#piaotype .type>ul>a").click(function(){
+  		$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+  		$(this).css("border","1px solid red");
+  	});
+</script>
+</html>

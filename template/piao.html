@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/activity/css/piao.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="./weiservice/activity/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="piaotype">
+		<div class="juzhong">
+			<img src="./weiservice/activity/images/piao.png"><p>活动票种</p>
+		</div>
+		<div class="xian"></div>
+		<div class="type">
+			<ul>
+				<?php if(count($hdp) > 0){ $ii=1;   ?>
+				<?php foreach($hdp as $key=>$v){ ?>
+				<a mm="<?php echo $v['i_id']; ?>" <?php if($ii == 1){ ?>style="border:1px solid red"  <?php }else if($ii %3 ==2 || $ii %3 ==0){ ?>class="hou" <?php } ?>>
+					<li data-id = "<?php echo $v['s_self_vote_buy_sta'];?>" data-type = "<?php echo $v['i_type'];?>" data-min = "<?php echo $v['i_price_vote_min'];?>" data-max = "<?php echo $v['i_price_vote_max'];?>" data-sta = "<?php echo $v['i_sta'];?>" data-time = "<?php echo $v['i_can_join_event'];?>"><?php echo $v['s_title']; ?></li>
+				</a>
+				<?php ++$ii; ?>
+				<?php }} ?>
+			</ul>
+		</div>
+	</div>
+	<div id="baoming">
+		<div class="juzhong">
+			<p>填写报名信息</p>
+		</div>
+		<div class="xian"></div>
+		<form action="activity.php?act=join_activity" method="post">
+			<!--代表活动票种-->
+			<input type="hidden" name="piaozong" id="piaozong" value="<?php echo $hdp[0]['i_id']; ?>" />
+			<input type="hidden" name="i_event_id"  value="<?php echo $id; ?>" />
+			<input type="hidden" name="buyNumber" id="buyNumber"  value="" />
+			<div>
+				<label><strong>*</strong>姓名 ：</label>
+				<input type="text" name="realname" required="required" id="realname" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="姓名必填"/>
+			</div>
+			<div>
+				<label><strong>*</strong>手机 ：</label>
+				<input type="text" name="phone" id="phone" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="手机格式错误" />
+			</div>
+			<!--<div>-->
+				<!--<label><strong>*</strong>邮箱 ：</label>-->
+				<!--<input type="text" name="email" id="email" class="tooltip-show" data-toggle="tooltip" data-placement="bottom" title="邮箱格式错误" />-->
+			<!--</div>-->
+			<?php if(count($ad_expand) > 0){ ?>
+			<?php foreach($ad_expand as $key=>$v){ ?>
+			<?php if($v['i_required'] == 1){ ?>
+			<div>
+				<label><strong>*</strong><?php echo $v['s_name'] ?> ：</label>
+				<?php if($v['s_type'] == "InRadio" || $v['s_type'] == 'InSelect'){ ?>
+				<select name="t_<?php echo $v['i_id']; ?>">
+					<?php foreach($v['ad_sub'] as $key1=>$v1){ ?>
+					<option value="<?php echo $v1; ?>"><?php echo $v1; ?></option>
+					<?php } ?>
+				</select>
+				<?php }elseif($v['s_type'] == "InNumber"){ ?>
+				<input type="text" name="t_<?php echo $v['i_id']; ?>"  class="tooltip-show number" data-toggle="tooltip" data-placement="bottom" title="<?php echo $v['s_name'] ?>必须为数字" />
+				<?php }elseif($v['s_type'] == 'InTime'){ ?>
+				<input type="datetime-local" name="t_<?php echo $v['i_id']; ?>" class="tooltip-show text" data-toggle="tooltip" data-placement="bottom" title="<?php echo $v['s_name'] ?>必填" />
+				<?php }elseif($v['s_type'] == 'InEmail'){ ?>
+				<input type="text" name="t_<?php echo $v['i_id']; ?>" id='email' class="tooltip-show email" data-toggle="tooltip" data-placement="bottom" title="<?php echo $v['s_name'] ?>填写错误" />
+				<?php }elseif($v['s_type'] == 'InTextarea' || $v['s_type'] == 'InSpecial' || $v['s_type'] == 'InText'){ ?>
+				<input type="text" name="t_<?php echo $v['i_id']; ?>" class="tooltip-show text" data-toggle="tooltip" data-placement="bottom" title="<?php echo $v['s_name'] ?>必填" />
+				<?php }elseif($v['s_type'] == 'InCheckBox'){ ?>
+				<div class="tooltip-show checkbox" data-toggle="tooltip" data-placement="bottom" title="<?php echo $v['s_name'] ?>必选" >
+					<?php foreach($v['ad_sub'] as $key1=>$v1){ ?>
+					<input type="checkbox" value="<?php echo $v1; ?>" name="t_<?php echo $v['i_id']; ?>[]" /><?php echo $v1; ?>
+					<?php } ?>
+				</div>
+				<?php } ?>
+			</div>
+			<?php }}} ?>
+			<div class="btn">
+				<input type="submit" name="sub" id="sub" value="报名"/>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+		$("#piaozong").val('');
+	})
+  	$("#piaotype .type>ul>a").click(function(){
+  		$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+  		$(this).css("border","1px solid red");
+		var mm = $(this).attr("mm");
+		var data_id = $(this).find("li").attr("data-id");
+		var i_type = $(this).find("li").attr("data-type");
+		var i_sta = $(this).find("li").attr("data-sta");
+		var i_time = $(this).find("li").attr("data-time");
+		if(i_sta == 1){
+			alert('该票已停止售票，不能购买！');
+			$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+			$("#piaozong").val('');
+		}else{
+			if(i_time > 0){
+				$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+				$("#piaozong").val('');
+				if(i_time == 1){
+					alert('该票未到购买时间，不能购买！');
+				}else{
+					alert('该票已过购买时间，不能购买！');
+				}
+			}else{
+				if(data_id == '1' && i_type == '0'){
+					$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+					$("#piaozong").val('');
+					alert('您已购买过此票，不能重复购买！');
+				}else{
+					$("#piaozong").val(mm);
+					$('#buyNumber').val('1');
+				}
+				if(i_type == '1'){
+					var vote_min = $(this).find("li").attr("data-min");
+					var vote_max = $(this).find("li").attr("data-max");
+					if(vote_max > 1){
+						var vote_num = prom(vote_min,vote_max);
+						$('#buyNumber').val(vote_num);
+					}
+				}
+			}
+		}
+  	});
+	function prom(s,m) { 
+		var num = prompt("请输入票的数量("+s+" - "+m+" 张)", ""); 
+		num = parseInt(num);
+		s = parseInt(s);
+		m = parseInt(m);
+		if(num > 0 ){ 
+			if(num > m){
+				$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+				$("#piaozong").val('');
+				alert("请选择正确的票数！")
+				num = '';
+			}else if(num < s){
+				$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+				$("#piaozong").val('');
+				alert("请选择正确的票数！")
+				num = '';
+			}
+		}else{
+			$("#piaotype .type>ul>a").css("border","1px solid #ccc");
+			$("#piaozong").val('');
+			num = '';
+			alert("请选择正确的票数！")
+		}
+		return num;
+	} 
+	$("form").submit(function(){
+		var pd = 1;
+		if($("#piaozong").val() == ''){
+			pd = 0;
+			alert("请选择票种！");
+			return false;
+		}
+		if($("#buyNumber").val() == ''){
+			pd = 0;
+			alert("票的数量不正确！");
+			return false;
+		}
+		if($("#realname").val().replace(/\s/g,'').length<1){
+			$(function () { $('#realname').tooltip('show');});
+			pd = 0;
+		}
+		var tel = $("#phone").val();//手机号码
+		var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+		if (!reg.test(tel)) {
+			pd = 0;
+			$(function () { $('#phone').tooltip('show');});
+			return false;
+		};
+		if(document.getElementById("email")){ 
+			var email = $("#email").val();
+			var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+			var flag = pattern.test(email);
+			if(!flag){
+				$(function () { $('#email').tooltip('show');});
+				return false;
+			}
+		} 
+		var reg = new RegExp("^[0-9]*$");
+		$(".number").each(function(i,item){
+			var number = $(item).val();
+			var shuzi = new RegExp("^[0-9]*$");
+			if(!shuzi.test(number) || $(item).val().replace(/\s/g,'').length<1){
+				$(function () { $(item).tooltip('show');});
+				pd = 0;
+				return false;
+			}
+		});
+		$(".text").each(function(i,item){
+			if($(item).val().replace(/\s/g,'').length<1){
+				$(function () { $(item).tooltip('show');});
+				pd = 0;
+				return false;
+			}
+		});
+		$(".email").each(function(i,item){
+			var cs = pattern.test($(item).val());
+			if(!cs){
+				$(function () { $(item).tooltip('show');});
+				pd = 0;
+				return false;
+			}
+		});
+		$(".checkbox").each(function(i,item){
+			if($(item).children(":checked").length < 1){
+				$(function () { $(item).tooltip('show');});
+				pd = 0;
+				return false;
+			}
+		});
+		// if(pd == 0){
+		// 	return false;
+		// }
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

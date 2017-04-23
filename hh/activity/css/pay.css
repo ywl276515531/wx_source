@@ -1,0 +1,108 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin:0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+}
+button{
+	cursor: pointer;
+}
+.clearfix{
+	clear: both;
+	overflow: hidden;
+}
+strong,b{
+	font-weight: normal;
+}
+form{
+	max-width: 640px;
+	margin:auto;
+}
+form .kuang{
+	width: 96%;
+	margin:auto;
+}
+form .kuang>ul{
+	width: 100%;
+}
+form .kuang>ul>li{
+	border:1px solid #ccc;
+	border-radius: 4px;
+	padding:5px;
+	margin-top: 10px;
+	font-size: 14px;
+}
+form .kuang ul>li>label{
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	border-bottom: 1px solid #dedede;
+}
+form .kuang ul>li .name{
+	margin-top: 10px;
+	color: black;
+	height: 30px;
+	font-size: 12px;
+}
+form .kuang ul .sel>ul{
+	width: 100%;
+	padding:10px 0;
+}
+form .kuang ul .sel>ul>li{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	text-align: center;
+	color: red;
+	border:1px solid #ccc;
+	background: #f1f1f1;
+	margin-bottom: 5px;
+}
+form>#tj{
+	position: fixed;
+	bottom:0;
+	left:0;
+	height: 50px;
+	max-width: 640px;
+	margin:auto;
+	right: 0;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	box-sizing: border-box;
+}
+form>#tj>a{
+	width: 50%;
+	float: left;
+	display: block;
+	height: 100%;
+	line-height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+	color: black;
+}
+form>#tj .jiesuan{
+	background: red;
+	color: white;
+	font-size: 14px;
+	letter-spacing: 3px;
+}
+form>#tj>a>p>strong{
+	color: #ff5722;
+}

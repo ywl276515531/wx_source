@@ -1,0 +1,212 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	height: 100%;
+	padding: 0;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	overflow-x: hidden;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border: none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+#pagetop{
+	max-width: 640px;
+	margin: auto;
+}
+#pagetop .logo1{
+	width: 100%;
+	height: 140px;
+}
+#worknews{
+	display: block;
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+}
+#worknews .title{
+	width: 96%;
+	margin: auto;
+	height: 30px;
+	line-height: 30px;
+	color: black;
+	font-size: 14px;
+}
+#worknews .left{
+	float: left;
+}
+#worknews .left span{
+	width: 5px;
+	height: 20px;
+	background: #00b8ee;
+	float: left;
+	margin-right:5px;
+	margin-top: 5px;
+}
+#worknews a{
+	float: right;
+	color: black;
+	font-size: 12px;
+	display: block;
+}
+#worknews .line{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+	margin-top: 5px;
+}
+ul{
+	width: 100%;
+	margin-top: 10px;
+	float: left;
+	display: block;
+}
+.job_item{
+	width: 100%;
+	margin: auto;
+	border: 1px dashed #CACACA;
+	margin-top: 10px;
+	height: 100px;
+}
+.job_item a{	
+	width: 95%;
+	float: left;
+	margin: auto;
+	height: 100%;
+}
+.job_item a #item_info{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	float: left;
+	height: 100%;
+	line-height: 100%
+}
+.job_item a #item_info span{
+	display: block;
+}
+.job_item a #item_info #item_info_title{	
+	color: #00b8ee;
+	font-size: 12px;
+}
+.job_item a #item_info #item_info_money{
+	margin-top: 10px;
+	color: #f00;
+	font-size: 12px;
+}
+.job_item a #item_info #item_info_address{
+	color: #999;
+	margin-top: 10px;
+}
+.job_item a #item_info #item_info_time{	
+	color: #999;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.job_item img{	
+	height: 50px;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 50px;
+	float: right;
+}
+#people{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+}
+#people .title{
+	width: 96%;
+	margin: auto;
+	height: 30px;
+	line-height: 30px;
+	color: black;
+	font-size: 14px;
+}
+#people .left{
+	float: left;
+}
+#people .left span{
+	width: 5px;
+	height: 20px;
+	background: #00b8ee;
+	float: left;
+	margin-right:5px;
+	margin-top: 5px;
+}
+#people a{
+	float: right;
+	color: black;
+	font-size: 12px;
+	display: block;
+}
+#people .line{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+	margin-top: 5px;
+	float: left;
+}
+#people_news{
+	width: 100%;
+	margin-top: 10px;
+	padding-bottom: 50px;
+	float: left;
+	display: block;
+}
+.people_list{
+	margin-top: 10px;
+	border: 1px dashed #CACACA;
+	width: 100%;
+	height: 80px;
+}
+.people_list a{
+	width: 95%;
+	height: 100%;
+	margin: auto;	
+}
+.people_list a img{
+	border-radius: 50px;
+	margin-top: 10px;
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+.people_list #people_item{
+	float: left;
+	margin-left: 10px;
+}
+.people_list #people_item span{
+	display: block;
+}
+.people_list #people_item_title{
+	margin-top: 5px;
+	color: #00b8ee;
+	font-size: 12px;
+}
+.people_list #people_item_school{
+	margin-top: 5px;
+	font-size: 12px;
+}
+.people_list #people_item_time{
+	margin-top: 5px;
+	font-size: 12px;
+	color: #999;
+}
+

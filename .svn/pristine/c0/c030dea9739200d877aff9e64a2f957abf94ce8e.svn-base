@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/moreperson.css">
+	<link rel="stylesheet" type="text/css" href="../css/loader.css">
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>简历列表</title>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data_result['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data_result['i_pages']; ?>" id="i_pages" />
+<div id="top">
+	<div class="center">
+		<div class="one">
+			<p>经验：</p>
+			<div class="right" id="year">
+				<a href="javascript:" val='0' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='0'){ ?>class='current' style='color: white' <?php } ?> >不限</a>
+				<a href="javascript:" val='1' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='1'){ ?>class='current' style='color: white' <?php } ?>>应届毕业生</a>
+				<a href="javascript:" val='2' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='2'){ ?>class='current' style='color: white' <?php } ?>>3年及以下</a>
+				<a href="javascript:" val='3' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='3'){ ?>class='current' style='color: white' <?php } ?>>3-5年</a>
+				<a href="javascript:" val='4' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='4'){ ?>class='current' style='color: white' <?php } ?>>5-10年</a>
+				<a href="javascript:" val='6' onclick="edityear(this)"
+				<?php if($arr['i_exp']=='5'){ ?>class='current' style='color: white' <?php } ?>>10年以上</a>				
+			</div>
+		</div>
+		<p class="clearfix"></p>
+		<div class="four">
+			<p>月薪：</p>
+			<div class="right" id="jobmoney">
+				<a href="javascript:" val='0' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='0'){ ?>class='current' style='color: white' <?php } ?>>不限</a>
+				<a href="javascript:" val='1' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='1'){ ?>class='current' style='color: white' <?php } ?>>2k以下</a>
+				<a href="javascript:" val='2' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='2'){ ?>class='current' style='color: white' <?php } ?>>2k~5k</a>
+				<a href="javascript:" val='3' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='3'){ ?>class='current' style='color: white' <?php } ?>>5k~10k</a>	
+				<a href="javascript:" val='4' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='4'){ ?>class='current' style='color: white' <?php } ?>>10k~15k</a>
+				<a href="javascript:" val='5' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='5'){ ?>class='current' style='color: white' <?php } ?>>15k~25k</a>
+				<a href="javascript:" val='6' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='6'){ ?>class='current' style='color: white' <?php } ?>>25k~50k</a>
+				<a href="javascript:" val='7' onclick="editmoney(this)"
+				<?php if($arr['i_money']=='7'){ ?>class='current' style='color: white' <?php } ?>>50k以上</a>		
+			</div>
+		</div>
+		<p class="clearfix"></p>
+		<div class="two twoo" kind="<?php echo $kind; ?>" <?php if($kind==1){ ?> style="display: none;" <?php } ?> >
+			<p>学历：</p>
+			<div class="right" id="edu">
+				<a href="javascript:" val='0' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='0'){ ?>class='current' style='color: white' <?php } ?>>不限</a>
+				<a href="javascript:" val='10' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='10'){ ?>class='current' style='color: white' <?php } ?>>初中</a>
+				<a href="javascript:" val='9' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='9'){ ?>class='current' style='color: white' <?php } ?>>高中</a>
+				<a href="javascript:" val='8' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='8'){ ?>class='current' style='color: white' <?php } ?>>中技</a>
+				<a href="javascript:" val='7' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='7'){ ?>class='current' style='color: white' <?php } ?>>中专</a>
+				<a href="javascript:" val='6' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='6'){ ?>class='current' style='color: white' <?php } ?>>大专</a>
+				<a href="javascript:" val='5' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='5'){ ?>class='current' style='color: white' <?php } ?>>本科</a>
+				<a href="javascript:" val='4' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='4'){ ?>class='current' style='color: white' <?php } ?>>硕士</a>
+				<a href="javascript:" val='3' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='3'){ ?>class='current' style='color: white' <?php } ?>>MBA/EMBA</a>
+				<a href="javascript:" val='2' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='2'){ ?>class='current' style='color: white' <?php } ?>>博士</a>
+				<a href="javascript:" val='1' onclick="editedu(this)"
+				<?php if($arr['i_edu']=='1'){ ?>class='current' style='color: white' <?php } ?>>博士后</a>
+			</div>
+			<p class="down_con">性质：</p>
+			<div class="right down_con" id="jobyh">
+				<a href="javascript:" val='0' onclick="editjobyh(this)"
+				<?php if($arr['i_style']=='0'){ ?>class='current' style='color: white' <?php } ?>>不限</a>
+				<a href="javascript:" val='1' onclick="editjobyh(this)"
+				<?php if($arr['i_style']=='1'){ ?>class='current' style='color: white' <?php } ?>>全职</a>
+				<a href="javascript:" val='2' onclick="editjobyh(this)"
+				<?php if($arr['i_style']=='2'){ ?>class='current' style='color: white' <?php } ?>>兼职</a>
+				<a href="javascript:" val='3' onclick="editjobyh(this)"
+				<?php if($arr['i_style']=='3'){ ?>class='current' style='color: white' <?php } ?>>实习</a>			
+			</div>			
+		    <p class="clearfix"></p>
+		    <div class="money_order">
+					<div id="yh">
+							<span id="paixu"> 排序：</span>
+							<a  href="javascript:"  onclick="editpaixu(this)" <?php if($type_order['i_type']=='1'){ ?>class="act"<?php } ?> val='1'>默认</a>
+							<a  href="javascript:"  onclick="editpaixu(this)" <?php if($type_order['i_type']=='2'){ ?>class="act"<?php } ?> val='2'>最新</a>
+					</div>
+		    </div>
+		    <span class="sc_item" id="sc1"> 工作地址：
+       			 <select id="province">
+       			 <?php foreach($province as $v){ ?>
+        			<option value="<?php echo $v['id']; ?>"> <?php echo $v['name']; ?></option>
+        			<?php } ?>
+       				 </select>
+       				 <select id="city">
+       				 <?php foreach($city as $v){ ?>
+        			<option value="<?php echo $v['id']; ?>" ><?php echo $v['name']; ?></option>
+       				 <?php } ?>
+       		 </select>
+    </span>
+		</div>
+		<p class="clearfix"></p>
+		<div id="div_down">
+			<div id="div_top">
+				<span><?php if($kind==1){echo "更多选项(学历、地址等)";}else{echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";} ?></span>
+			</div>			
+		</div>			
+	</div>
+</div>
+<div class="clearfix"></div>
+<div id="worknews">	
+	<ul id="people_news">
+		<?php if(count($data)>0){ ?>
+		<?php foreach($data as $v){ ?>
+		<li class="people_list">
+			<a href="recruit.php?action=perdetail&id=<?php echo $v['i_id']; ?>">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_face_pic'] ?>">
+				<div id="people_item">
+					<span id="people_item_title"><?php echo $v['as_sex']['s_sex'].'|'.$v['as_year']['s_year'].'|'.$v['as_edu']['s_edu']; ?></span>
+					<span id="people_item_school"><?php echo $v['s_school'].'|'.$v['s_major']; ?></span>
+					<span id="people_item_time"><?php echo date("Y-m-d",$v['i_pub_time']); ?></span>
+				</div>
+			</a>
+		</li>
+		<?php }}else{ echo '暂无数据';} ?>		
+	</ul>
+</div>
+<div class="clearfix"></div>
+		<div class="loader-inner ball-pulse" style="display:none">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+			已经没有内容了
+		</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() { initPage(); })
+	function submit(){
+		var kind=$('.twoo').attr('kind');
+		var i_exp=$('#year .current').attr('val');
+		var i_edu=$('#edu .current').attr('val');
+		var i_type=$('#yh .act').attr('val');
+		var i_money=$('#jobmoney .current').attr('val');
+		var i_style=$('#jobyh .current ').attr('val');
+		var province=$('#province').val();
+		var city=$('#city').val();
+		var s_address=0;
+		if (city==0&&province==0) {
+			s_address=0;
+		}else if(province!=0&&city==0){
+			s_address=province;
+		}else{
+			s_address=province+'_'+city;
+		}
+		var url='recruit.php?action=moreperson&i_exp='+i_exp+'&i_edu='+i_edu+'&i_type='+i_type+'&i_money='+i_money+'&i_style='+i_style+'&s_address='+s_address+'&kind='+kind;
+		window.location.href=url;
+	}	
+	function submith(){
+		var kind=$('.twoo').attr('kind');
+		var i_exp=$('#year .current').attr('val');
+		var i_edu=$('#edu .current').attr('val');
+		var i_type=$('#yh .act').attr('val');
+		var i_money=$('#jobmoney .current').attr('val');
+		var i_style=$('#jobyh .current ').attr('val');
+		var province=$('#province').val();		
+		var url='recruit.php?action=moreperson&i_exp='+i_exp+'&i_edu='+i_edu+'&i_type='+i_type+'&i_money='+i_money+'&i_style='+i_style+'&s_address='+province+'&kind='+kind;
+		window.location.href=url;
+	}
+	function editpaixu(s){
+		if($(s).hasClass("act")){
+			return false;
+		}else{
+			$("#yh>a").removeClass("act");
+			$(s).addClass("act");			
+			submit();
+		}
+	}
+	function editmoney(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#jobmoney>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");			
+			submit();
+		}
+	}
+	function editjobyh(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#jobyh>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");			
+			submit();
+		}
+	}
+	function edityear(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#year>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");			
+			submit();
+		}
+	}
+	function editedu(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#edu>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");
+			submit();
+		}
+	}	
+	function initPage(){
+		var s_address='<?php echo $arr['s_address']; ?>';
+		var sear=new RegExp('_');
+		if (sear.test(s_address)) {
+			arr=s_address.split('_');			
+			$('#province').val(arr[0]);
+			$('#city').val(arr[1]);
+		}else{
+			$('#province').val(s_address);
+		}
+		$('#orderby_way,#monthlySalary,#workStyle,#province,#city').change(function(){
+			submit();
+		});
+		$('#province').change(function(){
+			submith();
+		});
+		$('#div_top span').click(function(){
+			var down=$('.twoo').attr('kind');
+			if(down==1){
+				$('#div_top span').html('&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+				$('.twoo').attr('kind','2');
+			}else{
+				$('#div_top span').html('更多选项(学历、地址等)');
+				$('.twoo').attr('kind','1');
+			}
+			$('.twoo').slideToggle();
+		});
+	}
+	$(document).ready(function () { 
+    	$(window).scroll(function () {
+       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+       			$(".ball-pulse").show();	
+	       					$(".ball-text").hide();	
+          		setTimeout(function(){
+					var i_page = $("#i_page").val();
+					i_page = parseInt(i_page)+1;
+					var i_pages = parseInt($("#i_pages").val());
+					if(i_page <= i_pages){
+						
+						var i_exp=$('#year .current').attr('val');
+						var i_edu=$('#edu .current').attr('val');
+						var i_type=$('#orderby_way').val();
+						var i_money=$('#monthlySalary').val();
+						var i_style=$('#workStyle').val();
+						var province=$('#province').val();
+						var city=$('#city').val();
+						var s_address=0;
+						var kind=$('.twoo').attr('kind');
+						if (city==0&&province==0) {
+							s_address=0;
+						}else if(province!=0&&city==0){
+							s_address=province;
+						}else{
+							s_address=province+'_'+city;
+						}
+						var data = {"i_exp":i_exp,"i_edu":i_edu,"i_type":i_type,"i_page":i_page,"i_money":i_money,"i_style":i_style,"s_address":s_address,"kind":kind}
+						$.post("recruit.php?action=postperson",data,function(msg){
+							$("#i_page").val(i_page);
+							$("#people_news").append(msg);
+						},"text");
+					}else{
+						$(".ball-pulse").hide();
+						$(".ball-text").show();
+					}
+			},2000);
+        		}
+    	});
+});
+$("#i_page").val(1);
+</script>
+</html>

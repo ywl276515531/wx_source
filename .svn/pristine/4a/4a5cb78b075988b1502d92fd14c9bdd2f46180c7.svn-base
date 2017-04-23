@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/recruit.css">
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>人才集市</title>
+</head>
+<body>
+<div id="pagetop">
+	<img class="logo1" src="http://www.wfyizhan.com/kcy/web/inc/talent/images/logo1.jpg">	
+</div>
+<div class="clearfix"></div>
+<div id="worknews">
+	<div class="title"><p class="left">
+		<span></span>招聘信息</p><a href="recruit.php?action=morejob">更多>></a>
+	</div>
+	<div class="clearfix"></div>
+	<div class="line"></div>
+	<ul id="jobnews">
+	 	<?php if($jobcount>0){
+	 			$i=1;
+	 			foreach($joblist as $v){	
+	 				if($v['i_money_start']!=0){
+	 					$i_money_start=($v['i_money_start']/100000).'k';
+	 					$i_money_end=($v['i_money_end']/100000).'k';
+	 					$money_msg=$i_money_start.'~'.$i_money_end;
+	 				}else{
+	 					$money_msg='面议';
+	 				}	 ?>
+		<li class="job_item">
+			<a href="recruit.php?action=detail&id=<?php echo $v['i_id']; ?>">
+				<div id="item_info">
+					<span id="item_info_title"><?php echo $v['s_title']; ?></span>
+					<span id="item_info_money"><?php echo $money_msg; ?></span>
+					<span id="item_info_address"><?php echo $v['s_street'] ?></span>
+					<span id="item_info_time"><?php echo date("Y-m-d",$v['i_pub_time']); ?></span>
+				</div>				
+			</a>
+		</li>
+		<?php if($i>=$jobcount){break;} $i++; ?>
+		<?php }} ?>		
+	</ul>
+</div>
+<div class="clearfix"></div>
+<div id="people">
+	<div class="title"><p class="left">
+		<span></span>简历库</p><a href="recruit.php?action=moreperson">更多>></a>
+	</div>
+	<div class="clearfix"></div>
+	<div class="line"></div>
+	<ul id="people_news">
+		<?php if($personcount>0){ ?>
+		<?php foreach($personlist as $v){ $i=1; ?>
+		<li class="people_list">
+			<a href="recruit.php?action=perdetail&id=<?php echo $v['i_id']; ?>">
+				<img src="http://www.wfyizhan.com/<?php echo $v['s_face_pic'] ?>">
+				<div id="people_item">
+					<span id="people_item_title"><?php echo $v['as_sex']['s_sex'].'|'.$v['as_year']['s_year'].'|'.$v['as_edu']['s_edu']; ?></span>
+					<span id="people_item_school"><?php echo $v['s_school'].'|'.$v['s_major']; ?></span>
+					<span id="people_item_time"><?php echo date("Y-m-d",$v['i_pub_time']); ?></span>
+				</div>
+			</a>
+		</li>
+		<?php if($i>=$personcount){break;} $i++;  ?>
+		<?php }} ?>		
+	</ul>
+</div>
+<?php include_once '../pages/daohang.html'; ?>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #f0edf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#pic{
+	max-width: 640px;
+	margin:auto;
+}
+#pic>a{
+	width: 100%;
+	display: block;
+}
+#pic>a>img{
+	width: 100%;
+}
+#changdi{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+}
+#changdi .tit{
+	width: 95%;
+	margin:auto;
+	line-height: 30px;
+	font-size: 16px;
+}
+#changdi .xian{
+	width: 100%;
+	border-top: 3px solid #00b8ee;
+}
+#changdi .container{
+	width: 95%;
+	margin:auto;
+	padding-top: 10px;
+}
+#changdi .container>p{
+	font-size: 14px;
+	color: gray;
+}
+#changdi .container>.adress{
+	padding-top: 5px;
+}
+#changdi .container>.phone{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#cdjieshao{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	margin-top: 10px;
+}
+#cdjieshao .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#cdjieshao .tit>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#cdjieshao .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#cdjieshao .container{
+	width: 95%;
+	margin:0 auto;
+	margin-top: 10px;
+}
+#cdjieshao .container>p{
+	color: #989898;
+	padding-bottom: 10px;
+	letter-spacing: 1px;
+}
+#cdadress{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	margin-top: 10px;
+}
+#cdadress .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#cdadress .tit>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#cdadress .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#cdadress .container{
+	width: 95%;
+	margin:0 auto;
+	margin-top: 10px;
+}
+#cdadress .container>iframe{
+	width: 603px;
+	height: 238px;
+}
+#cddetail{
+	max-width: 640px;
+	margin:auto;
+	background: white;
+	margin-top: 10px;
+}
+#cddetail .tit{
+	width: 95%;
+	margin:auto;
+	height: 40px;
+	line-height: 40px;
+	color: black;
+	font-size: 16px;
+}
+#cddetail .tit>span{
+	width: 5px;
+	height: 30px;
+	background: #00b8ee;
+	float: left;
+	margin-right:10px;
+	margin-top: 5px; 
+}
+#cddetail .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#cddetail .container{
+	width: 96%;
+	margin:0 auto;
+	margin-top: 10px;
+}
+#cddetail .container>ul{
+	width: 100%;
+}
+#cddetail .container>ul>li{
+	width: 100%;
+	height: 125px;
+	padding-top: 10px;
+	border-bottom: 1px solid #ccc;
+}
+#cddetail .container>ul>li>img{
+	float: left;
+	width: 190px;
+	height: 115px;
+}
+#cddetail .container>ul>li>.right{
+	float: left;
+	width: 395px;
+	margin-left: 10px;
+}
+#cddetail .container>ul>li .right>.left{
+	float: left;
+}
+#cddetail .container>ul>li .right>.left>p{
+	font-size: 14px;
+	color: black;
+	padding-top: 5px;
+}
+#cddetail .container>ul>li .right>.right{
+	float: right;
+	height: 100%;
+	padding-top: 30px;
+}
+#cddetail .container>ul>li .right>.right>a{
+	width: 90px;
+	height: 30px;
+	color: white;
+	background: #00b8ee;
+	text-align: center;
+	display: block;
+	line-height: 30px;
+}
+@media (min-width: 547px) and (max-width: 645px){
+	#cddetail .container>ul>li>.right{
+		width: 60%;
+	}
+}
+@media (min-width: 480px) and (max-width: 546px){
+	#cddetail .container>ul>li>img{
+		width: 25%;
+		height: auto;
+	}
+	#cddetail .container>ul>li>.right{
+		width: 73%;
+		margin-left: 2%;
+	}
+	#cddetail .container>ul>li .right>.left>p{
+		font-size: 12px;
+	}
+	#cddetail .container>ul>li .right>.right>a{
+		width: 70px;
+	}
+}
+@media (max-width: 479px){
+	#pic{
+		width: 100%;
+	}
+	#changdi{
+		width: 100%;
+	}
+	#cdjieshao{
+		width: 100%;
+	}
+	#cdadress{
+		width: 100%;
+	}
+	#cdadress .container>iframe{
+		width: 100%;
+		height: 238px;
+	}
+	#cddetail{
+		width: 100%;
+	}
+	#cddetail .container>ul>li>img{
+		width: 25%;
+		height: auto;
+	}
+	#cddetail .container>ul>li>.right{
+		width: 73%;
+		margin-left: 2%;
+	}
+	#cddetail .container>ul>li .right>.left{
+		width: 65%;
+	}
+	#cddetail .container>ul>li .right>.left>p{
+		font-size: 12px;
+	}
+	#cddetail .container>ul>li .right>.right>a{
+		width: 70px;
+	}
+}

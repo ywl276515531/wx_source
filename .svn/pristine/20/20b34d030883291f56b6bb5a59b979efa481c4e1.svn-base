@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="../css/morepro.css">
+	<link rel="stylesheet" type="text/css" href="../css/loader.css">
+	<script type="text/javascript" src="../pages/jquery-1.9.1.min.js"></script>
+	<title>项目列表</title>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data_result['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data_result['i_pages']; ?>" id="i_pages" />
+<div id="top">
+	<div class="center">
+		<div class="one">
+			<span>行业：</span>
+			<div class="right" id="year">
+			<?php foreach($title as $v){ ?>
+				<a href="javascript:" <?php if($arr['i_product_type_id']==$v['i_id']){ ?> class="current" style="color: white" <?php } ?> val='<?php echo $v['i_id']; ?>' onclick="edityear(this)"
+				><?php echo $v['s_title']; ?></a>	
+			<?php } ?>				
+			</div>
+		</div>
+		<p class="clearfix"></p>
+		<div id="hyh">
+			<span id="m">融资金额:</span>
+			<input type="text" name="min" id="min" oninput="clearNoNum1(this)">
+			<span class="n">-</span>
+			<input type="text" name="max" id="max" oninput="clearNoNum1(this)">
+			<span class="n">万</span>
+		</div>		
+		<p class="clearfix"></p>
+		<div class="two twoo" kind="<?php echo $kind; ?>" <?php if($kind==1){ ?> style="display: none"<?php  } ?> >
+			<span>城市：</span>
+			<div class="right" id="edu">
+				<a href="javascript:" val='99999' <?php if($arr['i_city_id']=='99999'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>全部</a>				
+				<a href="javascript:" val='510100' <?php if($arr['i_city_id']=='510100'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>成都</a>
+				<a href="javascript:" val='110100' <?php if($arr['i_city_id']=='110100'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>北京</a>
+				<a href="javascript:" val='440300' <?php if($arr['i_city_id']=='440300'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>深圳</a>
+				<a href="javascript:" val='310000' <?php if($arr['i_city_id']=='310000'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>上海</a>
+				<a href="javascript:" val='500000' <?php if($arr['i_city_id']=='500000'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>重庆</a>
+				<a href="javascript:" val='440100' <?php if($arr['i_city_id']=='440100'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>广州</a>
+				<a href="javascript:" val='330100' <?php if($arr['i_city_id']=='330100'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>杭州</a>
+				<a href="javascript:" val='320100' <?php if($arr['i_city_id']=='320100'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>南京</a>
+				<a href="javascript:" val='510700' <?php if($arr['i_city_id']=='510700'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>绵阳</a>
+				<a href="javascript:" val='0' <?php if($arr['i_city_id']=='0'){ ?>class="current" style="color: white"<?php } ?> onclick="editedu(this)"
+				>其他</a>
+			</div>
+				<span>阶段：</span>
+				<div class="right" id="jobtype">
+					<a href="javascript:" val='0' <?php if($arr['i_money_level']=='0'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>全部</a>
+					<a href="javascript:" val='1' <?php if($arr['i_money_level']=='1'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>概念阶段</a>
+					<a href="javascript:" val='2' <?php if($arr['i_money_level']=='2'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>研发阶段</a>
+					<a href="javascript:" val='3' <?php if($arr['i_money_level']=='3'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>正式发布</a>	
+					<a href="javascript:" val='4' <?php if($arr['i_money_level']=='4'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>已有用户</a>	
+					<a href="javascript:" val='5' <?php if($arr['i_money_level']=='5'){ ?>class="current" style="color: white"<?php } ?> onclick="editjobtype(this)"
+				>已有收入</a>	
+				</div>
+			<div class="clearfix"></div>
+			<div class="money_order">
+				<div id="con">					
+					<div class="clearfix"></div>
+					<div id="yh">
+							<span id="paixu"> 排序：</span>
+							<a <?php if($order_arr['i_kind']=='1'){ ?>class="act"<?php } ?> href="javascript:" kind='1'>最新项目</a>
+							<a <?php if($order_arr['i_kind']=='2'){ ?>class="act"<?php } ?> href="javascript:" kind='2'>人气项目</a>
+					</div>
+				</div>
+		</div>
+		</div>
+		<div id="div_down">
+			<div id="div_top">
+				<span><?php if($kind==1){echo "更多选项(城市、阶段等)";}else{echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";} ?></span>
+			</div>
+			
+		</div>		
+	</div>
+</div>
+
+<div class="clearfix"></div>
+<div id="content">	
+ <?php foreach($data as $v){ ?>
+	<a href="finance.php?action=prodetail&i_id=<?php echo $v['i_id']; ?>" style="color: grey">
+		<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>">
+		<span class="addr"><?php echo $v['s_company_address']; ?></span>
+		<span class="money"><?php echo $v['i_money_total']; ?>万</span>
+	</a>	
+<?php } ?>
+</div>
+<div class="clearfix"></div>
+		<div class="loader-inner ball-pulse" style="display:none">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+			已经没有内容了
+		</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() { initPage(); })	
+	function submit(){
+		var kind=$('.twoo').attr('kind');
+		var i_product_type_id=$('#year .current').attr('val');
+		var i_city_id=$('#edu .current').attr('val');
+		var i_money_level=$('#jobtype .current').attr('val');
+		var i_min=parseInt($('#min').val()) || 0;
+		var i_max=parseInt($('#max').val()) || 0;	
+		var i_kind=$('#yh .act').attr('kind');
+		var url='finance.php?action=morepro&i_product_type_id='+i_product_type_id+'&i_city_id='+i_city_id+'&i_money_level='+i_money_level+'&i_min='+i_min+'&i_max='+i_max+'&i_kind='+i_kind+'&kind='+kind;
+		window.location.href=url;
+	}	
+	function edityear(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#year>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");			
+			submit();
+		}
+	}
+	function editedu(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#edu>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");
+			submit();
+		}
+	}
+	function editjobtype(s){
+		if($(s).hasClass("current")){
+			return false;
+		}else{
+			$("#jobtype>a").removeClass("current").css("color","grey");
+			$(s).addClass("current").css("color","white");
+			submit();
+		}
+	}
+	$('#max').blur(function(){		
+		var min=parseInt($('#min').val()) || 0;
+		var max=parseInt($('#max').val()) || 0;		
+			if (min<0) {
+				alert('最小金额不能小于0');
+			}else if(min>max){
+				alert('最小金额不能大于最大金额');
+			}else{ 
+				submit();
+			}
+	});
+	 /*function*/
+    // 输入数字
+    function clearNoNum1(obj) {
+        //obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');
+        obj.value = obj.value.replace(/[^\d-]/g, ""); //清除“数字”和“.”以外的字符
+        obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字而不是.
+        obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的.
+        obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".").replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+    };
+
+	function initPage(){
+		$('#yh a').click(function(){
+			$('#yh a').removeClass('act');
+			$(this).addClass('act');
+			submit();
+		});
+		$('#div_top span').click(function(){
+			var down=$('.twoo').attr('kind');
+			if(down==1){
+				$('#div_top span').html('&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+				$('.twoo').attr('kind','2');
+			}else{
+				$('#div_top span').html('更多选项(城市、阶段等)');
+				$('.twoo').attr('kind','1');
+			}
+			$('.twoo').slideToggle();
+		});
+	}
+	$(document).ready(function () { 
+    	$(window).scroll(function () {
+       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+       			$(".ball-pulse").show();	
+       			$(".ball-text").hide();
+          		setTimeout(function(){
+					var i_page = $("#i_page").val();
+					i_page = parseInt(i_page)+1;
+					var i_pages = parseInt($("#i_pages").val());
+					if(i_page <= i_pages){
+	       				
+						var i_product_type_id=$('#year .current').attr('val');
+						var i_city_id=$('#edu .current').attr('val');
+						var i_money_level=$('#jobtype .current').attr('val');
+						var i_min=$('#min').val();
+						var i_max=$('#max').val();
+						var i_kind=$('#order').val();
+						var kind=$('.twoo').attr('kind');
+						var data = {"i_product_type_id":i_product_type_id,"i_city_id":i_city_id,"i_kind":i_kind,"i_type":i_type,"i_money_level":i_money_level,"i_min":i_min,"i_max":i_max,"i_kind":i_kind,"i_page":i_page,"kind":kind}
+						$.post("finance.php?action=postpro",data,function(msg){
+							$("#i_page").val(i_page);
+							$("#content").append(msg);
+						},"text");
+					}else{
+						$(".ball-pulse").hide();
+						$(".ball-text").show();
+					}
+			},2000);
+        		}
+    	});
+});
+$("#i_page").val(1);
+</script>
+</html>

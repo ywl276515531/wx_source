@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/mymessage.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<ul id="message">
+		<a>
+			<li>系统消息</li>
+		</a>
+		<a class="hou">
+			<li>交易消息</li>
+		</a>
+	</ul>
+	<div class="one">
+		<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	</div>
+	<div class="two" style="display:none">
+		<div id="list">
+		<p class="name">hah</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	<div id="list">
+		<p class="name">商品交易关闭</p>
+		<p class="cont">由于你在60分内没有完成订单（SERVICE1476151826YBHMNZLOQOQN)的支付;你的订单已经被关闭,你可以点击我的订单查看详情！</p>
+		<div>
+			<a href="mess_detail.html">查看详情&gt;</a>
+			<span>2016-10-16</span>
+		</div>
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#message>a").click(function(){
+		if($(this).index()==0){
+			$(".two").hide();
+			$(".one").show();
+		}else{
+			$(".one").hide();
+			$(".two").show();
+		}
+	});
+</script>
+</html>

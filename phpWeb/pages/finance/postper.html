@@ -1,0 +1,18 @@
+<?php foreach($data as $v){ 
+		$type='';
+		$arr=json_decode($v['a_product_type_id'],true);
+		foreach($title as $val){
+			foreach($arr as $k){
+				if($k==$val['i_id']){
+					$type.=$val['s_title'].'-';
+				}
+			}
+		}
+		$type=substr($type,0,strlen($type)-1);
+?>
+	<a href="finance.php?action=perdetail&i_id=<?php echo $v['i_id']; ?>" style="color: grey">
+		<img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>">
+		<span id="addr" style="font-weight: bold;"><?php echo $v['s_company']; ?></span>
+		<span id="type"><?php echo $type; ?></span>
+	</a>
+<?php } ?>

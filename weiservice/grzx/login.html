@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/login.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="login">
+		<form action="myinfo.html">
+			<input type="text" placeholder="请输入您的手机号">	
+			<input type="password" placeholder="请输入您的密码">	
+			<div class="second">
+				<input class="btn" type="submit" value="绑定账号">	
+			</div>
+		</form>
+		<div class="xian"></div>
+		<div class="agroup">
+			<div>
+				<a href="forgetpsw.html" class="left">忘记密码</a>
+				<a href="reg.html" class="right">快速注册</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var va;
+  	$("#safe>form input").focus(function(){
+  		va=$(this).attr("placeholder");
+  		$(this).attr("placeholder","");
+  	});
+  	$("#safe>form input").blur(function(){
+  		$(this).attr("placeholder",va);
+  	});
+</script>
+</html>

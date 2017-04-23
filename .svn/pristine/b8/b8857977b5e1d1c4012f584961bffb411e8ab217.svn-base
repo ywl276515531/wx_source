@@ -1,0 +1,15 @@
+<?php if(count($shuju) > 0){ ?>
+<?php foreach($shuju as $key=>$v){ ?>
+<div id="list">
+ <a href="./message.php?act=detail&id=<?php echo $v['i_id']; ?>&pp=<?php echo $pp; ?>">
+    <p class="name"><?php echo $v['s_title']; ?></p>
+
+    <p class="cont"><?php echo $v['s_content']; ?></p>
+
+    <div>
+       <p>查看详情&gt;</p>
+        <span><?php echo date("Y-m-d",$v['i_time']); ?></span>
+    </div>
+  </a>
+</div>
+<?php }} ?>

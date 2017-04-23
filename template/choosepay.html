@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<script src="./Login/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0px auto;
+			padding: 0px;
+			overflow-x: hidden;
+		}
+		.nav{
+			width: 96%;
+			height: 120px;
+			border-bottom: solid 1px #ccc;
+		}
+		.nav p{
+			font-size: 45px;
+			text-align: center;
+			line-height: 120px;
+			color: red;
+		}
+		.dd{
+			width: 96%;
+			height: 60px;
+			border-bottom: solid 1px #ccc;
+		}
+		/*.dd span{
+			font-size: 12px;
+			float: left;
+			line-height: 40px;
+			margin-left: 2%;
+			width: 20%;
+			height: 40px;
+		}*/
+		.dd .dd-1{
+			font-size: 12px;
+			float: left;
+			line-height: 60px;
+			margin-left: 2%;
+			width: 20%;
+			height: 40px;
+		}
+		.dd .dd-2{
+			font-size: 14px;
+			line-height: 60px;
+			width: 78%;
+			height: 40px;
+			float: right;
+		}
+		.zf{
+			width: 96%;
+			border-bottom: 1px solid #ccc;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			height: 60px;
+		}
+		.zf .zf-left{
+			width: 10%;
+			margin-left: 2%;
+			float: left;
+		}
+		.zf .zf-left img{
+			width: 100%;
+			margin-top: 15px;
+		}
+		.zf .zf-center{
+			width: 78%;
+			float: left;
+		}
+		.zf .zf-center p{
+			line-height: 60px;
+			font-size: 14px;
+			text-align: center;
+		}
+		.zf .zf-center p span{
+			font-size: 12px;
+		}
+		.zf .zf-center p span>span{
+			font-size: 12px;
+			color: red;
+		}
+		.zf .zf-right{
+			width: 10%;
+			float: right;
+			margin: auto;
+		}
+		.zf .zf-right input{
+			width: 30px;
+			height: 30px;
+			outline: none;
+			border: solid 1px #ccc;
+			margin-top: 15px;
+			float: right;
+			margin-right: 15%;
+		}
+		.zf .zf-right input:checked{
+
+			background-color: #ffffff;
+		}
+		.button{
+			width: 80%;
+			height: 60px;
+			margin-top: 40px;
+		}
+		.button input{
+			width: 100%;
+			height: 40px;
+			outline: none;
+			background: red;
+			-webkit-appearance: none;
+			border:solid 1px red;
+			border-radius: 5px;
+			font-size: 14px;
+			color: #ffffff;
+		}
+		#yc{
+			width: 100%;
+			height: 60px;
+			border-bottom:1px solid #ccc;
+
+		}
+		#yc input{
+			width: 60%;
+			height: 40px;
+			outline: none;
+			border: 1px solid #ccc;
+			margin-top: 10px;
+			margin-left: 2%;
+			float: left;
+			-webkit-appearance: none;
+			border-radius: 5px;
+		}
+		#yc p{
+			width: 35%;
+			height: 60px;
+			line-height: 60px;
+			font-size: 12px;
+			color: red;
+			float: left;
+			margin-left: 2%;
+		}
+	</style>
+</head>
+<body>
+<form action="./serviceshop.php?act=choosepay" method="post">
+	<input type="hidden" name="s_sn" value="<?php echo $s_sn;  ?>" />
+	<input type="hidden" name="money" value="<?php echo $money*100;  ?>" />
+	<input type="hidden" name="yzm" value="<?php echo $_SESSION['tjyz'];  ?>" />
+	<input type="hidden" name="shopname"  value="<?php echo $shopname; ?>" />
+<div class="nav">
+	<p>￥<?php echo $money;  ?></p>
+</div>
+<div class="dd">
+	<p class="dd-1">产品名称:</p><p class="dd-2"><?php echo $shopname; ?></p>
+</div>
+<div class="dd">
+	<p class="dd-1">订单号:</p><p class="dd-2"><?php echo $s_sn;  ?></p>
+</div>
+<!-- <div class="zf">
+	<div class="zf-left"><img src="./Login/images/wx.png"></div>
+	<div class="zf-center"><p>微信支付</p></div>
+	<div class="zf-right"><input type="radio" name="payway" id="wxzf" value="2" checked ></div>
+</div> -->
+<div class="zf">
+	<div class="zf-left"><img src="./Login/images/ye.png"></div>
+	<div class="zf-center"><p>余额支付<span>(余额:<span><?php echo $i_cash/100; ?></span>)</span></p></div>
+	<div class="zf-right"><input type="radio" name="payway" id="yezf" value="1" <?php if(!($i_cash > 0)){echo "disabled";} ?> ></div>
+</div>
+<!-- <div class="zf">
+	<div class="zf-left"><img src="./Login/images/q.png"></div>
+	<div class="zf-center"><p>服务券支付<span>(余额:<span><?php echo $i_coupon/100;  ?></span>)</span></p></div>
+	<div class="zf-right"><input type="checkbox" name="is_check" value="1" <?php if(!($i_coupon > 0)){echo "disabled";} ?> ></div>
+	<input type="hidden" name="yhj" id="yhj" value="0">
+</div> -->
+<div class="button">
+	<input type="submit" name="sub" id="sub" value="去支付" class="tooltip-show" data-toggle="tooltip" data-placement="top">
+</div>
+</form>
+<script type="text/javascript">
+	$("#sub").click(function(){
+		//先判断是否使用优惠券
+		var money = <?php echo $money*100;  ?>;//总金额
+		var yhj = 0;
+		if($(":checkbox:checked").length>0){
+			var yhj = <?php echo $i_coupon;  ?>;//优惠券
+			if(yhj >= money){
+				$("#yezf").attr("checked","checked");
+				$("#wxzf").attr("wxzf",false);
+				$("#yhj").val(money);
+				return true;
+			}
+		}
+		if($(":radio:checked").val() == '2'){
+			$("#yhj").val(yhj);
+			return true;
+		}else if($(":radio:checked").val() == '1'){
+			var yue = <?php echo $i_cash; ?>;//余额
+			if((yue+yhj) >= money){
+				$("#yhj").val(yhj);
+				return true;
+			}else{
+				$("#sub").attr("title","付款金额不足");
+				$("#sub").attr("data-original-title","付款金额不足");
+				$(function () { $('#sub').tooltip('show');});
+				return false;
+			}
+		}
+
+	});
+	var system = {};
+	var p = navigator.platform;
+	var u = navigator.userAgent;
+
+	system.win = p.indexOf("Win") == 0;
+	system.mac = p.indexOf("Mac") == 0;
+	system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+	// if (system.win || system.mac || system.xll) {//如果是PC转
+	// 	if (u.indexOf('Windows Phone') > -1) {  //win手机端
+
+	// 	}
+	// 	else {
+	// 		window.location.href = "Expires.aspx?error=1";
+	// 	}
+	// }
+</script>
+</body>
+</html>

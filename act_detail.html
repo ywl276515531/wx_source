@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/activity/css/act_detail.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="./weiservice/activity/js/jquery-1.9.1.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="pic">
+		<img src="http://www.wfyizhan.com/<?php echo $shuju[0]['s_cover_path']; ?>">
+		<p class="tit"><?php echo $shuju[0]['title']; ?></p>
+		<div class="xian"></div>
+		<div class="detail">
+			<div>
+				<img src="./weiservice/activity/images/clock.png"><p><?php echo date("Y-m-d H:i",$shuju[0]['sTime']); ?>~<?php echo date("Y-m-d H:i",$shuju[0]['eTime']); ?></p>
+			</div>
+			<div>
+				<img src="./weiservice/activity/images/poc.png"><p><?php echo $address['address']; ?></p>
+			</div>
+			<div>
+				<img src="./weiservice/activity/images/people.png"><p>限额<?php echo $shuju[0]['limitCount']; ?>人</p>
+			</div>
+			<div>
+				<img src="./weiservice/activity/images/hui.png"><p><?php echo $shuju[0]['s_uid_name']; ?></p>
+			</div>
+			<div class="btn">
+				<a class="tooltip-show act" id="xiangce" data-toggle="tooltip" data-placement="bottom" title="现在还没有活动现场图片" mm="activity.php?act=hdxz&id=<?php echo $id; ?>">活动现场图片</a>
+				<script>
+					$(function () { $('#xiangce').tooltip('destroy');});
+					$("#xiangce").click(function(){
+						var xc = <?php echo $xiangce ?>;
+						if(xc == "1"){
+							window.location.href = $("#xiangce").attr("mm");
+						}else{
+							$(function () { $('#xiangce').tooltip('show');});
+						}
+					});
+				</script>
+				<?php if($i_favorite_sta != 1){ ?>
+				<!--没有搜藏-->
+				<a onclick="myis_save()" ss="0" class="tooltip-show sctb" data-toggle="tooltip" data-placement="bottom"  ><img src="./weiservice/activity/images/sc.png"></a>
+				<?php }else{ ?>
+				<!--已经收藏-->
+				<a onclick="myis_save()" ss="1" class="tooltip-show sctb" data-toggle="tooltip" data-placement="bottom"><img src="./weiservice/activity/images/ss.png"></a>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+	<div id="act-cont">
+		<div class="juzhong">
+			<div><img src="./weiservice/activity/images/edit.png"><p>活动内容</p></div>
+			<p><?php echo $explain; ?></p>
+			<!--<p style="padding-bottom:5px">联系电话：15681931888</p>-->
+			<?php if(count($address['positions']) > 0){ ?>
+			<div><img src="./weiservice/activity/images/map.png"><p>活动地点</p></div>
+			<iframe src="./activity.php?act=hddd&longitude=<?php echo $address['positions'][0]; ?>&latitude=<?php echo $address['positions'][1]; ?>&name=<?php echo $address['address']; ?>"></iframe>
+			<?php } ?>
+			<div><img src="./weiservice/activity/images/two.png"><p>最近参与</p>
+				<?php if(count($aas_people) > 0){ ?>
+				<a href="activity.php?act=morezjcy&id=<?php echo $arr1['i_id']; ?>">更多>></a>
+				<?php }else{ ?>
+				<a>更多>></a>
+				<?php } ?>
+			</div>
+			<ul>
+				<?php if(count($aas_people) > 0){
+				$i= 1;
+				?>
+				<?php foreach($aas_people as $key=>$v){ ?>
+				<li <?php if($i % 4 == 2 || $i % 4 == 0){echo "class='hou'";}elseif($i % 4 == 3){echo "class='hou first'";} ?> >
+					<a><img src="http://www.wfyizhan.com/<?php echo $v['s_uid_pic']; ?>"></a>
+					<p><?php echo $v['s_uid_name']; ?></p>
+					<p><?php echo $v['cha']; ?></p>
+				</li>
+				<?php if($i >=4){break ;} ++$i; ?>
+				<?php } } ?>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div id="pinglun">
+		<div class="juzhong">
+			<div><img src="./weiservice/activity/images/two.png"><p>评论 <strong>(<?php echo $i_counts; ?>)</strong></p>
+				<?php if(count($plnr) > 0){ ?>
+				<a href="activity.php?act=morepl&id=<?php echo $arr1['i_id']; ?>">更多>></a>
+				<?php }else{ ?>
+				<a>更多>></a>
+				<?php } ?>
+			</div>
+			<ul>
+				<?php if(count($plnr) > 0){ ?>
+				<?php foreach($plnr as $key=>$v){ ?>
+				<li>
+					<div class="top">
+						<a <?php if(isset($_SESSION['user_id'])){ ?> href="activity.php?act=pl&id=<?php echo $arr1['i_id']; ?>"  <?php }else{ ?> href="javascript:alert('请先登录');"  <?php } ?>>回复 <strong>(0)</strong></a>
+						<p><?php echo $v['s_uid_name']; ?></p>
+					</div>
+					<div class="bottom">
+						<p><?php echo $v['content']; ?></p>
+					</div>
+				</li>
+
+				<?php }} ?>
+			</ul>
+		</div>
+		<div class="bot">
+			<div class="left">
+				<a class="tooltip-show" data-toggle="tooltip" data-placement="top" title="请先登录" onclick="pll(this)" mm="./activity.php?act=sendpl&s_kind=event&i_id=<?php echo $id; ?>&i_pid=0"><img src="./weiservice/activity/images/edit.png"><p>去提问</p></a>
+			</div>
+			<?php if($zhige['state'] == 0){ ?>
+			<div class="right" title="<?php echo $zhige[reason]; ?>" style="background: grey;">
+				<a>立即报名</a>
+			</div>
+			<?php }else{ ?>
+			<div class="right">
+				<a href="./activity.php?act=yuding_now&id=<?php echo $id; ?>">立即报名</a>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+</body>
+<script>
+	function pll(aa){
+		/*
+		对商品进行评论
+		 */
+	<?php if($_SESSION['uid'] > 0){ ?>
+			var uid = <?php echo $_SESSION['uid']; ?>;
+		<?php }else{ ?>
+			var uid;
+		<?php } ?>
+		if(uid > 0){
+			var url = $(aa).attr("mm");
+			window.location.href = url;
+		}else{
+			$(function () { $(aa).tooltip('show');});
+		}
+	}
+  	function myis_save(){
+		<?php if($_SESSION['uid'] > 0){ ?>
+		var uid = <?php echo $_SESSION['uid']; ?>;
+		<?php }else{ ?>
+			var uid;
+		<?php } ?>
+		if(uid > 0){
+			//代表已经登录
+			if($(".sctb").attr("ss") ==0){
+				//代表没有收藏
+				$.post("./activity.php?act=is_save&s_mod=event&i_row_id=<?php echo $shuju[0]['id']; ?>",'',function(msg){
+						if(msg.stat == 1){
+							$(".sctb").attr("ss",1);//代表收藏成功
+							$(function () { $('.sctb').tooltip('hide');});
+							$(".sctb>img").attr("src","./weiservice/activity/images/ss.png");
+						}else{
+							$(".sctb").attr("title",msg.err);
+							$(function () { $('.sctb').tooltip('show');});
+						}
+				},"json")
+			}else{
+				//代表已经收藏
+				$.post("./activity.php?act=no_save&s_mod=event&i_row_id=<?php echo $shuju[0]['id']; ?>",'',function(msg){
+					if(msg.stat == 1){
+						$(".sctb").attr("ss",0);//代表取消收藏成功
+						$(function () { $('.sctb').tooltip('hide');});
+						$(".sctb>img").attr("src","./weiservice/activity/images/sc.png");
+					}else{
+						$(".sctb").attr("title",msg.err);
+						$(function () { $('.sctb').tooltip('show');});
+					}
+				},"json")
+
+			}
+		}else{
+			$(".sctb").attr("title","请先登录");
+			$(function () { $('.sctb').tooltip('show');});
+		}
+	}
+</script>
+</html>

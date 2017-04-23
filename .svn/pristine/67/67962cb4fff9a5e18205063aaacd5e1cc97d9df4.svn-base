@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/myorder.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<ul id="myorder">
+		<a href="">
+			<li>全部订单</li>
+		</a>
+		<a href="">
+			<li>已完成订单</li>
+		</a>
+		<a href="">
+			<li>待支付订单</li>
+		</a>
+		<a href="" class="hou">
+			<li>已取消订单</li>
+		</a>
+	</ul>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="orderdetail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="left">
+				<p>金额：<strong>￥5000</strong></p>
+			</div>
+			<div class="right">
+				<button class="quxiao">取消订单</button>
+				<button class="queding">确认完成</button>
+			</div>
+			<div class="right2">
+				<button>交易已取消</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="orderdetail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="left">
+				<p>金额：<strong>￥5000</strong></p>
+			</div>
+			<div class="right">
+				<button>评价订单</button>
+				<button>再次购买</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="orderdetail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="left">
+				<p>金额：<strong>￥5000</strong></p>
+			</div>
+			<div class="right">
+				<button class="zf">立即支付</button>
+				<button class="quxiao">取消订单</button>
+			</div>
+		</div>
+	</div>
+	<div id="pro">
+		<div class="juzhong">
+			<div class="left">
+				<img src="images/proname.png" alt="">
+			</div>
+			<div class="right">
+				<p class="name"><a href="orderdetail.html">高端定制企业网站设计开发</a></p>
+			</div>
+		</div>
+		<div class="xian"></div>
+		<div class="juzhong2">
+			<div class="left">
+				<p>金额：<strong>￥5000</strong></p>
+			</div>
+			<div class="right2" style="display:block">
+				<button>交易已取消</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#pro .juzhong2 .right .quxiao").click(function(){
+		$(this).parent().hide();
+		$("#pro .juzhong2 .right2").show();
+	});
+</script>
+</html>

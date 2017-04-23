@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>用户中心</title>
+	<link rel="stylesheet" href="./weiservice/grzx/css/myinfo.css">
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./hh/xzservice/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="myinfo">
+		<div class="info">
+			<div class="center">
+				<div class="touxiang"><a href="./grzx.php?act=grzx"><img src="http://www.wfyizhan.com/<?php echo $_SESSION['s_face_pic']; ?>" alt=""></a></div>
+				<div class="userinfo">
+					<p>
+						<?php if(isset($_SESSION['s_company_title']{1})){ ?>
+						<?php echo $_SESSION['s_company_title']; ?>
+						<?php }else{ ?>
+						<?php echo $_SESSION['s_nickname']; ?>
+						<?php } ?>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="detailinfo">
+			<ul>
+				<a href="./grzx.php?act=grzx">
+					<li>
+						<img class="firstimg" src="./weiservice/grzx/images/user.png" alt="">
+						<p>用户中心</p>
+						<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt="">
+					</li>
+				</a>
+				<p class="clearfix"></p>
+				<div style="height:auto">
+					<li> 
+						<img class="firstimg" src="./weiservice/grzx/images/dingdan.png" alt="">
+						<p>我的订单</p>
+						<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt=""><br>
+						<ul>
+							<a href="./order.php?act=myorder">
+								<li><img src="./weiservice/grzx/images/dingdan.png" alt="">服务订单</li>
+							</a>
+							<a href="./order.php?act=myact">
+								<li><img src="./weiservice/grzx/images/xiu.png" alt="">活动订单</li>
+							</a>
+							<a href="./zulin.php?act=zhu">
+								<li><img src="./weiservice/grzx/images/pc.png" alt="">租赁订单</li>
+							</a>
+						</ul>
+					</li>
+				</div>
+				<!--<a href="./order.php?act=myact">-->
+					<!--<li>-->
+						<!--<img class="firstimg" src="./weiservice/grzx/images/xiu.png" alt="">-->
+						<!--<p>我的活动</p>-->
+						<!--<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt="">-->
+					<!--</li>-->
+				<!--</a>-->
+				<!--<a href="./zulin.php?act=zhu">-->
+					<!--<li>-->
+						<!--<img class="firstimg" src="./weiservice/grzx/images/pc.png" alt="">-->
+						<!--<p>我的租赁</p>-->
+						<!--<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt="">-->
+					<!--</li>-->
+				<!--</a>-->
+				<a href="./collect.php?act=zhu">
+					<li>
+						<img class="firstimg" src="./weiservice/grzx/images/add.png" alt="">
+						<p>我的收藏</p>
+						<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt="">
+					</li>
+				</a>
+				<a href="./message.php?act=zhu&pp=1">
+					<li>
+						<img class="firstimg" src="./weiservice/grzx/images/jianyi.png" alt="">
+						<p>我的消息</p>
+						<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt="">
+					</li>
+				</a>
+				<p class="clearfix"></p>
+				<div style="height:auto">
+					<li> 
+						<img class="firstimg" src="./weiservice/grzx/images/shop.png" alt="">
+						<p>我要开店</p>
+						<img  class="secondimg" src="./weiservice/grzx/images/jiantou.png" alt=""><br>
+						<ul>
+							<a href="./phpWeb/control/shop.php">
+								<li><img src="./weiservice/grzx/images/shop.png" alt="">创建店铺</li>
+							</a>
+							<a <?php if($data4){ ?>href="./phpWeb/control/shop.php?action=edit"<?php }else{ ?>onclick='noshop()'<?php } ?>>
+								<li><img src="./weiservice/grzx/images/editshop.png" alt="">管理店铺</li>
+							</a>							
+						</ul>
+					</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<?php include_once './template/daohang.html'; ?>
+</body>
+<script type="text/javascript">
+	$.easing.def = "easeOutBounce";
+	$("#myinfo .detailinfo>ul>div>li").click(function(){
+		$(this).find("ul").slideToggle();
+	});
+	function noshop(){
+		alert('你还没有店铺！');
+	}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

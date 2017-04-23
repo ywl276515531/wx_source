@@ -1,0 +1,275 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	background: white;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border: none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+#orderby{
+	max-width: 640px;
+	margin: 10px auto;
+	background: white;
+}
+/*#top .center{
+	width: 95%;
+	margin: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#top .center .one{
+	width: 100%;
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+	color: black;
+	margin-top: 5px;
+}
+#top .center div p{	
+	padding-top: 5px;
+	float: left;
+}
+#top .center div .right{
+	padding-top: 5px;
+	float: left;
+	width: 90%;
+}
+#top .center div .right a{
+	width: 65px;
+	height: 25px;
+	display: inline-block;
+	text-align: center;
+	color: grey;
+}*/
+#orderby_content{
+	width: 95%;
+	margin: auto;
+}
+.sc_item select{
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	margin-top: 10px;
+	border: solid 1px #00b8ee;
+	border-radius: 3px;
+	color: grey;
+	appearance:none;
+	-moz-appearance:none;
+    -webkit-appearance:none; 
+    background-color: white;
+    background: url("../images/arrow.png") no-repeat scroll right center transparent;
+	min-width: 100px;
+	background-size: 15px 15px;
+}
+#sc,#sc1{
+	display: block;
+}
+.current{
+	background: #00b8ee;
+	
+}
+#worknews{
+	max-width: 600px;
+	margin:auto;
+	margin-top: 30px;
+	background: white;
+}
+ul{
+	width: 100%;
+	margin: auto;
+	margin-top: 10px;
+	float: left;
+	display: block;
+}
+.job_item{
+	float: left;
+	width: 100%;
+	margin: auto;
+	border: 1px dashed #CACACA;
+	margin-top: 5px;
+	height: 70px;
+}
+.job_item a{	
+	width: 95%;
+	float: left;
+	margin: auto;
+	padding-left: 10px;
+	height: 100%;
+}
+.job_item a #item_info{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+	height: 100%;
+	width: 100%;
+	line-height: 100%
+}
+.job_item a #item_info span{
+	display: block;
+}
+.job_item a #item_info #item_info_title{	
+	color: #00b8ee;
+	font-size: 14px;
+	height: 16px;
+	line-height: 16px;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.job_item a #item_info #item_info_money{
+	margin-top: 5px;
+	color: #f00;
+	font-size: 12px;
+	height: 16px;
+	line-height: 16px;
+	width: 260px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.job_item a #item_info #item_info_time{	
+	color: #999;
+	font-size: 12px;
+	margin-top: 5px;
+	height: 16px;
+	line-height: 16px;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.job_item img{	
+	height: 80%;
+	margin-top: 5px;
+	width: 9%;
+	float: right;
+}
+#top{
+	max-width: 640px;
+	margin:auto; 
+	margin-top: 10px;
+	background: white;
+}
+#top>.center{
+	width: 95%;
+	margin:auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#top>.center>div{
+	font-size: 12px;
+	color: black;
+	line-height: 25px;
+	margin-top: 5px;
+}
+#top>.center>div>span{
+	float: left;
+}
+#top>.center>div>.right{
+	float: left;
+	width: 90%;
+}
+#top>.center>div>.right>a{
+	width: 25%;
+	float: left;
+	height: 25px;
+	padding-left: 3px;
+	box-sizing: border-box;
+	display:inline-block;
+	text-align: center;
+	color: grey;
+}
+.down_con{
+	margin-top: 5px;
+}
+.money_order{
+	width: 100%;
+	margin: 10px auto;
+	padding-bottom: 10px;
+}
+.money_order #con{
+	width: 100%;
+	margin: 10px auto;
+}
+#yh{
+	float: left;
+	width: 100%;
+	display: block;
+}
+#paixu{
+	width: 36px;
+	height: 25px;
+	line-height: 25px;	
+	float: left;
+}
+#yh a{
+	 width: 100px;
+    height: 25px;
+    display: block;
+    float: left;
+    border: 1px solid #c8c8c8;
+    background-color: #eee;
+    background-repeat: repeat-x;
+    margin-right: 15px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    line-height: 25px;
+}
+#yh a:hover{
+	border: 1px solid #00b8ee;
+    background: #fff !important;
+    color: #00b8ee;
+}
+#yh .act{
+	border: 1px solid #00b8ee;
+    background: #fff !important;
+    color: #00b8ee;
+}
+#div_top{
+	text-align: center;
+	border-top: 1px solid #00b8ee;
+}
+#div_top span{
+	color: grey;
+	background: #fff;
+	cursor: pointer;
+	border: 1px solid #00b8ee;
+	border-top: 1px solid #fff;
+	padding: 5.45px;
+	line-height: 25px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+@media (min-width: 480px) and (max-width: 645px){
+	
+}
+@media (max-width: 500px){	
+	#top{
+		width: 100%;
+	}	
+	#top>.center>div>.right{
+		width: 85%;
+	}	
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./hh/activity/css/jiaoliu.css">
+	
+	<script type="text/javascript" src="./hh/activity/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./hh/activity/js/jquery.SuperSlide.2.1.1.js"></script>	
+</head>
+<body>
+	<div id="pic">
+		<?php if(count($thumb)>0){ ?>
+		<?php $v= str_replace("http://www.wfyizhan.com/","",$thumb[0]['s_pic']); ?>
+			<a href=""><img src="http://www.wfyizhan.com/<?php echo $v; ?>" alt=""></a>
+		<?php }?>
+	</div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>热门活动</p><a href="./activity.php?act=gdhd&y_type=1">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<?php if(count($hot_list) > 0){ $ii=0; ?>
+			<?php foreach($hot_list as $key=>$v){ ?>
+			<?php $kk = $ii%4; ?>
+			<li  >
+				<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>"></a>
+				<p class="tit"><?php echo $v['title']; ?></p>
+			</li>
+			<?php ++$ii; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>最新活动</p><a href="./activity.php?act=gdhd&y_type=0">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<?php if(count($new_list) > 0){ $ii=0; ?>
+			<?php foreach($new_list as $key=>$v){ ?>
+			<?php $kk = $ii%4; ?>
+			<li <?php echo $style[$kk]; ?> >
+				<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt=""></a>
+				<p class="tit"><?php echo $v['title']; ?></p>
+			</li>
+			<?php ++$ii; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div id="youhui">
+		<div class="tit"><p class="left"><span></span>最多参与</p><a href="./activity.php?act=gdhd&y_type=2">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<?php if(count($zuiduo_list) > 0){ $ii=0; ?>
+			<?php foreach($zuiduo_list as $key=>$v){ ?>
+			<?php $kk = $ii%4; ?>
+			<li <?php echo $style[$kk]; ?> >
+			<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt=""></a>
+			<p class="tit"><?php echo $v['title']; ?></p>
+			</li>
+			<?php ++$ii; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+	<div id="youhui" style="margin-bottom:60px;">
+		<div class="tit"><p class="left"><span></span>往期精彩</p><a href="./activity.php?act=list&type=4">更多<img src="./weiservice/images/jiant.png" alt=""></a></div>
+		<div class="xian"></div>
+		<ul class="youhui2">
+			<?php if(count($wangqi_list) > 0){ $ii=0; ?>
+			<?php foreach($wangqi_list as $key=>$v){ ?>
+			<?php $kk = $ii%4; ?>
+			<li <?php echo $style[$kk]; ?> >
+			<a href="./activity.php?act=detail&id=<?php echo $v['id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_path']; ?>" alt=""></a>
+			<p class="tit"><?php echo $v['title']; ?></p>
+			</li>
+			<?php if($ii >= 3){break;} ?>
+			<?php ++$ii; ?>
+			<?php }} ?>
+		</ul>
+	</div>
+	<?php include_once './template/daohang.html'; ?>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

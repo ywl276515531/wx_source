@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/zhxx/css/news.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<script type="text/javascript" src="./weiservice/zhxx/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/zhxx/js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript" src="./weiservice/zhxx/js/jquery.scrollTo.js"></script>
+</head>
+<body>
+	<ul id="news">
+		<div class="lr_nb">  
+	        <div class="slider_wrap line">  
+	            <div class="wx_items" id="daohang">
+				
+
+
+
+					<?php foreach($shuju as $v){ ?>
+	                <div class="item_cell current"  <?php if($id == $v['id']){ ?> style="background: #00b8ee;" id="here" <?php } ?> >
+	                    <span><a href="./zhxx.php?id=<?php echo $v['id']; ?>" <?php if($id == $v['id']){ ?> style="color:white" <?php } ?> mm="<?php echo $v['id']; ?>"><?php echo $v['title']; ?></a></span>
+	                </div>
+					<?php } ?>
+	            </div>  
+	         </div>  
+	    </div> 
+	    <!-- <p><img src="./weiservice/zhxx/images/sanjiaoxing.png" alt=""></p>	 -->
+	</ul>
+	<script>
+		$(function(){
+			$("#daohang>div").click(function(){
+				$("#daohang>div").css("background","none");
+				$("#daohang>div>span>a").css("color","#636363");
+				var id = $(this).find("a").attr("mm");
+				$(this).css("background","#00b8ee");
+				$(this).find("a").css("color","white")
+				var mydata = {"myid":id};
+				$.get("./zhxx.php?act=getzhxx",mydata,function(msg){
+					$("#list").html("");
+					$("#list").html(msg);
+				},"text")
+			});
+		});
+	</script>
+	<ul id="list">
+		<!--当前页码-->
+		<input type="hidden" value="<?php echo $data1['i_page']; ?>" id="i_page" />
+		<!--总页码-->
+		<input type="hidden" value="<?php echo $data1['i_pages']; ?>" id="i_pages" />
+		<?php if(count($shuju1)>0){ ?>
+		<?php foreach($shuju1 as $v){ 
+			$v['s_pic']=str_replace('..','/kcy/web',$v['s_pic']);
+		?>
+		<a href="./zhxx.php?act=detail&id=<?php echo $v['id']; ?>">
+			<li>
+				<div class="img"><img src="http://www.wfyizhan.com<?php echo $v['s_pic']; ?>" alt=""></div>
+				<p class="tit"><?php echo $v['title']; ?></p>
+				<p class="cont"><?php echo $v['description']; ?></p>
+				<p class="bot"><?php echo date("Y-m-d",$v['create_time']); ?>	<span>浏览量:<strong><?php echo $v['view']; ?></strong></span></p>
+			</li>
+		</a>
+		<?php }} ?>
+	</ul>
+	<p class="clearfix"></p>
+	<div class="loader-inner ball-pulse" style="display:none;">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+		已经没有内容了
+	</div>
+<?php include_once './template/daohang.html'; ?>
+</body>
+<script type="text/javascript">
+	function scrollToIndex(){
+		var indexLeft=$('#here').offset().left;
+		var width=$('#here').width();
+		var windowWidth=$(window).width();
+		// if (indexLeft>=width) {
+			$('.slider_wrap').scrollLeft(indexLeft-windowWidth/2); 
+		// }		
+	}
+	$(document).ready(function () { 
+			scrollToIndex();
+	    	$(window).scroll(function () {
+	       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+	       			$(".ball-text").hide();
+	       			$(".ball-pulse").show();	
+          			setTimeout(function(){
+					var i_page = $("#i_page").val();
+					i_page = parseInt(i_page)+1;
+					var i_pages = parseInt($("#i_pages").val());
+					if(i_page <= i_pages){
+						$(".ball-pulse").show();
+						$(".ball-text").hide();
+						var i_type = <?php echo $id; ?>;
+						var data = {"i_page":i_page,"i_type":i_type};
+						$.post("./zhxx.php?act=post4",data,function(msg){
+							$("#list").append(msg);
+							$(".ball-pulse").hide();
+							$("#i_page").val(i_page);
+						},"text");
+					}else{
+						$(".ball-pulse").hide();
+						$(".ball-text").show();
+					}
+				},2000);
+	        		}
+	    	});
+	});
+	$("#i_page").val(1);
+	$("#news .slider_wrap .wx_items .item_cell").click(function(){
+		var width=$("#news .slider_wrap .item_cell").width();
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

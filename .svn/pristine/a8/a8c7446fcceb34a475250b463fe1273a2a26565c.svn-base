@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" style="background:white">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="./weiservice/serviceshop/css/home.css">
+	<link rel="stylesheet" href="./weiservice/css/loader.css">
+	<link href="./hh/css/1bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./phpWeb/css/moreperson.css">
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.min.js"></script>
+	<script src="./hh/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./weiservice/serviceshop/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body style="background:white">
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data1['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data1['i_pages']; ?>" id="i_pages" />
+	<div id="search">
+		<form action="./serviceshop.php?act=morecx" method="post">
+			<input type="hidden" name="ss" value="1" />
+		<input class="tooltip-show" id="ss" data-toggle="tooltip" data-placement="bottom" title="必填" type="search" required name="search" placeholder="输入您的关键字" value="<?php echo $search; ?>">
+		</form>
+		<script>
+			$("form").submit(function(){
+					if($("#ss").val() == ''){
+						$(function () { $('#ss').tooltip('show');});
+						return false;
+					}
+			});
+		</script>
+	</div>
+<style>
+
+	/*#top>.center>div>.right>a{
+		width: auto;
+		padding-left: 0px;
+		padding:0 15px;
+	}*/
+	#top>.center>div>.right>a{
+		width: 33.3333%;
+		padding-left: 0px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: left;
+		text-overflow: ellipsis;
+	}
+	#top>.center .twoo .four input{
+		width: 95px;
+		border-radius: 3px;
+		color: grey;
+		border:1px solid #00b8ee;
+		height: 23px;
+		line-height: 23px;
+		font-size: 12px;
+		padding-left: 3px;
+	}
+</style>
+	<div id="top" style="margin-top: 0;">
+		<div class="center">
+			<div class="one">
+				<p>分 类：</p>
+				<div class="right" id="time">
+					<a mm="%" <?php if($all_type == '%'){ ?> xz="1" style="background:#00b8ee;color:white" <?php }else{ ?> xz="0" <?php } ?>>全部</a>
+					<?php if(count($fuwu_type) > 0){ ?>
+					<?php foreach($fuwu_type as $key=>$v){ ?>
+					<a href="javascript:" mm="<?php echo $v['i_id']; ?>" <?php if($v['i_id'] == $all_type){ ?> xz="1" style="background:#00b8ee;color:white" <?php }else{ ?> xz="0" <?php } ?>><?php echo $v['s_title']; ?></a>
+					<?php }} ?>
+				</div>
+			</div>
+			<p class="clearfix"></p>
+			<div class="two twoo" <?php if($kind == 1){ ?>kind="1" style="display: none"<?php }elseif($kind == 2){ ?> kind="2" style="display:block;"<?php } ?> >
+				<div class="four">
+					<p>价 格：<input onblur="condition()" placeholder="最低" style="margin-left: 3px" type="number" name="di" value="<?php if($di >= 0){echo $di;} ?>" id="di">&nbsp;&nbsp;-&nbsp;
+							<input type="number" class="tooltip-show" placeholder="最高"  onblur="condition()" data-toggle="tooltip" data-placement="bottom" title="价格填写错误" value="<?php if($gao >=0){echo $gao;} ?>" id="gao" name="gao"></p>
+					<!-- <div class="right" id="hobby" style="margin-left:50px">
+						<div>
+						</div>
+					</div> -->
+				</div>
+				<span class="sc_item" id="sc1"> 地  区：
+					<select name="province" id="province" style="color:grey;font-size: 12px;">
+						<option value="0">全部</option>
+						<?php if(count($province) > 0){ ?>
+						<?php foreach($province as $v){ ?>
+						<option value="<?php echo $v['id']; ?>" <?php if($v['id'] == $sheng){echo "selected";} ?>><?php echo $v['name']; ?></option>
+						<?php }} ?>
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<select name="city" id="city" style="color:grey;margin-left: -2px;">
+						<option value="0">全部</option>
+						<?php if(count($shi) > 0){ ?>
+						<?php foreach($shi as $key=>$v){ ?>
+						<option value="<?php echo $v['id']; ?>" <?php if($v['id'] == $city){echo "selected";} ?> ><?php echo $v['name']; ?></option>
+						<?php }} ?>
+					</select>
+				</span>
+				<div class="right" style="padding-top: 5px;">
+					<p style="float: left; height: 15px;line-height: 15px;text-align: center;">促 销: </p>
+					<input type="checkbox" value="1" id="cx" <?php if($cx == 1){echo "checked";} ?> name="cx" style="float: left;height:15px;margin-left: 10px;">
+					<span style="height: 15px;line-height: 15px;text-align: center;float: left;">只看促销</span>
+				</div>
+			</div>
+			<p class="clearfix"></p>
+			<div id="div_down">
+				<div id="div_top">
+					<?php if($kind == 1){ ?>
+					<span>更多选项(价格、地区、促销)</span>
+					<?php }elseif($kind == 2){ ?>
+					<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="cont">
+		<ul>
+			<a onclick="con_screen(this)" mm="1"   <?php if($tt1 == 1){ ?>class="current" style="color:white" <?php } ?> >
+				<li>综合</li>
+			</a>
+			<a onclick="con_screen(this)" uu="1" <?php if($tt1 == "-2"){echo "mm='-2'";}else{echo "mm='2'";} ?> <?php if($tt1 == 2 || $tt1 == "-2"){ ?>class="current" style="color:white" <?php } ?>  >
+				<li>销量 <?php if($tt1 == "-2"){echo "↓";}else{echo "↑";} ?></li>
+			</a>
+			<a onclick="con_screen(this)" uu="1" <?php if($tt1 == "-3"){echo "mm='-3'";}else{echo "mm='3'";} ?> <?php if($tt1 == 3 || $tt1 == "-3"){ ?>class="current" style="color:white" <?php } ?>>
+				<li>价格 <?php if($tt1 == "-3"){echo "↓";}else{echo "↑";} ?></li>
+			</a>
+			<a onclick="con_screen(this)" mm="4" <?php if($tt1 == 4){ ?>class="current" style="color:white" <?php } ?>  >
+				<li>评论</li>
+			</a>
+			<a onclick="con_screen(this)" mm="5" <?php if($tt1 == 5){ ?>class="current" style="color:white" <?php } ?>  >
+				<li>新品</li>
+			</a>
+		</ul>
+		<div class="detail">
+			<?php if(count($fwdt) > 0){ $i=1; ?>
+				<?php foreach($fwdt as $v){ ?>
+				<?php if($i%15 == 1){echo "<ul>";} ?>
+				<?php $cc = $i%6; ?>
+				<li <?php echo $class_my[$cc]; ?>>
+					<a href="./serviceshop.php?act=detail&i_id=<?php echo $v['i_id']; ?>"><img src="http://www.wfyizhan.com/<?php echo $v['s_cover_pic']; ?>"></a>
+					<p class="tit"><?php echo $v['s_title']; ?></p>
+					<p class="price">￥<?php echo $v['shop_price']; ?></p>
+				</li>
+				<?php if($i%15 == 0){echo "</ul>";} ?>
+				<?php ++$i; ?>
+				<?php } ?>
+			<?php } ?>
+		</div>
+		<p class="clearfix"></p>
+		<div class="loader-inner ball-pulse" style="display:none;">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none">
+			已经没有内容了
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+
+$("#cx").click(function(){
+	condition();
+});
+$('#div_top span').click(function(){
+	var down=$('.twoo').attr('kind');
+	if(down==1){
+		$('#div_top span').html('&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收起&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+		$('.twoo').attr('kind','2');
+	}else{
+		$('#div_top span').html('更多选项(价格、地区、促销)');
+		$('.twoo').attr('kind','1');
+	}
+	$('.twoo').slideToggle();
+});
+
+
+
+
+	$("#queren").click(function(){
+		condition();
+		$("#touming").hide();
+		$("#rightmenu").hide();
+	});
+	$("#time>a").click(function(){
+		$("#time>a").css({
+			background:"white",
+			color:"grey"
+		}).attr("xz",0);
+		$(this).css({
+			background:"#00b8ee",
+			color:"white",
+		}).attr("xz",1);
+		condition();
+	});
+		$("#province").change(function(){
+			$("#city").empty();
+			$("#city").append("<option value='0'>全部</option>");
+			var id = $(this).val();
+			if(id == 0){
+				condition();
+				return false;
+			}
+			var data = {"id":id};
+			$.post("./serviceshop.php?act=getcity",data,function(msg){
+				$("#city").append(msg);
+			},"text");
+		});
+		$("#city").change(function(){
+			condition();
+		});
+	//进行搜索条件的使用
+	function con_screen(mm){
+		if($(mm).attr("uu") == 1 && $(mm).hasClass("current")){
+			if($(mm).attr("mm") == "2"){
+				$(mm).attr("mm","-2");
+			}else if($(mm).attr("mm") == "-2"){
+				$(mm).attr("mm","2");
+			}else if($(mm).attr("mm") == "3"){
+				$(mm).attr("mm","-3");
+			}else if($(mm).attr("mm") == "-3"){
+				$(mm).attr("mm","3");
+			}
+		}
+
+
+		//给现在选中的东西加一个class为current,其他的移除current
+		$("#cont>ul>a").each(function(i,item){
+			//移除所有元素身上的current
+			$(item).removeClass("current").css("color","black");
+		});
+		$(mm).addClass("current").css("color","white");
+
+		condition();
+	}
+	function condition(){
+		/*
+		主要用于收集搜索条件向后台发送数据
+		 */
+		var tt1 = $("#cont>ul>a[class='current']").attr("mm");//获取全部.销量.价格.促销的相关数据
+		var cx;
+		if($("#cx").attr("checked")){
+			cx = 1;//说明正在促销
+		}else{
+			cx = 0;//说明没有促销
+		}
+		if($("#time>a[xz='1']").length >= 1){
+			var all_type = $("#time>a[xz='1']").attr("mm");//获取全部的一级分类
+		}else{
+			var all_type = '';//获取全部的一级分类
+		}
+		var di = $("#di").val();//价格低
+		var gao = $("#gao").val();//价格高
+		if(!(parseFloat(gao) > parseFloat(di)) && ($("#di").val() != '' || $("#gao").val() != '')){
+			$(function () { $('#gao').tooltip('show');});
+			return false;
+		}
+		var province = $("#province").val();//省
+		var city = $("#city").val();//市
+		var kind = $('.twoo').attr('kind');
+		url = "./serviceshop.php?act=morecx&tt1="+tt1+"&all_type="+all_type+"&di="+di+"&gao="+gao+"&province="+province+"&city="+city+"&cx="+cx+"&kind="+kind;
+
+		 //向后台传递数据
+		window.location=url;//跳转地址
+	}
+	function updateCSS(){
+		$('#top>.center>div>.right>a').each(function(index,element){
+			if (index==2||index==5||index==8) {
+				$(this).css('width','22%');
+			}else{
+				$(this).css('width','39%');
+			}
+		});
+	}
+	$(document).ready(function () {
+			updateCSS(); 
+	    	$(window).scroll(function () {
+	       		if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {	
+	       				$(".ball-text").hide();
+	    				$(".ball-pulse").show();
+	          			setTimeout(function(){
+							var tt1 = $("#cont>ul>a[class='current']").attr("mm");//获取全部.销量.价格.促销的相关数据
+							if($("#time>a[xz='1']").length >= 1){
+								var all_type = $("#time>a[xz='1']").attr("mm");//获取全部的一级分类
+							}else{
+								var all_type = '';//获取全部的一级分类
+							}
+							var di = $("#di").val();//价格低
+							var gao = $("#gao").val();//价格高
+							var province = $("#province").val();//省
+							var city = $("#city").val();//市
+
+							var i_page = $("#i_page").val();
+							i_page = parseInt(i_page)+1;
+							var i_pages = parseInt($("#i_pages").val());
+							if(i_page <= i_pages){
+								$(".ball-pulse").show();
+								$(".ball-text").hide();
+								var data = {"i_page":i_page,"tt1":tt1,"all_type":all_type,"di":di,"gao":gao,"province":province,"city":city};
+								$.post("./serviceshop.php?act=getmorecx",data,function(msg){
+									$("#cont .detail>ul").append(msg);
+									$(".ball-pulse").hide();
+									$("#i_page").val(i_page);
+								},"text")
+							}else{
+								$(".ball-pulse").hide();
+								$(".ball-text").show();
+							}
+				},2000);
+	        		}
+	    	});
+	});
+	$("#i_page").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

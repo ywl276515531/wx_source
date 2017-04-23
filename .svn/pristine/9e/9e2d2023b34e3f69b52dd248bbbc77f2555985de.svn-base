@@ -1,0 +1,178 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #efedf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#myorder{
+	max-width: 640px;
+	background: white;
+	margin:auto;
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+}
+#myorder>a{
+	display: block;
+	float: left;
+	width: 24.5%;
+	border-right: 1px solid #ccc;
+	height: 100%;
+}
+#myorder>.hou{
+	border-right: none;
+}
+#myorder>a>li{
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+	text-align: center;
+	color: #636363;
+	font-size: 12px;
+}
+#pro{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+	height: 180px;
+}
+#pro .juzhong{
+	width: 95%;
+	margin:auto;
+	height: 120px;
+	display: block;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+#pro .juzhong>.left{
+	float: left;
+	width: 30%;
+	height: 100%;
+}
+#pro .juzhong>.left>a{
+	width: 100%;
+    	height: 95%;
+    	display: block;
+}
+#pro .juzhong>.left img{
+	border:1px solid #ccc;
+	width: 100%;
+    	height: 100%;
+}
+#pro .juzhong>.right{
+	float: left;
+	width: 68%;
+    	margin-left: 2%;
+	padding-top: 30px;
+}
+#pro .juzhong>.right>.name{
+	color: #717171;
+	font-size: 16px;
+	padding-bottom: 5px;
+}
+#pro .juzhong>.right>.name>a{
+	color: #717171;
+}
+#pro .xian{
+	width: 100%;
+	border-top: 1px dashed #ccc;
+}
+#pro .juzhong2{
+	width: 90%;
+	margin:auto;
+	height: 40px;
+	padding-top: 10px;
+}
+#pro .juzhong2>.left{
+	float: left;
+	height: 100%;
+}
+#pro .juzhong2>.left>p{
+	color: #636363;
+	font-size: 12px;
+}
+#pro .juzhong2>.left strong{
+	color: red;
+	font-weight: normal;
+}
+#pro .juzhong2>.right{
+	float: right;
+	height: 100%;
+	margin-top: -5px;
+}
+#pro .juzhong2>.right>button{
+	width: 75px;
+	height: 25px;
+	border-radius: 4px;
+	border:1px solid #ccc;
+	background: white;
+	color: #636363;
+	cursor: pointer;
+}
+#pro .juzhong2>.right>.zf{
+	border:1px solid red;
+}
+#pro .juzhong2>.right2{
+	float: right;
+	height: 100%;
+	display: none;
+}
+#pro .juzhong2>.right2>button{
+	width: 85px;
+	height: 25px;
+	border-radius: 4px;
+	border:1px solid #ccc;
+	background: white;
+	color: #636363;
+	cursor: pointer;
+}
+@media (min-width: 480px) and (max-width: 645px){
+
+}
+@media (max-width: 479px){
+	#myorder{
+		width: 100%;
+	}
+	#pro .juzhong>.left{
+		width: 40%;
+	}
+	#pro .juzhong>.right{
+		width: 55%;
+    		margin-left: 5%;
+	}
+	#pro{
+		height: 155px;
+	}
+	#pro .juzhong{
+		height: 100px;
+	}
+	#pro .juzhong>.right>.name{
+		font-size: 12px;
+	}
+}

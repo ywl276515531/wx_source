@@ -1,0 +1,261 @@
+@charset "utf-8";
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+	background: #f0edf0;
+	font-size: 12px;
+}
+div,p,span,li,ul,a,h1,h2,h3,h4,h5,h6,hr,img,dl,dd{
+	margin:0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+img{
+	border:none;
+	max-width: 100%;
+}
+.clearfix{
+	clear: both;
+}
+strong{
+	font-weight: normal;
+}
+#pic{
+	max-width: 640px;
+	margin:auto;
+}
+#pic img{
+	width: 100%;
+}
+#ee{
+	max-width: 640px;
+	margin:auto;
+	background: #f2f2f2;
+	height: 75px;
+}
+#ee>img{
+	width: 100%;
+}
+#youhui{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 8px;
+	background: white;
+	overflow: hidden;
+}
+#youhui>.tit{
+	width: 96%;
+	margin:auto;
+	height: 30px;
+	line-height: 30px;
+	color: black;
+	font-size: 14px;
+}
+#youhui .left{
+	float: left;
+}
+#youhui .left>span{
+	width: 5px;
+	height: 20px;
+	background: #00b8ee;
+	float: left;
+	margin-right:5px;
+	margin-top: 5px;
+}
+#youhui .tit>a{
+	float: right;
+	color: black;
+	font-size: 12px;
+}
+#youhui .tit>a>img{
+	width: 11px;
+	float: right;
+	margin-top: 9px;
+}
+#youhui .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+	margin-top: 5px;
+}
+#youhui>ul{
+	width: 96%;
+	margin:0 2%;
+	margin-top: 10px;
+	float: left;
+	margin-bottom: 10px;
+}
+#youhui>ul>li{
+	width: 30%;
+	float: left;
+}
+/*#youhui>.youhui2{
+	height: 340px;
+}*/
+#youhui ul li.hou{
+	margin-left: 30px;
+}
+#youhui ul li>a{
+	width: 100%;
+	height: 115px;
+	display: block;
+}
+#youhui ul li>a>img{
+	width: 100%;
+	height: 100%;
+	border: 1px solid #dedede;
+}
+#youhui ul li>.tit{
+	width: 80%;
+	margin:auto;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: black;
+	padding-top: 5px;
+}
+#youhui ul li>.price{
+	text-align: center;
+	color: red;
+	font-size: 14px;
+}
+#youhui ul>li>.price>strong{
+	color: grey;
+	text-decoration:line-through;
+}
+#zulin{
+	max-width: 640px;
+	margin:auto;
+	margin-top: 10px;
+	background: white;
+	overflow: hidden;
+}
+#zulin>.tit{
+	width: 96%;
+	margin:auto;
+	height: 30px;
+	line-height: 30px;
+	color: black;
+	font-size: 12px;
+}
+#zulin .left{
+	float: left;
+	font-size: 14px;
+}
+#zulin .left>span{
+	width: 5px;
+	height: 20px;
+	background: #00b8ee;
+	float: left;
+	margin-right:5px;
+	margin-top: 5px;
+}
+#zulin .tit>a{
+	float: right;
+	color: black;
+}
+#zulin .tit>a>img{
+	width: 11px;
+	float: right;
+	margin-top: 9px;
+}
+#zulin .xian{
+	width: 100%;
+	border-top: 1px solid #00b8ee;
+}
+#zulin>ul{
+	width: 96%;
+	margin:0 2%;
+	margin-top: 10px;
+	float: left;
+}
+#zulin>ul>li{
+	width: 49%;
+	height: 240px;
+	float: left;
+}
+#zulin>ul>li.hou{
+	margin-left: 2%;
+}
+#zulin>ul>li>a{
+	width: 100%;
+	display: block;
+}
+#zulin>ul>li>a>img{
+	width: 100%;
+	height: 200px;
+}
+#zulin>ul>li>.tit{
+	text-align: center;
+	color: black;
+}
+#zulin>ul .adress{
+	width: 100%;
+}
+#zulin>ul .adress>img{
+	float: left;
+	padding-left: 25%;
+	width: 13px;
+    	margin-top: 4px;
+}
+#zulin>ul .adress>p{
+	float: left;
+	color: grey;
+	padding-top: 3px;
+}
+@media (min-width: 480px) and (max-width: 645px){
+	#youhui>ul>li{
+		width: 31.5%;
+	}
+	#youhui ul li.hou{
+		margin-left: 9px;
+	}
+}
+@media (max-width: 479px){
+	#pic{
+		width: 100%;
+	}
+	#ee{
+		width: 100%;
+	}
+	#youhui{
+		width: 100%;
+	}
+	#youhui>ul>li{
+		width: 49%;
+		margin-left: 0px;
+	}
+	#youhui ul li.hou{
+		margin-left: 0px;
+	}
+	#youhui ul li.first{
+		margin-left: 2%;
+	}
+/*	#youhui>.youhui2{
+		height: 555px;
+	}*/
+	#zulin>ul>li>.tit{
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	#zulin>ul>li{
+		height: 150px;
+	}
+	#zulin>ul .adress>img{
+		padding-left: 2%;
+	}
+	#zulin>ul>li>a>img{
+		height: 100px;
+	}
+}

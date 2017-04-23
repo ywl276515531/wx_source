@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>服务详情</title>
+	<link rel="stylesheet" href="css/login.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="login">
+		<form>
+			<input type="text" placeholder="请输入您的手机号">	
+			<input type="password" placeholder="请输入您的密码">
+			<input type="password" placeholder="请再次输入您的密码">
+			<div class="three">
+				<input class="inputnum" type="text" placeholder="请输入您的短信验证码">	
+				<a class="getnum">获取短信验证码</a>
+			</div>		
+			<div class="second">
+				<input class="btn" type="submit" value="立即绑定">	
+			</div>
+		</form>
+		<div class="xian"></div>
+		<div class="agroup">
+			<div>
+				<a href="forgetpsw.html" class="left">忘记密码</a>
+				<a href="login.html" class="right">已有账号，直接登录</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var va;
+  	$("#login>form input").focus(function(){
+  		va=$(this).attr("placeholder");
+  		$(this).attr("placeholder","");
+  	});
+  	$("#login>form input").blur(function(){
+  		$(this).attr("placeholder",va);
+  	});
+  	$(".getnum").click(function(){
+  		var i=60;
+  		var time=setInterval(function(){
+  			$(".getnum").html(i+"s后重新发送");
+  			if(i==0){
+  				$(".getnum").html("获取短信验证码");
+  				clearInterval(time);
+  			}
+  			i--;
+  		},1000);
+  	});
+</script>
+</html>

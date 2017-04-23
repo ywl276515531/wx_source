@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="./weiservice/grzx/css/mymessage.css">
+    <link rel="stylesheet" href="./weiservice/css/loader.css">
+    <script type="text/javascript" src="./weiservice/grzx/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="./weiservice/grzx/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--当前页码-->
+<input type="hidden" value="<?php echo $data['i_page']; ?>" id="i_page" />
+<!--总页码-->
+<input type="hidden" value="<?php echo $data['i_pages']; ?>" id="i_pages" />
+<ul id="message">
+    <a href="./message.php?act=zhu&pp=1" <?php if($pp == 1){ ?> style="background:#00b8ee;" <?php } ?>>
+        <li <?php if($pp == 1){ ?>style="color: white;"<?php } ?>>系统消息</li>
+    </a>
+    <a href="./message.php?act=zhu&pp=2" class="hou" <?php if($pp == 2){ ?> style="background:#00b8ee;" <?php } ?> >
+        <li <?php if($pp == 2){ ?>style="color: white;"<?php } ?>>交易消息</li>
+    </a>
+</ul>
+<div class="one" style="padding-bottom:50px;">
+    <?php if(count($shuju) > 0){ ?>
+    <?php foreach($shuju as $key=>$v){ ?>
+    <div id="list">
+     <a href="./message.php?act=detail&id=<?php echo $v['i_id']; ?>&pp=<?php echo $pp; ?>" >
+        <p class="name"><?php echo $v['s_title']; ?></p>
+        <p class="cont"><?php echo $v['s_content']; ?></p>
+        <div>
+            <p>查看详情&gt;</p>
+            <span><?php echo date("Y-m-d",$v['i_time']); ?></span>
+        </div>
+     </a>
+    </div>
+    <?php }} ?>
+</div>
+ <p class="clearfix"></p>
+    <div class="loader-inner ball-pulse" style="display:none;background:#efedf0;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>  
+    <div class="ball-text" style="text-align:center;font-size:12px;color:gray;height:100px;display:none;background:#efedf0;">
+        已经没有内容了
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () { 
+        var norefresh=true;
+            $(window).scroll(function () {
+                if ( $(window).scrollTop() >= $(document).height() - $(window).height()) {
+                    $(".ball-pulse").show();    
+                            setTimeout(function(){
+                                if(norefresh){
+                                    norefresh=false;
+                                    var i_page = $("#i_page").val();
+                                    i_page = parseInt(i_page)+1;
+                                    var i_pages = parseInt($("#i_pages").val());
+                                    if(i_page <= i_pages){
+                                             $(".ball-text").hide();
+                                        $(".ball-pulse").show();    
+                                        var pp = <?php echo $pp; ?>;
+                                        var data = {"pp":pp,"page":i_page};
+                                        $.get("./message.php?act=zhu",data,function(msg){
+                                            $("#i_page").val(i_page);
+                                            $(".one").append(msg);
+                                            norefresh=true;
+                                        },"text");
+                                    }else{
+                                        $(".ball-pulse").hide();
+                                        $(".ball-text").show();
+                                    }
+                            }
+                        },2000);
+                    }
+            });
+            $('.cont>a').each(function(){
+                var html=$(this).html();
+                $(this).replaceWith(html);
+            });
+            $('.cont>a').css('color','black');
+    });
+    $("#i_page").val(1);
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

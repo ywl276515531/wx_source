@@ -1,0 +1,72 @@
+<link href="./weiservice/css/main.css" rel="stylesheet" type="text/css"/>
+<!--[if IE]>
+<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+<style>
+	.mobile-inner-nav {
+		overflow: hidden;
+	}
+	.mobile-inner-nav a{
+		-webkit-animation-duration: 0.5s;
+		animation-duration: 0.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+
+		-webkit-animation-name: ReturnToNormal;
+		animation-name: ReturnToNormal;
+	}
+
+
+	@-webkit-keyframes ReturnToNormal {
+		100% {
+			-webkit-transform: translateX(0%) rotate(0deg);
+			transform: translateX(0%) rotate(0deg);
+		}
+
+
+	}
+
+	@keyframes ReturnToNormal {
+		100% {
+			-webkit-transform: translateX(0%) rotate(0deg);
+			transform: translateX(0%) rotate(0deg);
+		}
+	}
+</style>
+<div id="bottom">
+	<ul>
+		<li style="position:relative;" class="mobile-inner-header-icon mobile-inner-header-icon-out two">
+			<a><img src="./weiservice/images/weifu.png" alt=""><p>微服</p></a>
+			<div class="mobile-inner-nav">
+				<a href="http://m.qlchat.com/live/270000241158353.htm"><img src="./weiservice/images/zhibo.png" alt=""><p>直播</p></a>
+				<a href="./index.php"><img src="./weiservice/images/home.png" alt=""><p>首页</p></a>
+			</div>
+		</li>
+		<li style="position:relative;" class="mobile-inner-header-icon mobile-inner-header-icon-out two">
+			<a><img src="./weiservice/images/daohang.png" alt=""><p>服务</p></a>
+			<div class="mobile-inner-nav">
+				<a href='./activity.php'><img src="./weiservice/images/hdjl.png" alt=""><p>活动交流</p></a>
+				<a href='./serviceshop.php'><img src="./weiservice/images/fwcs.png" alt=""><p>服务超市</p></a>
+				<a href='./xzservice.php'><img src="./weiservice/images/xzfw.png" alt=""><p>行政服务</p></a>
+				<a href='./zhxx.php'><img src="./weiservice/images/zhxx.png" alt=""><p>综合信息</p></a>
+				<a href='./phpWeb/control/recruit.php'><img src="./weiservice/images/rc.png" alt=""><p>人才集市</p></a>
+				<a href='./phpWeb/control/finance.php'><img src="./weiservice/images/jr.png" alt=""><p>金融桥梁</p></a>
+			</div>
+		</li>
+		<li class="three"><a href="./grzx.php?act=zhu"><img src="./weiservice/images/person.png" alt=""><p>用户</p></a></li>
+	</ul>
+</div>
+<script>
+	$(window).load(function () {
+		$(".mobile-inner-header-icon").click(function(){
+			$(this).toggleClass("mobile-inner-header-icon-click mobile-inner-header-icon-out");
+			$(this).find(".mobile-inner-nav").slideToggle(250);
+		});
+		$(".mobile-inner-nav a").each(function( index ) {
+			$( this ).css({'animation-delay': (index/20)+'s'});
+		});
+
+		$(".mobile-inner-nav a:odd").css({'transform': 'translateX(50%) rotate(30deg)'});
+		$(".mobile-inner-nav a:even").css({'transform': 'translateX(-50%) rotate(-30deg)'});
+	});
+</script>

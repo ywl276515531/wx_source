@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>进行评论</title>
+	<link rel="stylesheet" href="./weiservice/activity/css/pinglun.css">
+	<script type="text/javascript" src="./weiservice/activity/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./weiservice/activity/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+	<div id="huifu_text">
+		<form action="./activity.php?act=sendpl" method="post">
+			<input type="hidden" name="yzm" value="<?php echo $_SESSION['yzm']; ?>">
+			<input type="hidden" name="s_kind" value="<?php echo $s_kind; ?>">
+			<input type="hidden" name="i_id" value="<?php echo $i_id; ?>">
+			<input type="hidden" name="i_pid" value="<?php echo $i_pid; ?>">
+			<textarea id="content" name="s_content" style="height:160px;border-radius:3px;" required>
+			</textarea>
+			<div class="btn">
+				<input type="submit" id="sub" name="sub" value="评论"/>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#content").val("");
+  	$("form").submit(function(){
+		var content = $.trim($("#content").val());
+		if(content == ''){
+			$("#content").css("border","1px red solid");
+			return false;
+		}
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f41d2f9ae699ac962bfa0a7e485a3ef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</html>
